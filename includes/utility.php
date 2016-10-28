@@ -853,11 +853,11 @@ class iwBookingUtility {
     }
 
     public static function initPluginThemes() {
-        $files = array('single-iw_booking.php');
+        $files = array('single-wp-booking-engine.php');
         $template_path = get_template_directory();
         foreach ($files as $file) {
             if (!file_exists($template_path . '/' . $file)) {
-                $theme_plugin_path = WP_PLUGIN_DIR . '/iw_booking/includes/themes/';
+                $theme_plugin_path = WP_PLUGIN_DIR . '/wp-booking-engine/includes/themes/';
                 copy($theme_plugin_path . $file, $template_path . '/' . $file);
             }
         }
@@ -901,14 +901,18 @@ class iwBookingUtility {
         return $result;
     }
 
-    public function price($price) {
+    public function price($price, $rate) {
         global $iwb_settings;
 
         if (!$price) {
             return __('Free', 'inhotel');
         }
+        
+        if($rate == 1){
+            return '<span class="price-wrap"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span></span>';
+        }
 
-        return '<span class="price-wrap"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span>' . __(' / Night', 'inhotel') . '</span>';
+        return '<span class="price-wrap" jos="'. $rate .'"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span>' . __(' / Night', 'inhotel') . '</span>';
     }
     public function unit_price($price) {
         global $iwb_settings;

@@ -64,7 +64,7 @@ if ($rooms->have_posts()) {
 								echo '<div class="premium_services">';
 								foreach ($room_obj->premium_services as $premium_service) {
 									if ($premium_service->getId()) {
-										echo '<label class="service-item"><input type="checkbox" name="premium_service[]" value="' . $premium_service->getId() . '"> ' . $premium_service->getName() . ' ' . $ultility->price($premium_service->getPrice()) . '</label>';
+										echo '<label class="service-item"><input type="checkbox" name="premium_service[]" value="' . $premium_service->getId() . '"> ' . $premium_service->getName() . ' ' . $ultility->price($premium_service->getPrice(), $premium_service->getRate()) . '</label>';
 									}
 								}
 								echo '<div class="clear"></div>';

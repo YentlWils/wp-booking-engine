@@ -25,6 +25,7 @@ class iwBookingService {
     private $price;
     private $type;
     private $description;
+    private $rate;
     private $status;
 
     function getType() {
@@ -51,6 +52,10 @@ class iwBookingService {
         return $this->description;
     }
 
+    function getRate() {
+        return $this->rate;
+    }
+
     function getStatus() {
         return $this->status;
     }
@@ -69,6 +74,10 @@ class iwBookingService {
 
     function setDescription($description) {
         $this->description = $description;
+    }
+
+    function setRate($rate) {
+        $this->rate = $rate;
     }
 
     function setStatus($status) {
@@ -135,6 +144,7 @@ class iwBookingService {
                 $service->setType($value->type);
                 $service->setPrice($value->price);
                 $service->setDescription($value->description);
+                $service->setRate($value->rate);
                 $service->setStatus($value->status);
                 $rs[] = $service;
             }
@@ -152,6 +162,7 @@ class iwBookingService {
             $service->setPrice($value->price);
             $service->setType($value->type);
             $service->setDescription($value->description);
+            $service->setRate($value->rate);
             $service->setStatus($value->status);
         }
         return $service;

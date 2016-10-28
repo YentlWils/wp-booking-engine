@@ -93,6 +93,18 @@ if (isset($_SESSION['bt_message'])) {
                     <td>&nbsp;</td>
                 </tr>
                 <tr class="alternate">
+                    <td class="label">
+                        <label><?php echo __('Rate', 'inwavethemes'); ?></label>
+                    </td>
+                    <td>
+                        <select name="rate">
+                            <option <?php echo ($service->getRate() == '1') ? 'selected = "selected"' : ''; ?> value="1"><?php echo __('Fixed'); ?></option>
+                            <option <?php echo ($service->getRate() == '0') ? 'selected = "selected"' : ''; ?> value="0"><?php echo __('By Night'); ?></option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="alternate">
                     <td class="label">&nbsp;</td>
                     <td>
                         <?php if ($service->getId()): ?>

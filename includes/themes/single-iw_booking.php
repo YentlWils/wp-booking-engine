@@ -4,7 +4,7 @@
  * @package monalisa
  */
 if (have_posts()) : while (have_posts()) : the_post();
-    $path = includeTemplateFile('iw_booking/roominfo',IWBOOKING_THEME_PATH);
+    $path = includeTemplateFile('wp-booking-engine/roominfo',IWBOOKING_THEME_PATH);
     if($path){
         include $path;
     }else{

@@ -203,6 +203,7 @@ if (!function_exists('iwBookingInstall')) {
           price int(11) DEFAULT NULL,
           description text NOT NULL,
           status tinyint(4) NOT NULL,
+          rate tinyint(1) DEFAULT 1,
           type varchar(20) DEFAULT NULL,
           PRIMARY KEY (id)
         ) $collate;";
@@ -378,12 +379,12 @@ function iwBookingAdminAddScript() {
     global $wp_scripts;
     // get registered script object for jquery-ui
     $ui = $wp_scripts->query('jquery-ui-core');
-    wp_enqueue_style('font-awesome', plugins_url('/iw_booking/assets/css/font-awesome/css/font-awesome.min.css'));
+    wp_enqueue_style('font-awesome', plugins_url('/wp-booking-engine/assets/css/font-awesome/css/font-awesome.min.css'));
     wp_enqueue_style('jquery-ui-smoothness', '//ajax.googleapis.com/ajax/libs/jqueryui/' . $ui->ver . '/themes/smoothness/jquery-ui.min.css', false, null);
-    wp_enqueue_style('select2', plugins_url('/iw_booking/assets/css/select2.min.css'));
-    wp_enqueue_style('iwbadmin-style', plugins_url('/iw_booking/assets/css/booking_admin.css'));
-    wp_enqueue_script('select2', plugins_url() . '/iw_booking/assets/js/select2.min.js', array('jquery'), '1.0.0', true);
-    wp_register_script('iwbadmin-script', plugins_url() . '/iw_booking/assets/js/booking_admin.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_style('select2', plugins_url('/wp-booking-engine/assets/css/select2.min.css'));
+    wp_enqueue_style('iwbadmin-style', plugins_url('/wp-booking-engine/assets/css/booking_admin.css'));
+    wp_enqueue_script('select2', plugins_url() . '/wp-booking-engine/assets/js/select2.min.js', array('jquery'), '1.0.0', true);
+    wp_register_script('iwbadmin-script', plugins_url() . '/wp-booking-engine/assets/js/booking_admin.js', array('jquery'), '1.0.0', true);
     wp_localize_script('iwbadmin-script', 'iwBookingCfg', array('siteUrl' => site_url(), 'adminUrl' => admin_url(), 'ajaxUrl' => admin_url('admin-ajax.php')));
     wp_enqueue_media();
     wp_enqueue_script('jquery-ui-datepicker');
@@ -624,6 +625,7 @@ function iwBookingSaveService() {
         $service->setDescription($post['description']);
         $service->setPrice($post['price']);
         $service->setType($post['type']);
+        $service->setRate($post['rate']);
         $service->setStatus($post['status']);
 
         if ($service->getId()) {

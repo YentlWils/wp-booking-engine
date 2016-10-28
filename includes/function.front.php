@@ -168,14 +168,14 @@ function iwBookingSubmitForm() {
 }
 
 function iwBookingAddSiteScript() {
-    //wp_enqueue_style('font-awesome', plugins_url('/iw_booking/assets/css/font-awesome/css/font-awesome.min.css'));
-    //wp_enqueue_style('jquery-ui-custom', plugins_url('/iw_booking/assets/css/jquery-ui-1.10.4.custom.min.css'));
-    wp_enqueue_style('iwesite-style', plugins_url('/iw_booking/assets/css/booking_style.css'));
-    //wp_enqueue_style('owl-carousel', plugins_url('/iw_booking/assets/css/owl.carousel.css'));
-    //wp_enqueue_style('owl-theme', plugins_url('/iw_booking/assets/css/owl.theme.css'));
-    //wp_enqueue_style('owl-transitions', plugins_url('/iw_booking/assets/css/owl.transitions.css'));
+    //wp_enqueue_style('font-awesome', plugins_url('/wp-booking-engine/assets/css/font-awesome/css/font-awesome.min.css'));
+    //wp_enqueue_style('jquery-ui-custom', plugins_url('/wp-booking-engine/assets/css/jquery-ui-1.10.4.custom.min.css'));
+    wp_enqueue_style('iwesite-style', plugins_url('/wp-booking-engine/assets/css/booking_style.css'));
+    //wp_enqueue_style('owl-carousel', plugins_url('/wp-booking-engine/assets/css/owl.carousel.css'));
+    //wp_enqueue_style('owl-theme', plugins_url('/wp-booking-engine/assets/css/owl.theme.css'));
+    //wp_enqueue_style('owl-transitions', plugins_url('/wp-booking-engine/assets/css/owl.transitions.css'));
     global $iwb_settings;
-    wp_register_script('iwbsite-script', plugins_url('/iw_booking/assets/js/booking_script.js'), array('jquery'), '1.0.0', true);
+    wp_register_script('iwbsite-script', plugins_url('/wp-booking-engine/assets/js/booking_script.js'), array('jquery'), '1.0.0', true);
     $iwb_objectL10n = array(
         'date_format' => isset($iwb_settings['general']['reservation_datepicker_format']) && $iwb_settings['general']['reservation_datepicker_format'] ?  $iwb_settings['general']['reservation_datepicker_format'] : 'd M yy',
         'closeText' => __('Done', 'inwavethemes'),
@@ -261,7 +261,7 @@ function iwb_block_filter_rooms_outhtml($atts) {
     $adult = isset($_REQUEST['adult']) ? $_REQUEST['adult'] : '01';
 
     ob_start();
-    $path = includeTemplateFile('iw_booking/check_availability_block', IWBOOKING_THEME_PATH);
+    $path = includeTemplateFile('wp-booking-engine/check_availability_block', IWBOOKING_THEME_PATH);
     if ($path) {
         include $path;
     } else {
@@ -286,7 +286,7 @@ function iwb_booking_page_filter_outhtml($atts) {
     $filter_room = isset($_REQUEST['filter_room']) ? intval($_REQUEST['filter_room']) : 0;
     ob_start();
     //$path = includeTemplateFile('iw_booking/booking_page', IWBOOKING_THEME_PATH);
-    $path = includeTemplateFile('iw_booking/reservation_page', IWBOOKING_THEME_PATH);
+    $path = includeTemplateFile('wp-booking-engine/reservation_page', IWBOOKING_THEME_PATH);
     if ($path) {
         include $path;
     } else {
@@ -317,7 +317,7 @@ function iwb_booking_rooms(){
 
     if($return['state'] == 2){
         if($total_room_selected < $total_room){
-            $path = includeTemplateFile('iw_booking/reservation_page_rooms', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_rooms', IWBOOKING_THEME_PATH);
             ob_start();
             if($filter_room){
                 $rooms = $room_class->getAvailableRooms(strtotime($checkin), strtotime($checkout), $adult, $children, $query_params['room-id'], 1, $filter_room);
@@ -338,13 +338,13 @@ function iwb_booking_rooms(){
         }
         else
         {
-            $path = includeTemplateFile('iw_booking/reservation_page_coupon', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_coupon', IWBOOKING_THEME_PATH);
             ob_start();
             include $path;
             $return['content'] = ob_get_contents();
             ob_end_clean();
         }
-        $path = includeTemplateFile('iw_booking/reservation_page_bar', IWBOOKING_THEME_PATH);
+        $path = includeTemplateFile('wp-booking-engine/reservation_page_bar', IWBOOKING_THEME_PATH);
         ob_start();
         include $path;
         $return['current_room_id'] = $current_room_id;
@@ -376,7 +376,7 @@ function iwb_booking_rooms(){
                     $services = explode(',', $query_params['room-service'][$i]);
                     foreach ($services as $service) {
                         if (isset($room_info->premium_services[$service])) {
-                            $service_price = ($room_info->premium_services[$service]->getPrice() * $night);
+                            $service_price = $room_info->premium_services[$service]->getRate() ? $room_info->premium_services[$service]->getPrice() : ($room_info->premium_services[$service]->getPrice() * $night);
 
                             $room_price = $room_price + $service_price;
                             $room_service = array('name'=> $service, 'title' => $room_info->premium_services[$service]->getName(), 'price' => $service_price);
@@ -411,13 +411,13 @@ function iwb_booking_rooms(){
         if($return['error_message']){
             $return['state'] = 2;
 
-            $path = includeTemplateFile('iw_booking/reservation_page_counpon', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_counpon', IWBOOKING_THEME_PATH);
             ob_start();
             include $path;
             $return['content'] = ob_get_contents();
             ob_end_clean();
 
-            $path = includeTemplateFile('iw_booking/reservation_page_bar', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_bar', IWBOOKING_THEME_PATH);
             ob_start();
             include $path;
             $return['room_form'] = ob_get_contents();
@@ -499,7 +499,7 @@ function iwb_booking_rooms(){
                         else{
                             $get_content = true;
                             $return['state'] = 4;
-                            $path = includeTemplateFile('iw_booking/reservation_page_completed', IWBOOKING_THEME_PATH);
+                            $path = includeTemplateFile('wp-booking-engine/reservation_page_completed', IWBOOKING_THEME_PATH);
                             ob_start();
                             include $path;
                             $return['content'] = ob_get_contents();
@@ -507,7 +507,7 @@ function iwb_booking_rooms(){
 
                             $page_price_data = $booking_info_data;
                             $page_price_data['rooms'] = $_room_data;
-                            $path = includeTemplateFile('iw_booking/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
+                            $path = includeTemplateFile('wp-booking-engine/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
                             ob_start();
                             include $path;
                             $return['summary_form'] = ob_get_contents();
@@ -526,7 +526,7 @@ function iwb_booking_rooms(){
             if(!isset($contact_data)){
                 $contact_data = iwBookingUtility::getContactDataDefault();
             }
-            $path = includeTemplateFile('iw_booking/reservation_page_contact_form', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_contact_form', IWBOOKING_THEME_PATH);
             ob_start();
             include $path;
             $return['content'] = ob_get_contents();
@@ -536,7 +536,7 @@ function iwb_booking_rooms(){
         if(!$get_sidebar){
             $page_price_data = $booking_info_data;
             $page_price_data['rooms'] = $_room_data;
-            $path = includeTemplateFile('iw_booking/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
             ob_start();
             include $path;
             $return['summary_form'] = ob_get_contents();
@@ -599,7 +599,7 @@ function iwb_booking_list_rooms($atts) {
 
     $query = $iw_room->getRoomList($category, $ids, $order_by, $order_dir, $limit);
 
-    $path = includeTemplateFile('iw_booking/iw_booking_rooms_' . $style, IWBOOKING_THEME_PATH);
+    $path = includeTemplateFile('wp-booking-engine/iw_booking_rooms_' . $style, IWBOOKING_THEME_PATH);
     if ($path) {
         include $path;
     } else {
@@ -616,7 +616,7 @@ function iwb_page_content($content) {
     ob_start();
     if ($post) {
         if (isset($iwb_settings['general']['check_order_page']) && $post->ID == $iwb_settings['general']['check_order_page']) {
-            $path = includeTemplateFile('iw_booking/check_order_page', IWBOOKING_THEME_PATH);
+            $path = includeTemplateFile('wp-booking-engine/check_order_page', IWBOOKING_THEME_PATH);
             if ($path) {
                 include $path;
             } else {

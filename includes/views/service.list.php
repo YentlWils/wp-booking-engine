@@ -52,10 +52,12 @@ if (isset($_SESSION['bt_message'])) {
                     <th scope="col" id="author" class="manage-column column-author" style="width: 25%"><?php echo __('Name', IW_TEXT_DOMAIN); ?></th>
                     <th scope="col" id="author" class="manage-column column-author" style="width: 20%"><?php echo __('Type', IW_TEXT_DOMAIN); ?></th>
                     <th scope="col" id="categories" class="manage-column column-categories" style="width: 20%"><?php echo __('Price', IW_TEXT_DOMAIN); ?></th>
-                    <th scope="col" id="date" class="manage-column column-date sortable asc" style="width: 15%">
+                    <th scope="col" id="date" class="manage-column column-date sortable asc" style="width: 10%">
+                        <?php echo __('Rate', IW_TEXT_DOMAIN); ?>
+                    </th><th scope="col" id="date" class="manage-column column-date sortable asc" style="width: 10%">
                         <?php echo __('Published', IW_TEXT_DOMAIN); ?>
                     </th>
-                    <th scope="col" id="title" class="manage-column column-title sortable desc" style="width: 15%">
+                    <th scope="col" id="title" class="manage-column column-title sortable desc" style="width: 10%">
                         <span>ID</span>
                     </th>
                 </tr>
@@ -83,6 +85,7 @@ if (isset($_SESSION['bt_message'])) {
                     </td>
                     <td><?php echo $service->getType(); ?></td>
                     <td><?php echo $ultility->getMoneyFormated($service->getPrice()); ?></td>
+                    <td><?php echo ($service->getRate() == 1) ? __('Fixed', 'inwavethemes') : __('By Night', 'inwavethemes'); ?></td>
                     <td><?php echo ($service->getStatus() == 1) ? __('Yes', 'inwavethemes') : __('No', 'inwavethemes'); ?></td>
                     <td><?php echo $service->getId(); ?></td>
                     </tr>

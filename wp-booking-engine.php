@@ -1,14 +1,14 @@
 <?php
 
 /*
-  Plugin Name: Inwave Booking
-  Plugin URI: http://booking.inwavethemes.com
+  Plugin Name: Wordpress Booking Engine
+  Plugin URI: YW.com
   Description:
-  Version: 2.0.3
-  Author: Inwavethemes
-  Author URI: http://www.inwavethemes.com
+  Version: 1.0.0
+  Author: Yentl Wils
+  Author URI: http://www.yw.com
   License: GNU General Public License v2 or later
-  Text Domain: inwavethemes
+  Text Domain: yw
  */
 
 /**
@@ -46,7 +46,7 @@ if (!defined('IW_TEXT_DOMAIN')) {
     define('IW_TEXT_DOMAIN', 'inwavethemes');
 }
 if (!defined('IWBOOKING_THEME_PATH')) {
-    define('IWBOOKING_THEME_PATH', WP_PLUGIN_DIR . '/iw_booking/themes/');
+    define('IWBOOKING_THEME_PATH', WP_PLUGIN_DIR . '/wp-booking-engine/themes/');
 }
 $utility = new iwBookingUtility();
 

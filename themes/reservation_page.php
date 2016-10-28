@@ -43,7 +43,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                                 $page_price_data['tax'] = $booking->tax;
                                 $page_price_data['currency'] = $booking->currency;
 
-                                $path = includeTemplateFile('iw_booking/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
+                                $path = includeTemplateFile('wp-booking-engine/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
                                 include $path;
                             }
                         }
@@ -59,7 +59,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                         $has_active_class = false;
                         $current_room_id = 1;
                         $query_params['room-id'] = array();
-                        $path = includeTemplateFile('iw_booking/reservation_page_bar', IWBOOKING_THEME_PATH);
+                        $path = includeTemplateFile('wp-booking-engine/reservation_page_bar', IWBOOKING_THEME_PATH);
                         include $path;
                     }?>
                 </div>
@@ -133,7 +133,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
         <div class="col-md-8 col-sm-12 col-xs-12" id="iwb-booking-content">
             <?php
             if($state ==4 ){
-                $path = includeTemplateFile('iw_booking/reservation_page_completed', IWBOOKING_THEME_PATH);
+                $path = includeTemplateFile('wp-booking-engine/reservation_page_completed', IWBOOKING_THEME_PATH);
                 if ($path) {
                     include $path;
                 }
@@ -151,7 +151,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                     $room_class = new IwBookingRooms();
                     $paged = 1;
                     $rooms = $room_class->getAvailableRooms($checkin, $checkout, $adult, $children , array(), 1, $filter_room);
-                    $path = includeTemplateFile('iw_booking/reservation_page_rooms', IWBOOKING_THEME_PATH);
+                    $path = includeTemplateFile('wp-booking-engine/reservation_page_rooms', IWBOOKING_THEME_PATH);
                     include $path;
                     if($filter_room){
                         $rooms = $room_class->getAvailableRooms($checkin, $checkout, $adult, $children , array(), 1, 0, array($filter_room));
