@@ -1,0 +1,2885 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Inwave Booking\n"
+"POT-Creation-Date: 2016-10-26 09:28+0700\n"
+"PO-Revision-Date: 2016-10-26 09:28+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: iw_booking.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/classes/iwBookingCategoryMetaBox.php:38
+#: includes/classes/iwBookingCategoryMetaBox.php:131
+#: includes/views/extrafield.edit.php:49
+msgid "Icon"
+msgstr ""
+
+#: includes/classes/iwBookingCategoryMetaBox.php:40
+#: includes/classes/iwBookingCategoryMetaBox.php:134
+#: includes/views/extrafield.edit.php:55
+msgid "Icon name using font Awesome"
+msgstr ""
+
+#: includes/classes/iwBookingCategoryMetaBox.php:53
+#: includes/classes/iwBookingCategoryMetaBox.php:178
+#: includes/classes/iwBookingMetaBox.php:235
+#: includes/views/payment.edit.php:133 includes/views/payment.list.php:47
+#: includes/views/payment.list.php:79 includes/views/payment.view.php:126
+#: includes/views/service.edit.php:85
+msgid "Status"
+msgstr ""
+
+#: includes/classes/iwBookingCategoryMetaBox.php:56
+#: includes/classes/iwBookingCategoryMetaBox.php:182
+#: includes/views/discount.edit.php:119 includes/views/discount.list.php:45
+#: includes/views/extrafield.edit.php:214 includes/views/extrafield.list.php:55
+#: includes/views/service.edit.php:89 includes/views/service.list.php:56
+msgid "Published"
+msgstr ""
+
+#: includes/classes/iwBookingCategoryMetaBox.php:57
+#: includes/classes/iwBookingCategoryMetaBox.php:183
+#: includes/views/service.edit.php:90
+msgid "Unpublished"
+msgstr ""
+
+#: includes/classes/iwBookingComment.php:67
+msgid "Tap a star to rate "
+msgstr ""
+
+#: includes/classes/iwBookingComment.php:96
+msgid "Please rate the room."
+msgstr ""
+
+#: includes/classes/iwBookingComment.php:104
+msgid "Room Rating"
+msgstr ""
+
+#: includes/classes/iwBookingComment.php:112
+msgid "Rating: "
+msgstr ""
+
+#: includes/classes/iwBookingCustomer.php:173
+#, php-format
+msgid "Can't remove Customer with id: <strong>%s</strong>. Because:"
+msgstr ""
+
+#: includes/classes/iwBookingCustomer.php:175
+msgid "It used in some orders"
+msgstr ""
+
+#: includes/classes/iwBookingCustomer.php:184
+msgid "Customer has been deleted"
+msgstr ""
+
+#: includes/classes/iwBookingCustomer.php:204
+msgid "Delete customers successfully"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:200
+#, php-format
+msgid "Can't remove Discount with id: <strong>%s</strong>. Because:"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:202
+#: includes/classes/iwBookingService.php:179
+msgid "It used in some bookings"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:211
+msgid "Discount has been deleted"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:239
+#, php-format
+msgid ""
+"Can't delete Discount with id: <strong>%s</strong> because it used by some "
+"bookings."
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:243
+#, php-format
+msgid "Success delete discount with id: <strong>%s</strong>"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:259
+#, php-format
+msgid "The coupon will be valid since %s. Please wait and use it later"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:261
+#, php-format
+msgid "Sorry. The coupon is no longer valid since %s"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:264
+msgid "Sorry, the coupon is out of stock because of limited amount of coupons."
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:268
+msgid "Apply coupon code success."
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:274
+msgid "Invalid coupon code"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:303
+#, php-format
+msgid "(Discount %s%%)"
+msgstr ""
+
+#: includes/classes/iwBookingDiscount.php:306
+#, php-format
+msgid "(Discount %s)"
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:172
+#, php-format
+msgid "Can't remove extrafield with id: <strong>%s</strong>. Because:"
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:174
+#: includes/classes/iwBookingService.php:182
+msgid "It used in some room"
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:184
+msgid "Extrafield has been deleted"
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:189
+#, php-format
+msgid "No extrafield with id: %d"
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:210
+#, php-format
+msgid ""
+"Can't delete extrafield with id: <strong>%s</strong> because it used by some "
+"room."
+msgstr ""
+
+#: includes/classes/iwBookingExtra.php:215
+#, php-format
+msgid "Success delete Room extrafield with id: <strong>%s</strong>"
+msgstr ""
+
+#: includes/classes/iwBookingLog.php:134
+msgid "Log has been delete"
+msgstr ""
+
+#: includes/classes/iwBookingLog.php:144
+#, php-format
+msgid "Success delete logs with id: <strong>%s</strong>"
+msgstr ""
+
+#: includes/classes/iwBookingLog.php:151
+msgid "All log has been deleted"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:38
+msgid "Category"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:41
+msgid "Basic Info"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:44
+msgid "Image Gallery"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:47
+msgid "Include Services"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:170 includes/views/payment.list.php:76
+#: includes/views/service.edit.php:67 includes/views/service.list.php:54
+#: themes/added_room.php:48 themes/check_order_page.php:125
+#: themes/reservation_page_rooms.php:20
+msgid "Price"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:182
+msgid "Deposit"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:189
+msgid "Input percent for deposit. Eg: Input 25 for 25%"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:194
+msgid "Amount of people"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:201
+msgid "Maximum adult passenger allowed for room"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:206
+msgid "Maximum child passenger allowed for room"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:211
+#: includes/views/discount.edit.php:101
+msgid "Amount"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:218
+msgid "Number of room available"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:223
+msgid "Beds"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:230
+msgid "Number of bed in room"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:240
+#: themes/iw_booking_rooms_grid.php:39 themes/iw_booking_rooms_list.php:47
+msgid "Available"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:241
+msgid "Unavailable"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:310
+msgid "Add new images"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:327
+msgid "Basic Services"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:343
+msgid "Premium Services"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:348 includes/utility.php:908
+#: includes/utility.php:917 themes/added_room.php:49
+#: themes/check_order_page.php:126
+msgid "Free"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:372
+msgid "Extra Info: "
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:376
+msgid "Field Name"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:377
+#: includes/views/discount.edit.php:74 includes/views/discount.list.php:44
+#: includes/views/extrafield.edit.php:122
+msgid "Value"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:458
+#: includes/views/extrafield.edit.php:101
+msgid "URL"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:459
+#: includes/views/extrafield.edit.php:69 includes/views/extrafield.edit.php:102
+msgid "Text"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:517
+msgid "Create Gallery"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:525
+#: includes/classes/iwBookingMetaBox.php:533
+#: includes/classes/iwBookingMetaBox.php:612
+#: includes/classes/iwBookingMetaBox.php:614
+msgid "Edit Gallery"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:571
+msgid "Save Gallery"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:580
+msgid "Saving ..."
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:651
+msgid "Insert"
+msgstr ""
+
+#: includes/classes/iwBookingMetaBox.php:678 includes/views/settings.php:267
+#: themes/added_room.php:41
+msgid "Remove"
+msgstr ""
+
+#: includes/classes/iwBookingOrder.php:442
+#, php-format
+msgid ""
+"Your order has not paid yet! Your booking will be automatically canceled in "
+"%s day!"
+msgid_plural ""
+"Your order has not paid yet! Your booking will be automatically canceled in "
+"%s days!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/iwBookingOrder.php:444
+#, php-format
+msgid ""
+"Your order has not paid yet! Your booking will be automatically canceled in "
+"%s hour!"
+msgid_plural ""
+"Your order has not paid yet! Your booking will be automatically canceled in "
+"%s hours!"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/classes/iwBookingOrder.php:447
+msgid ""
+"Your order has not paid yet! You can payment now or cancel your booking here!"
+msgstr ""
+
+#: includes/classes/iwBookingOrder.php:482
+msgid "Booking room"
+msgstr ""
+
+#: includes/classes/iwBookingRooms.php:213
+msgid "Add to booking"
+msgstr ""
+
+#: includes/classes/iwBookingRooms.php:417
+msgid "Load more..."
+msgstr ""
+
+#: includes/classes/iwBookingService.php:177
+#, php-format
+msgid "Can't remove Service with id: <strong>%s</strong>. Because:"
+msgstr ""
+
+#: includes/classes/iwBookingService.php:191
+msgid "Service has been deleted"
+msgstr ""
+
+#: includes/classes/iwBookingService.php:225
+#, php-format
+msgid ""
+"Can't delete Service with id: <strong>%s</strong> because it used by some "
+"bookings or rooms."
+msgstr ""
+
+#: includes/classes/iwBookingService.php:229
+#, php-format
+msgid "Success delete services with id: <strong>%s</strong>"
+msgstr ""
+
+#: includes/classes/iwPaging.php:143 includes/classes/iwPaging.php:145
+msgid "Prev page"
+msgstr ""
+
+#: includes/classes/iwPaging.php:150 includes/classes/iwPaging.php:152
+msgid "Next page"
+msgstr ""
+
+#: includes/function.admin.php:26
+msgid "Room Extrafield"
+msgstr ""
+
+#: includes/function.admin.php:26 includes/views/extrafield.list.php:26
+msgid "Extrafields"
+msgstr ""
+
+#: includes/function.admin.php:27
+msgid "Add Room Extrafield"
+msgstr ""
+
+#: includes/function.admin.php:28 includes/views/extrafield.edit.php:28
+msgid "Edit Room Extrafield"
+msgstr ""
+
+#: includes/function.admin.php:30 includes/views/service.list.php:26
+msgid "Services"
+msgstr ""
+
+#: includes/function.admin.php:31
+msgid "Add New Services"
+msgstr ""
+
+#: includes/function.admin.php:32
+msgid "Edit Services"
+msgstr ""
+
+#: includes/function.admin.php:34 includes/views/payment.edit.php:52
+#: includes/views/payment.view.php:51
+msgid "Discount"
+msgstr ""
+
+#: includes/function.admin.php:34 includes/views/discount.list.php:26
+msgid "Discounts"
+msgstr ""
+
+#: includes/function.admin.php:35
+msgid "Add Discount"
+msgstr ""
+
+#: includes/function.admin.php:36 includes/views/discount.edit.php:28
+msgid "Edit Discount"
+msgstr ""
+
+#: includes/function.admin.php:38
+msgid "Customer"
+msgstr ""
+
+#: includes/function.admin.php:38 includes/views/booking-statistic.php:76
+#: includes/views/member.list.php:26
+msgid "Customers"
+msgstr ""
+
+#: includes/function.admin.php:39
+msgid "Add Customer"
+msgstr ""
+
+#: includes/function.admin.php:40
+msgid "Edit Customer"
+msgstr ""
+
+#: includes/function.admin.php:42 includes/views/payment.list.php:27
+msgid "Bookings"
+msgstr ""
+
+#: includes/function.admin.php:43
+msgid "Add Bookings"
+msgstr ""
+
+#: includes/function.admin.php:44
+msgid "Bookings detail"
+msgstr ""
+
+#: includes/function.admin.php:46
+msgid "Booking Logs"
+msgstr ""
+
+#: includes/function.admin.php:47
+msgid "Log view"
+msgstr ""
+
+#: includes/function.admin.php:51
+msgid "Settings"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgctxt "Taxonomy General Name"
+msgid "Categories"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgctxt "Taxonomy Singular Name"
+msgid "Category"
+msgstr ""
+
+#: includes/function.admin.php:354 includes/views/extrafield.edit.php:185
+#: includes/views/extrafield.list.php:54
+msgid "Categories"
+msgstr ""
+
+#: includes/function.admin.php:354 includes/views/extrafield.list.php:86
+msgid "All Categories"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Parent Category"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Parent Category:"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "New Category Name"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Add New Category"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Edit Category"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Update Category"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Separate categories with commas"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Search categories"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Add or remove categories"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Choose from the most used categories"
+msgstr ""
+
+#: includes/function.admin.php:354
+msgid "Not Found"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgctxt "Post Type General Name"
+msgid "IW Rooms"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgctxt "Post Type Singular Name"
+msgid "IW Room"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "IW Booking"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Parent Room:"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "All Rooms"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "View Room"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Add New Room"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Add Room"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Edit Item"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Update Item"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Search Item"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Not found"
+msgstr ""
+
+#: includes/function.admin.php:368
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/function.admin.php:370
+msgid "booking"
+msgstr ""
+
+#: includes/function.admin.php:370
+msgid "Inwave Booking Description"
+msgstr ""
+
+#: includes/function.admin.php:454
+#, php-format
+msgid "No extrafield found with id = <strong>%d</strong>"
+msgstr ""
+
+#: includes/function.admin.php:470
+msgid "- Please input name of field<br/>"
+msgstr ""
+
+#: includes/function.admin.php:475
+msgid "- Please select a field type<br/>"
+msgstr ""
+
+#: includes/function.admin.php:529
+msgid "No data send"
+msgstr ""
+
+#: includes/function.admin.php:545
+msgid "Booking extrafield has been removed"
+msgstr ""
+
+#: includes/function.admin.php:548 includes/function.admin.php:909
+#: includes/function.admin.php:941 includes/function.admin.php:1008
+#: includes/function.admin.php:1028 includes/function.admin.php:1105
+#: includes/function.admin.php:1146 includes/function.admin.php:1162
+msgid "No id set or id invalid"
+msgstr ""
+
+#: includes/function.admin.php:568 includes/function.admin.php:683
+#: includes/function.admin.php:826 includes/function.admin.php:961
+#: includes/function.admin.php:1179 includes/function.admin.php:1197
+msgid "Unknown error"
+msgstr ""
+
+#: includes/function.admin.php:571 includes/function.admin.php:686
+#: includes/function.admin.php:829 includes/function.admin.php:964
+#: includes/function.admin.php:1120 includes/function.admin.php:1182
+msgid "Please select row(s) to delete"
+msgstr ""
+
+#: includes/function.admin.php:602
+#, php-format
+msgid "No service found with id = <strong>%d</strong>"
+msgstr ""
+
+#: includes/function.admin.php:615
+msgid "Please input name of Service"
+msgstr ""
+
+#: includes/function.admin.php:660
+msgid "Service has been removed"
+msgstr ""
+
+#: includes/function.admin.php:663 includes/function.admin.php:806
+msgid "ID not set or invalid"
+msgstr ""
+
+#: includes/function.admin.php:717
+#, php-format
+msgid "No Discount found with id = <strong>%d</strong>"
+msgstr ""
+
+#: includes/function.admin.php:730
+msgid "- Please input name of Discount"
+msgstr ""
+
+#: includes/function.admin.php:736
+msgid "- Please input Discount Code"
+msgstr ""
+
+#: includes/function.admin.php:742
+msgid "- Please input Time start"
+msgstr ""
+
+#: includes/function.admin.php:748
+msgid "- Please input Time end"
+msgstr ""
+
+#: includes/function.admin.php:754
+msgid "- Please input Value of discount"
+msgstr ""
+
+#: includes/function.admin.php:803
+msgid "Discount has been removed"
+msgstr ""
+
+#: includes/function.admin.php:919
+msgid "Update member success"
+msgstr ""
+
+#: includes/function.admin.php:921
+msgid "Can't update member: "
+msgstr ""
+
+#: includes/function.admin.php:938
+msgid "Member has been remove"
+msgstr ""
+
+#: includes/function.admin.php:1023
+#, php-format
+msgid "No Order found with id = <strong>%d</strong>"
+msgstr ""
+
+#: includes/function.admin.php:1057
+#, php-format
+msgid "Update order %s successfully"
+msgstr ""
+
+#: includes/function.admin.php:1059
+#, php-format
+msgid "Can not update order %s"
+msgstr ""
+
+#: includes/function.admin.php:1070
+msgid "Send email successfully"
+msgstr ""
+
+#: includes/function.admin.php:1072
+msgid "Can not send email successfully"
+msgstr ""
+
+#: includes/function.admin.php:1090
+msgid "No order math to kill"
+msgstr ""
+
+#: includes/function.admin.php:1103
+msgid "Order has been removed"
+msgstr ""
+
+#: includes/function.admin.php:1118
+msgid "All selected order(s) has been deleted"
+msgstr ""
+
+#: includes/function.admin.php:1159
+msgid "Log has been removed"
+msgstr ""
+
+#: includes/function.admin.php:1218
+#, php-format
+msgid "Please select booking page in <a href=\"%s\">plugin setting</a>"
+msgstr ""
+
+#: includes/function.admin.php:1221
+#, php-format
+msgid "Please select payment page in <a href=\"%s\">plugin setting</a>"
+msgstr ""
+
+#: includes/function.admin.php:1326
+msgid "Booking CronJob Time"
+msgstr ""
+
+#: includes/function.admin.php:1383
+msgid "View booking info"
+msgstr ""
+
+#: includes/function.admin.php:1428 includes/views/payment.edit.php:137
+#: includes/views/payment.list.php:48 includes/views/payment.list.php:136
+#: includes/views/payment.view.php:132
+msgid "Pending"
+msgstr ""
+
+#: includes/function.admin.php:1431 includes/views/payment.list.php:49
+#: includes/views/payment.list.php:139
+msgid "Completed"
+msgstr ""
+
+#: includes/function.admin.php:1434 includes/views/payment.edit.php:137
+#: includes/views/payment.list.php:142
+msgid "Cancelled"
+msgstr ""
+
+#: includes/function.admin.php:1437 includes/views/payment.edit.php:137
+#: includes/views/payment.list.php:51 includes/views/payment.list.php:145
+#: includes/views/payment.view.php:141
+msgid "Onhold"
+msgstr ""
+
+#: includes/function.front.php:65 includes/function.front.php:71
+#: includes/function.front.php:78 includes/function.front.php:83
+#: includes/function.front.php:89
+msgid "Order "
+msgstr ""
+
+#: includes/function.front.php:181
+msgid "Done"
+msgstr ""
+
+#: includes/function.front.php:182
+msgid "Today"
+msgstr ""
+
+#: includes/function.front.php:183
+msgid "Next"
+msgstr ""
+
+#: includes/function.front.php:184
+msgid "Prev"
+msgstr ""
+
+#: includes/function.front.php:186
+msgid "January"
+msgstr ""
+
+#: includes/function.front.php:187
+msgid "February"
+msgstr ""
+
+#: includes/function.front.php:188
+msgid "March"
+msgstr ""
+
+#: includes/function.front.php:189
+msgid "April"
+msgstr ""
+
+#: includes/function.front.php:190 includes/function.front.php:204
+msgid "May"
+msgstr ""
+
+#: includes/function.front.php:191
+msgid "June"
+msgstr ""
+
+#: includes/function.front.php:192
+msgid "July"
+msgstr ""
+
+#: includes/function.front.php:193
+msgid "August"
+msgstr ""
+
+#: includes/function.front.php:194
+msgid "September"
+msgstr ""
+
+#: includes/function.front.php:195
+msgid "October"
+msgstr ""
+
+#: includes/function.front.php:196
+msgid "November"
+msgstr ""
+
+#: includes/function.front.php:197
+msgid "December"
+msgstr ""
+
+#: includes/function.front.php:200
+msgid "Jan"
+msgstr ""
+
+#: includes/function.front.php:201
+msgid "Feb"
+msgstr ""
+
+#: includes/function.front.php:202
+msgid "Mar"
+msgstr ""
+
+#: includes/function.front.php:203
+msgid "Apr"
+msgstr ""
+
+#: includes/function.front.php:205
+msgid "Jun"
+msgstr ""
+
+#: includes/function.front.php:206
+msgid "Jul"
+msgstr ""
+
+#: includes/function.front.php:207
+msgid "Aug"
+msgstr ""
+
+#: includes/function.front.php:208
+msgid "Sep"
+msgstr ""
+
+#: includes/function.front.php:209
+msgid "Oct"
+msgstr ""
+
+#: includes/function.front.php:210
+msgid "Nov"
+msgstr ""
+
+#: includes/function.front.php:211
+msgid "Dec"
+msgstr ""
+
+#: includes/function.front.php:213
+msgid "Show a different month"
+msgstr ""
+
+#: includes/function.front.php:215
+msgid "Sunday"
+msgstr ""
+
+#: includes/function.front.php:216
+msgid "Monday"
+msgstr ""
+
+#: includes/function.front.php:217
+msgid "Tuesday"
+msgstr ""
+
+#: includes/function.front.php:218
+msgid "Wednesday"
+msgstr ""
+
+#: includes/function.front.php:219
+msgid "Thursday"
+msgstr ""
+
+#: includes/function.front.php:220
+msgid "Friday"
+msgstr ""
+
+#: includes/function.front.php:221
+msgid "Saturday"
+msgstr ""
+
+#: includes/function.front.php:224
+msgid "Sun"
+msgstr ""
+
+#: includes/function.front.php:225
+msgid "Mon"
+msgstr ""
+
+#: includes/function.front.php:226
+msgid "Tue"
+msgstr ""
+
+#: includes/function.front.php:227
+msgid "Wed"
+msgstr ""
+
+#: includes/function.front.php:228
+msgid "Thu"
+msgstr ""
+
+#: includes/function.front.php:229
+msgid "Fri"
+msgstr ""
+
+#: includes/function.front.php:230
+msgid "Sat"
+msgstr ""
+
+#: includes/function.front.php:233 includes/function.front.php:239
+msgid "S"
+msgstr ""
+
+#: includes/function.front.php:234
+msgid "M"
+msgstr ""
+
+#: includes/function.front.php:235 includes/function.front.php:237
+msgid "T"
+msgstr ""
+
+#: includes/function.front.php:236
+msgid "W"
+msgstr ""
+
+#: includes/function.front.php:238
+msgid "F"
+msgstr ""
+
+#: includes/function.front.php:268 includes/function.front.php:293
+msgid "No template found"
+msgstr ""
+
+#: includes/function.front.php:327 themes/reservation_page.php:159
+msgid "Can you want"
+msgstr ""
+
+#: includes/function.front.php:520
+msgid "Your order has expired please choose the room"
+msgstr ""
+
+#: includes/function.front.php:606 includes/function.front.php:623
+#: includes/themes/single-iw_booking.php:11
+msgid "No theme found"
+msgstr ""
+
+#: includes/utility.php:42
+msgid "Select all"
+msgstr ""
+
+#: includes/utility.php:45 includes/utility.php:63
+msgid "Select category"
+msgstr ""
+
+#: includes/utility.php:412
+msgid "Can't send email to customer, please check settings or code."
+msgstr ""
+
+#: includes/utility.php:449
+msgid "Please fill all required fields."
+msgstr ""
+
+#: includes/utility.php:451
+#, php-format
+msgid "%s invalid"
+msgstr ""
+
+#: includes/utility.php:479
+msgid "United Arab Emirates dirham"
+msgstr ""
+
+#: includes/utility.php:480
+msgid "Afghan afghani"
+msgstr ""
+
+#: includes/utility.php:481
+msgid "Albanian lek"
+msgstr ""
+
+#: includes/utility.php:482
+msgid "Armenian dram"
+msgstr ""
+
+#: includes/utility.php:483
+msgid "Netherlands Antillean guilder"
+msgstr ""
+
+#: includes/utility.php:484
+msgid "Angolan kwanza"
+msgstr ""
+
+#: includes/utility.php:485
+msgid "Argentine peso"
+msgstr ""
+
+#: includes/utility.php:486
+msgid "Australian dollar"
+msgstr ""
+
+#: includes/utility.php:487
+msgid "Aruban florin"
+msgstr ""
+
+#: includes/utility.php:488
+msgid "Azerbaijani manat"
+msgstr ""
+
+#: includes/utility.php:489
+msgid "Bosnia and Herzegovina convertible mark"
+msgstr ""
+
+#: includes/utility.php:490
+msgid "Barbadian dollar"
+msgstr ""
+
+#: includes/utility.php:491
+msgid "Bangladeshi taka"
+msgstr ""
+
+#: includes/utility.php:492
+msgid "Bulgarian lev"
+msgstr ""
+
+#: includes/utility.php:493
+msgid "Bahraini dinar"
+msgstr ""
+
+#: includes/utility.php:494
+msgid "Burundian franc"
+msgstr ""
+
+#: includes/utility.php:495
+msgid "Bermudian dollar"
+msgstr ""
+
+#: includes/utility.php:496
+msgid "Brunei dollar"
+msgstr ""
+
+#: includes/utility.php:497
+msgid "Bolivian boliviano"
+msgstr ""
+
+#: includes/utility.php:498
+msgid "Brazilian real"
+msgstr ""
+
+#: includes/utility.php:499
+msgid "Bahamian dollar"
+msgstr ""
+
+#: includes/utility.php:500
+msgid "Bitcoin"
+msgstr ""
+
+#: includes/utility.php:501
+msgid "Bhutanese ngultrum"
+msgstr ""
+
+#: includes/utility.php:502
+msgid "Botswana pula"
+msgstr ""
+
+#: includes/utility.php:503
+msgid "Belarusian ruble"
+msgstr ""
+
+#: includes/utility.php:504
+msgid "Belize dollar"
+msgstr ""
+
+#: includes/utility.php:505
+msgid "Canadian dollar"
+msgstr ""
+
+#: includes/utility.php:506
+msgid "Congolese franc"
+msgstr ""
+
+#: includes/utility.php:507
+msgid "Swiss franc"
+msgstr ""
+
+#: includes/utility.php:508
+msgid "Chilean peso"
+msgstr ""
+
+#: includes/utility.php:509
+msgid "Chinese yuan"
+msgstr ""
+
+#: includes/utility.php:510
+msgid "Colombian peso"
+msgstr ""
+
+#: includes/utility.php:511
+msgid "Costa Rican col&oacute;n"
+msgstr ""
+
+#: includes/utility.php:512
+msgid "Cuban convertible peso"
+msgstr ""
+
+#: includes/utility.php:513
+msgid "Cuban peso"
+msgstr ""
+
+#: includes/utility.php:514
+msgid "Cape Verdean escudo"
+msgstr ""
+
+#: includes/utility.php:515
+msgid "Czech koruna"
+msgstr ""
+
+#: includes/utility.php:516
+msgid "Djiboutian franc"
+msgstr ""
+
+#: includes/utility.php:517
+msgid "Danish krone"
+msgstr ""
+
+#: includes/utility.php:518
+msgid "Dominican peso"
+msgstr ""
+
+#: includes/utility.php:519
+msgid "Algerian dinar"
+msgstr ""
+
+#: includes/utility.php:520
+msgid "Egyptian pound"
+msgstr ""
+
+#: includes/utility.php:521
+msgid "Eritrean nakfa"
+msgstr ""
+
+#: includes/utility.php:522
+msgid "Ethiopian birr"
+msgstr ""
+
+#: includes/utility.php:523
+msgid "Euro"
+msgstr ""
+
+#: includes/utility.php:524
+msgid "Fijian dollar"
+msgstr ""
+
+#: includes/utility.php:525
+msgid "Falkland Islands pound"
+msgstr ""
+
+#: includes/utility.php:526
+msgid "Pound sterling"
+msgstr ""
+
+#: includes/utility.php:527
+msgid "Georgian lari"
+msgstr ""
+
+#: includes/utility.php:528
+msgid "Guernsey pound"
+msgstr ""
+
+#: includes/utility.php:529
+msgid "Ghana cedi"
+msgstr ""
+
+#: includes/utility.php:530
+msgid "Gibraltar pound"
+msgstr ""
+
+#: includes/utility.php:531
+msgid "Gambian dalasi"
+msgstr ""
+
+#: includes/utility.php:532
+msgid "Guinean franc"
+msgstr ""
+
+#: includes/utility.php:533
+msgid "Guatemalan quetzal"
+msgstr ""
+
+#: includes/utility.php:534
+msgid "Guyanese dollar"
+msgstr ""
+
+#: includes/utility.php:535
+msgid "Hong Kong dollar"
+msgstr ""
+
+#: includes/utility.php:536
+msgid "Honduran lempira"
+msgstr ""
+
+#: includes/utility.php:537
+msgid "Croatian kuna"
+msgstr ""
+
+#: includes/utility.php:538
+msgid "Haitian gourde"
+msgstr ""
+
+#: includes/utility.php:539
+msgid "Hungarian forint"
+msgstr ""
+
+#: includes/utility.php:540
+msgid "Indonesian rupiah"
+msgstr ""
+
+#: includes/utility.php:541
+msgid "Israeli new shekel"
+msgstr ""
+
+#: includes/utility.php:542
+msgid "Manx pound"
+msgstr ""
+
+#: includes/utility.php:543
+msgid "Indian rupee"
+msgstr ""
+
+#: includes/utility.php:544
+msgid "Iraqi dinar"
+msgstr ""
+
+#: includes/utility.php:545
+msgid "Iranian rial"
+msgstr ""
+
+#: includes/utility.php:546
+msgid "Icelandic kr&oacute;na"
+msgstr ""
+
+#: includes/utility.php:547
+msgid "Jersey pound"
+msgstr ""
+
+#: includes/utility.php:548
+msgid "Jamaican dollar"
+msgstr ""
+
+#: includes/utility.php:549
+msgid "Jordanian dinar"
+msgstr ""
+
+#: includes/utility.php:550
+msgid "Japanese yen"
+msgstr ""
+
+#: includes/utility.php:551
+msgid "Kenyan shilling"
+msgstr ""
+
+#: includes/utility.php:552
+msgid "Kyrgyzstani som"
+msgstr ""
+
+#: includes/utility.php:553
+msgid "Cambodian riel"
+msgstr ""
+
+#: includes/utility.php:554
+msgid "Comorian franc"
+msgstr ""
+
+#: includes/utility.php:555
+msgid "North Korean won"
+msgstr ""
+
+#: includes/utility.php:556
+msgid "South Korean won"
+msgstr ""
+
+#: includes/utility.php:557
+msgid "Kuwaiti dinar"
+msgstr ""
+
+#: includes/utility.php:558
+msgid "Cayman Islands dollar"
+msgstr ""
+
+#: includes/utility.php:559
+msgid "Kazakhstani tenge"
+msgstr ""
+
+#: includes/utility.php:560
+msgid "Lao kip"
+msgstr ""
+
+#: includes/utility.php:561
+msgid "Lebanese pound"
+msgstr ""
+
+#: includes/utility.php:562
+msgid "Sri Lankan rupee"
+msgstr ""
+
+#: includes/utility.php:563
+msgid "Liberian dollar"
+msgstr ""
+
+#: includes/utility.php:564
+msgid "Lesotho loti"
+msgstr ""
+
+#: includes/utility.php:565
+msgid "Libyan dinar"
+msgstr ""
+
+#: includes/utility.php:566
+msgid "Moroccan dirham"
+msgstr ""
+
+#: includes/utility.php:567
+msgid "Moldovan leu"
+msgstr ""
+
+#: includes/utility.php:568
+msgid "Malagasy ariary"
+msgstr ""
+
+#: includes/utility.php:569
+msgid "Macedonian denar"
+msgstr ""
+
+#: includes/utility.php:570
+msgid "Burmese kyat"
+msgstr ""
+
+#: includes/utility.php:571
+msgid "Mongolian t&ouml;gr&ouml;g"
+msgstr ""
+
+#: includes/utility.php:572
+msgid "Macanese pataca"
+msgstr ""
+
+#: includes/utility.php:573
+msgid "Mauritanian ouguiya"
+msgstr ""
+
+#: includes/utility.php:574
+msgid "Mauritian rupee"
+msgstr ""
+
+#: includes/utility.php:575
+msgid "Maldivian rufiyaa"
+msgstr ""
+
+#: includes/utility.php:576
+msgid "Malawian kwacha"
+msgstr ""
+
+#: includes/utility.php:577
+msgid "Mexican peso"
+msgstr ""
+
+#: includes/utility.php:578
+msgid "Malaysian ringgit"
+msgstr ""
+
+#: includes/utility.php:579
+msgid "Mozambican metical"
+msgstr ""
+
+#: includes/utility.php:580
+msgid "Namibian dollar"
+msgstr ""
+
+#: includes/utility.php:581
+msgid "Nigerian naira"
+msgstr ""
+
+#: includes/utility.php:582
+msgid "Nicaraguan c&oacute;rdoba"
+msgstr ""
+
+#: includes/utility.php:583
+msgid "Norwegian krone"
+msgstr ""
+
+#: includes/utility.php:584
+msgid "Nepalese rupee"
+msgstr ""
+
+#: includes/utility.php:585
+msgid "New Zealand dollar"
+msgstr ""
+
+#: includes/utility.php:586
+msgid "Omani rial"
+msgstr ""
+
+#: includes/utility.php:587
+msgid "Panamanian balboa"
+msgstr ""
+
+#: includes/utility.php:588
+msgid "Peruvian nuevo sol"
+msgstr ""
+
+#: includes/utility.php:589
+msgid "Papua New Guinean kina"
+msgstr ""
+
+#: includes/utility.php:590
+msgid "Philippine peso"
+msgstr ""
+
+#: includes/utility.php:591
+msgid "Pakistani rupee"
+msgstr ""
+
+#: includes/utility.php:592
+msgid "Polish z&#x142;oty"
+msgstr ""
+
+#: includes/utility.php:593
+msgid "Transnistrian ruble"
+msgstr ""
+
+#: includes/utility.php:594
+msgid "Paraguayan guaran&iacute;"
+msgstr ""
+
+#: includes/utility.php:595
+msgid "Qatari riyal"
+msgstr ""
+
+#: includes/utility.php:596
+msgid "Romanian leu"
+msgstr ""
+
+#: includes/utility.php:597
+msgid "Serbian dinar"
+msgstr ""
+
+#: includes/utility.php:598
+msgid "Russian ruble"
+msgstr ""
+
+#: includes/utility.php:599
+msgid "Rwandan franc"
+msgstr ""
+
+#: includes/utility.php:600
+msgid "Saudi riyal"
+msgstr ""
+
+#: includes/utility.php:601
+msgid "Solomon Islands dollar"
+msgstr ""
+
+#: includes/utility.php:602
+msgid "Seychellois rupee"
+msgstr ""
+
+#: includes/utility.php:603
+msgid "Sudanese pound"
+msgstr ""
+
+#: includes/utility.php:604
+msgid "Swedish krona"
+msgstr ""
+
+#: includes/utility.php:605
+msgid "Singapore dollar"
+msgstr ""
+
+#: includes/utility.php:606
+msgid "Saint Helena pound"
+msgstr ""
+
+#: includes/utility.php:607
+msgid "Sierra Leonean leone"
+msgstr ""
+
+#: includes/utility.php:608
+msgid "Somali shilling"
+msgstr ""
+
+#: includes/utility.php:609
+msgid "Surinamese dollar"
+msgstr ""
+
+#: includes/utility.php:610
+msgid "South Sudanese pound"
+msgstr ""
+
+#: includes/utility.php:611
+msgid "S&atilde;o Tom&eacute; and Pr&iacute;ncipe dobra"
+msgstr ""
+
+#: includes/utility.php:612
+msgid "Syrian pound"
+msgstr ""
+
+#: includes/utility.php:613
+msgid "Swazi lilangeni"
+msgstr ""
+
+#: includes/utility.php:614
+msgid "Thai baht"
+msgstr ""
+
+#: includes/utility.php:615
+msgid "Tajikistani somoni"
+msgstr ""
+
+#: includes/utility.php:616
+msgid "Turkmenistan manat"
+msgstr ""
+
+#: includes/utility.php:617
+msgid "Tunisian dinar"
+msgstr ""
+
+#: includes/utility.php:618
+msgid "Tongan pa&#x2bb;anga"
+msgstr ""
+
+#: includes/utility.php:619
+msgid "Turkish lira"
+msgstr ""
+
+#: includes/utility.php:620
+msgid "Trinidad and Tobago dollar"
+msgstr ""
+
+#: includes/utility.php:621
+msgid "New Taiwan dollar"
+msgstr ""
+
+#: includes/utility.php:622
+msgid "Tanzanian shilling"
+msgstr ""
+
+#: includes/utility.php:623
+msgid "Ukrainian hryvnia"
+msgstr ""
+
+#: includes/utility.php:624
+msgid "Ugandan shilling"
+msgstr ""
+
+#: includes/utility.php:625
+msgid "United States dollar"
+msgstr ""
+
+#: includes/utility.php:626
+msgid "Uruguayan peso"
+msgstr ""
+
+#: includes/utility.php:627
+msgid "Uzbekistani som"
+msgstr ""
+
+#: includes/utility.php:628
+msgid "Venezuelan bol&iacute;var"
+msgstr ""
+
+#: includes/utility.php:629
+msgid "Vietnamese &#x111;&#x1ed3;ng"
+msgstr ""
+
+#: includes/utility.php:630
+msgid "Vanuatu vatu"
+msgstr ""
+
+#: includes/utility.php:631
+msgid "Samoan t&#x101;l&#x101;"
+msgstr ""
+
+#: includes/utility.php:632
+msgid "Central African CFA franc"
+msgstr ""
+
+#: includes/utility.php:633
+msgid "East Caribbean dollar"
+msgstr ""
+
+#: includes/utility.php:634
+msgid "West African CFA franc"
+msgstr ""
+
+#: includes/utility.php:635
+msgid "CFP franc"
+msgstr ""
+
+#: includes/utility.php:636
+msgid "Yemeni rial"
+msgstr ""
+
+#: includes/utility.php:637
+msgid "South African rand"
+msgstr ""
+
+#: includes/utility.php:638
+msgid "Zambian kwacha"
+msgstr ""
+
+#: includes/utility.php:911 themes/iw_booking_rooms_grid.php:46
+#: themes/iw_booking_rooms_list.php:42
+msgid " / Night"
+msgstr ""
+
+#: includes/views/booking-statistic.php:33
+msgid "Filter By"
+msgstr ""
+
+#: includes/views/booking-statistic.php:35
+msgid "Day"
+msgstr ""
+
+#: includes/views/booking-statistic.php:36
+msgid "Month"
+msgstr ""
+
+#: includes/views/booking-statistic.php:37
+msgid "Year"
+msgstr ""
+
+#: includes/views/booking-statistic.php:41
+msgid "Select day"
+msgstr ""
+
+#: includes/views/booking-statistic.php:43
+msgid "Last 5 days"
+msgstr ""
+
+#: includes/views/booking-statistic.php:44
+msgid "Last 10 days"
+msgstr ""
+
+#: includes/views/booking-statistic.php:48
+msgid "Select month"
+msgstr ""
+
+#: includes/views/booking-statistic.php:50
+msgid "Last 5 months"
+msgstr ""
+
+#: includes/views/booking-statistic.php:51
+msgid "Last 10 months"
+msgstr ""
+
+#: includes/views/booking-statistic.php:55
+msgid "Select year"
+msgstr ""
+
+#: includes/views/booking-statistic.php:57
+msgid "Last 5 years"
+msgstr ""
+
+#: includes/views/booking-statistic.php:58
+msgid "Last 10 years"
+msgstr ""
+
+#: includes/views/booking-statistic.php:66
+msgid "Statistic"
+msgstr ""
+
+#: includes/views/booking-statistic.php:70
+msgid "Orders"
+msgstr ""
+
+#: includes/views/booking-statistic.php:85
+msgid "New Content"
+msgstr ""
+
+#: includes/views/discount.edit.php:29 includes/views/extrafield.edit.php:29
+#: includes/views/service.edit.php:29
+msgid "Add New Other"
+msgstr ""
+
+#: includes/views/discount.edit.php:32
+msgid "Add new Discount"
+msgstr ""
+
+#: includes/views/discount.edit.php:39 includes/views/discount.list.php:40
+#: includes/views/extrafield.edit.php:38 includes/views/extrafield.list.php:52
+#: includes/views/service.edit.php:39 includes/views/service.list.php:52
+#: includes/views/settings.php:203 includes/views/settings.php:280
+msgid "Name"
+msgstr ""
+
+#: includes/views/discount.edit.php:45
+msgid "Name of Discount"
+msgstr ""
+
+#: includes/views/discount.edit.php:50
+msgid "Discount Code"
+msgstr ""
+
+#: includes/views/discount.edit.php:53
+msgid "SUN-123456789"
+msgstr ""
+
+#: includes/views/discount.edit.php:59 includes/views/extrafield.edit.php:60
+#: includes/views/extrafield.list.php:53 includes/views/service.list.php:53
+#: includes/views/settings.php:204 includes/views/settings.php:281
+msgid "Type"
+msgstr ""
+
+#: includes/views/discount.edit.php:64
+msgid "Fixed"
+msgstr ""
+
+#: includes/views/discount.edit.php:65
+msgid "Percent"
+msgstr ""
+
+#: includes/views/discount.edit.php:79
+msgid "Value to discount"
+msgstr ""
+
+#: includes/views/discount.edit.php:83 includes/views/discount.list.php:42
+msgid "Time Start"
+msgstr ""
+
+#: includes/views/discount.edit.php:92 includes/views/discount.list.php:43
+msgid "Time End"
+msgstr ""
+
+#: includes/views/discount.edit.php:106
+msgid "Number of discount code available."
+msgstr ""
+
+#: includes/views/discount.edit.php:110 includes/views/extrafield.edit.php:203
+#: includes/views/service.edit.php:76 themes/roominfo.php:68
+msgid "Description"
+msgstr ""
+
+#: includes/views/discount.edit.php:139 includes/views/extrafield.edit.php:237
+#: includes/views/service.edit.php:102
+msgid "Save"
+msgstr ""
+
+#: includes/views/discount.list.php:27 includes/views/extrafield.list.php:27
+#: includes/views/member.list.php:27 includes/views/payment.list.php:28
+#: includes/views/service.list.php:27
+msgid "Add New"
+msgstr ""
+
+#: includes/views/discount.list.php:29 includes/views/discount.list.php:68
+#: includes/views/extrafield.list.php:29 includes/views/extrafield.list.php:78
+#: includes/views/logs.list.php:28 includes/views/logs.list.php:78
+#: includes/views/logs.view.php:78 includes/views/member.list.php:29
+#: includes/views/member.list.php:78 includes/views/payment.list.php:30
+#: includes/views/payment.list.php:109 includes/views/service.list.php:29
+#: includes/views/service.list.php:81
+msgid "Delete"
+msgstr ""
+
+#: includes/views/discount.list.php:37 includes/views/extrafield.list.php:49
+#: includes/views/logs.list.php:40 includes/views/member.list.php:49
+#: includes/views/payment.list.php:70 includes/views/service.list.php:49
+msgid "Select All"
+msgstr ""
+
+#: includes/views/discount.list.php:41 includes/views/payment.edit.php:35
+msgid "Code"
+msgstr ""
+
+#: includes/views/discount.list.php:63 includes/views/discount.list.php:67
+#: includes/views/extrafield.list.php:73 includes/views/extrafield.list.php:77
+#: includes/views/payment.list.php:106 includes/views/service.list.php:76
+#: includes/views/service.list.php:80
+msgid "Edit this item"
+msgstr ""
+
+#: includes/views/discount.list.php:67 includes/views/extrafield.list.php:77
+#: includes/views/member.list.php:77 includes/views/payment.list.php:106
+#: includes/views/service.list.php:80
+msgid "Edit"
+msgstr ""
+
+#: includes/views/discount.list.php:68 includes/views/extrafield.list.php:78
+#: includes/views/service.list.php:81
+msgid "Move this item to the Trash"
+msgstr ""
+
+#: includes/views/discount.list.php:75 includes/views/extrafield.list.php:100
+#: includes/views/service.list.php:86 includes/views/settings.php:323
+msgid "No"
+msgstr ""
+
+#: includes/views/discount.list.php:75 includes/views/extrafield.list.php:100
+#: includes/views/service.list.php:86 includes/views/settings.php:324
+msgid "Yes"
+msgstr ""
+
+#: includes/views/discount.list.php:88 includes/views/extrafield.list.php:115
+#: includes/views/logs.list.php:104 includes/views/member.list.php:95
+#: includes/views/payment.list.php:165 includes/views/service.list.php:100
+msgid "No result"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:32
+msgid "Add new Room Extrafield"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:44
+msgid "Name of booking extrafield"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:65
+msgid "Textarea"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:66 includes/views/logs.list.php:47
+#: includes/views/logs.view.php:62
+msgid "Link"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:67
+msgid "Image"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:68
+msgid "Measurement"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:70
+msgid "Dropdown list"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:71
+msgid "Date"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:78
+msgid "Extrafield type"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:83
+msgid "Default value"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:87
+msgid "Some Text value here"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:123
+msgid "Unit"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:124
+msgid "Enter unit. Example: $, Kg, m2"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:129
+msgid "Text value"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:143
+msgid "VALUE|TEXT|1"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:144
+msgid ""
+"Multiple options are separated by newline with syntax: Value|Text|Selected(1 "
+"or 0). Example:<br />VALUE_1|TEXT_1|1<br />VALUE_2|TEXT_2|0<br />VALUE_3|"
+"TEXT_3|1"
+msgstr ""
+
+#: includes/views/extrafield.edit.php:209
+msgid "More information of extrafield"
+msgstr ""
+
+#: includes/views/extrafield.list.php:34 includes/views/member.list.php:34
+#: includes/views/payment.list.php:38 includes/views/service.list.php:34
+msgid "Filter"
+msgstr ""
+
+#: includes/views/extrafield.list.php:35 includes/views/member.list.php:35
+#: includes/views/payment.list.php:39 includes/views/service.list.php:35
+msgid "Input keyword to search"
+msgstr ""
+
+#: includes/views/extrafield.list.php:39 includes/views/member.list.php:39
+#: includes/views/payment.list.php:58 includes/views/service.list.php:39
+msgid "Search"
+msgstr ""
+
+#: includes/views/extrafield.list.php:93
+msgid ",..."
+msgstr ""
+
+#: includes/views/logs.list.php:26
+msgid "Logs"
+msgstr ""
+
+#: includes/views/logs.list.php:30
+msgid "Clear Logs"
+msgstr ""
+
+#: includes/views/logs.list.php:45 includes/views/logs.view.php:46
+#: includes/views/settings.php:183
+msgid "Message"
+msgstr ""
+
+#: includes/views/logs.list.php:46
+msgid "Time"
+msgstr ""
+
+#: includes/views/logs.list.php:69 includes/views/logs.list.php:75
+msgid "View item"
+msgstr ""
+
+#: includes/views/logs.list.php:75 includes/views/payment.list.php:112
+msgid "View"
+msgstr ""
+
+#: includes/views/logs.list.php:77
+msgid "Delete log"
+msgstr ""
+
+#: includes/views/logs.view.php:24
+msgid "Log detail"
+msgstr ""
+
+#: includes/views/logs.view.php:30
+msgid "ID"
+msgstr ""
+
+#: includes/views/logs.view.php:38
+msgid "Log type"
+msgstr ""
+
+#: includes/views/logs.view.php:54
+msgid "Log time"
+msgstr ""
+
+#: includes/views/logs.view.php:79 includes/views/payment.edit.php:346
+#: includes/views/payment.view.php:307
+msgid "Back to list"
+msgstr ""
+
+#: includes/views/member.edit.php:27
+msgid "Edit member"
+msgstr ""
+
+#: includes/views/member.edit.php:71 includes/views/payment.edit.php:347
+msgid "Save Update"
+msgstr ""
+
+#: includes/views/member.list.php:56
+msgid "Action"
+msgstr ""
+
+#: includes/views/member.list.php:77
+msgid "Edit this member"
+msgstr ""
+
+#: includes/views/member.list.php:78
+msgid "Delete this member"
+msgstr ""
+
+#: includes/views/payment.edit.php:30 includes/views/payment.view.php:309
+msgid "Edit order"
+msgstr ""
+
+#: includes/views/payment.edit.php:43 includes/views/payment.view.php:42
+msgid "Sum Price"
+msgstr ""
+
+#: includes/views/payment.edit.php:74 includes/views/payment.view.php:73
+#: includes/views/settings.php:83
+msgid "Tax"
+msgstr ""
+
+#: includes/views/payment.edit.php:83 includes/views/payment.edit.php:333
+#: includes/views/payment.view.php:82 includes/views/payment.view.php:297
+msgid "Grand price"
+msgstr ""
+
+#: includes/views/payment.edit.php:99 includes/views/payment.view.php:90
+msgid "Paid"
+msgstr ""
+
+#: includes/views/payment.edit.php:107 includes/views/payment.view.php:102
+msgid "Time start"
+msgstr ""
+
+#: includes/views/payment.edit.php:117 includes/views/payment.view.php:110
+msgid "Time end"
+msgstr ""
+
+#: includes/views/payment.edit.php:125 includes/views/payment.list.php:77
+#: includes/views/payment.view.php:118
+msgid "Note"
+msgstr ""
+
+#: includes/views/payment.edit.php:137
+msgid "Complated"
+msgstr ""
+
+#: includes/views/payment.edit.php:162 includes/views/payment.view.php:151
+msgid "Time created"
+msgstr ""
+
+#: includes/views/payment.edit.php:170 includes/views/payment.view.php:159
+msgid "Last update"
+msgstr ""
+
+#: includes/views/payment.edit.php:181 includes/views/payment.view.php:171
+msgid "Member Info"
+msgstr ""
+
+#: includes/views/payment.edit.php:191 includes/views/payment.view.php:181
+msgid "First name"
+msgstr ""
+
+#: includes/views/payment.edit.php:199 includes/views/payment.view.php:189
+msgid "Last name"
+msgstr ""
+
+#: includes/views/payment.edit.php:207 includes/views/payment.view.php:197
+#: includes/views/settings.php:185
+msgid "Email"
+msgstr ""
+
+#: includes/views/payment.edit.php:215 includes/views/payment.view.php:205
+#: includes/views/settings.php:184
+msgid "Phone"
+msgstr ""
+
+#: includes/views/payment.edit.php:223 includes/views/payment.view.php:213
+msgid "Address"
+msgstr ""
+
+#: includes/views/payment.edit.php:280 includes/views/payment.view.php:244
+msgid "Room info"
+msgstr ""
+
+#: includes/views/payment.edit.php:285
+msgid "#"
+msgstr ""
+
+#: includes/views/payment.edit.php:286
+msgid "Item name"
+msgstr ""
+
+#: includes/views/payment.edit.php:287 includes/views/payment.view.php:251
+msgid "Item price"
+msgstr ""
+
+#: includes/views/payment.edit.php:288 includes/views/payment.view.php:252
+msgid "Room price"
+msgstr ""
+
+#: includes/views/payment.edit.php:302 includes/views/payment.view.php:266
+msgid "Adult : "
+msgstr ""
+
+#: includes/views/payment.edit.php:303 includes/views/payment.view.php:267
+msgid "Children : "
+msgstr ""
+
+#: includes/views/payment.edit.php:318 includes/views/payment.view.php:282
+msgid "Service : "
+msgstr ""
+
+#: includes/views/payment.list.php:50 includes/views/payment.view.php:138
+msgid "Cancel"
+msgstr ""
+
+#: includes/views/payment.list.php:73
+msgid "Order #"
+msgstr ""
+
+#: includes/views/payment.list.php:74
+msgid "Customer Name"
+msgstr ""
+
+#: includes/views/payment.list.php:75
+msgid "Customer Email"
+msgstr ""
+
+#: includes/views/payment.list.php:78
+msgid "Time Created"
+msgstr ""
+
+#: includes/views/payment.list.php:100 includes/views/payment.list.php:111
+msgid "View order"
+msgstr ""
+
+#: includes/views/payment.list.php:108
+msgid "Delete this order"
+msgstr ""
+
+#: includes/views/payment.view.php:27
+msgid "Order Detail"
+msgstr ""
+
+#: includes/views/payment.view.php:34 includes/views/settings.php:201
+#: includes/views/settings.php:278
+msgid "Order"
+msgstr ""
+
+#: includes/views/payment.view.php:135
+msgid "Complate"
+msgstr ""
+
+#: includes/views/payment.view.php:250
+msgid "Item"
+msgstr ""
+
+#: includes/views/payment.view.php:328
+msgid "Your booking has completed. Thanks for donate with us"
+msgstr ""
+
+#: includes/views/payment.view.php:330
+msgid "Your booking don't completed."
+msgstr ""
+
+#: includes/views/service.edit.php:28
+msgid "Edit Service"
+msgstr ""
+
+#: includes/views/service.edit.php:32
+msgid "Add new Service"
+msgstr ""
+
+#: includes/views/service.edit.php:45
+msgid "Name of Service"
+msgstr ""
+
+#: includes/views/service.edit.php:50
+msgid "Service type"
+msgstr ""
+
+#: includes/views/service.edit.php:55
+msgid "Basic"
+msgstr ""
+
+#: includes/views/service.edit.php:56
+msgid "Premium"
+msgstr ""
+
+#: includes/views/service.list.php:81
+msgid "Are you sure do this?"
+msgstr ""
+
+#: includes/views/settings.php:28
+msgid "General"
+msgstr ""
+
+#: includes/views/settings.php:31
+msgid "Registration form"
+msgstr ""
+
+#: includes/views/settings.php:34
+msgid "Payment"
+msgstr ""
+
+#: includes/views/settings.php:37
+msgid "Message template"
+msgstr ""
+
+#: includes/views/settings.php:50
+msgid "Currency"
+msgstr ""
+
+#: includes/views/settings.php:59
+msgid "Currency for payment"
+msgstr ""
+
+#: includes/views/settings.php:64
+msgid "Currency Position"
+msgstr ""
+
+#: includes/views/settings.php:69
+msgid "Left"
+msgstr ""
+
+#: includes/views/settings.php:70
+msgid "Left with space"
+msgstr ""
+
+#: includes/views/settings.php:71
+msgid "Right"
+msgstr ""
+
+#: includes/views/settings.php:72
+msgid "Right with space"
+msgstr ""
+
+#: includes/views/settings.php:78
+msgid "Currency position"
+msgstr ""
+
+#: includes/views/settings.php:89
+msgid "In percent .Ex 10"
+msgstr ""
+
+#: includes/views/settings.php:94
+msgid "Booking slug"
+msgstr ""
+
+#: includes/views/settings.php:100
+msgid "Slug for booking post"
+msgstr ""
+
+#: includes/views/settings.php:105
+msgid "Category slug"
+msgstr ""
+
+#: includes/views/settings.php:111
+msgid "Slug for event category"
+msgstr ""
+
+#: includes/views/settings.php:116 includes/views/settings.php:129
+msgid "Booking page"
+msgstr ""
+
+#: includes/views/settings.php:134
+msgid "Check order page"
+msgstr ""
+
+#: includes/views/settings.php:142
+msgid "Allow user check order infomation"
+msgstr ""
+
+#: includes/views/settings.php:147
+msgid "Clear order times"
+msgstr ""
+
+#: includes/views/settings.php:153
+msgid ""
+"Times to clear invalid bookings order with unit is hour. Eg: 0.5 for 30 "
+"minutes, 1 for 1 hour, 24 for 1 day..."
+msgstr ""
+
+#: includes/views/settings.php:158
+msgid "Reservation room per page"
+msgstr ""
+
+#: includes/views/settings.php:164
+msgid "Number of rooms per page in reservation page"
+msgstr ""
+
+#: includes/views/settings.php:169
+msgid "Reservation datepicker format"
+msgstr ""
+
+#: includes/views/settings.php:175
+#, php-format
+msgid ""
+"Format a date into a string value with a specified format The format can be "
+"combinations at <a href=\"%s\" target=\"_blank\">here</a>"
+msgstr ""
+
+#: includes/views/settings.php:180
+msgid "Reservation completed page"
+msgstr ""
+
+#: includes/views/settings.php:188
+msgid "These message will be displayed when reservation is completed."
+msgstr ""
+
+#: includes/views/settings.php:198
+msgid "Field manager"
+msgstr ""
+
+#: includes/views/settings.php:202 includes/views/settings.php:279
+msgid "Label"
+msgstr ""
+
+#: includes/views/settings.php:205 includes/views/settings.php:282
+msgid "Default Value"
+msgstr ""
+
+#: includes/views/settings.php:206 includes/views/settings.php:283
+msgid "Show on List"
+msgstr ""
+
+#: includes/views/settings.php:206 includes/views/settings.php:283
+msgid "SL"
+msgstr ""
+
+#: includes/views/settings.php:207 includes/views/settings.php:284
+msgid "Require Field"
+msgstr ""
+
+#: includes/views/settings.php:207 includes/views/settings.php:284
+msgid "RF"
+msgstr ""
+
+#: includes/views/settings.php:208 includes/views/settings.php:285
+msgid "Actions"
+msgstr ""
+
+#: includes/views/settings.php:290
+msgid "Add new field"
+msgstr ""
+
+#: includes/views/settings.php:302
+msgid "PAYPAL"
+msgstr ""
+
+#: includes/views/settings.php:308
+msgid "Paypal email"
+msgstr ""
+
+#: includes/views/settings.php:311
+msgid "example@domain.com"
+msgstr ""
+
+#: includes/views/settings.php:314
+msgid "Paypal email to use in payment.  Disable if empty"
+msgstr ""
+
+#: includes/views/settings.php:319
+msgid "Test mode"
+msgstr ""
+
+#: includes/views/settings.php:328
+msgid "Enable test mode for paypal checkout"
+msgstr ""
+
+#: includes/views/settings.php:340
+msgid "Order created"
+msgstr ""
+
+#: includes/views/settings.php:347 includes/views/settings.php:407
+#: includes/views/settings.php:467 includes/views/settings.php:527
+msgid "Enable"
+msgstr ""
+
+#: includes/views/settings.php:357 includes/views/settings.php:417
+#: includes/views/settings.php:477 includes/views/settings.php:537
+msgid "Email title"
+msgstr ""
+
+#: includes/views/settings.php:367 includes/views/settings.php:427
+#: includes/views/settings.php:487 includes/views/settings.php:547
+msgid "Recipient(s)"
+msgstr ""
+
+#: includes/views/settings.php:377 includes/views/settings.php:437
+#: includes/views/settings.php:497 includes/views/settings.php:557
+msgid "Email content"
+msgstr ""
+
+#: includes/views/settings.php:383 includes/views/settings.php:443
+#: includes/views/settings.php:503 includes/views/settings.php:563
+msgid "Variables"
+msgstr ""
+
+#: includes/views/settings.php:384 includes/views/settings.php:444
+#: includes/views/settings.php:504 includes/views/settings.php:564
+msgid "Name of your site"
+msgstr ""
+
+#: includes/views/settings.php:385 includes/views/settings.php:445
+#: includes/views/settings.php:505 includes/views/settings.php:565
+msgid "Customer first name"
+msgstr ""
+
+#: includes/views/settings.php:386 includes/views/settings.php:446
+#: includes/views/settings.php:506 includes/views/settings.php:566
+msgid "Customer last name"
+msgstr ""
+
+#: includes/views/settings.php:387 includes/views/settings.php:447
+#: includes/views/settings.php:507 includes/views/settings.php:567
+msgid "Customer email"
+msgstr ""
+
+#: includes/views/settings.php:388 includes/views/settings.php:448
+#: includes/views/settings.php:508 includes/views/settings.php:568
+msgid "Admin email"
+msgstr ""
+
+#: includes/views/settings.php:389 includes/views/settings.php:449
+#: includes/views/settings.php:509 includes/views/settings.php:569
+msgid "Booking order view infomation link"
+msgstr ""
+
+#: includes/views/settings.php:390 includes/views/settings.php:450
+#: includes/views/settings.php:510 includes/views/settings.php:570
+msgid "Booking order code"
+msgstr ""
+
+#: includes/views/settings.php:391 includes/views/settings.php:451
+#: includes/views/settings.php:511 includes/views/settings.php:571
+msgid "Booking order id"
+msgstr ""
+
+#: includes/views/settings.php:400
+msgid "Order on hold"
+msgstr ""
+
+#: includes/views/settings.php:460
+msgid "Order Cancelled"
+msgstr ""
+
+#: includes/views/settings.php:520
+msgid "Order Completed"
+msgstr ""
+
+#: themes/added_room.php:25 themes/check_order_page.php:107
+#, php-format
+msgid "%d Review"
+msgid_plural "%d Reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: themes/added_room.php:32
+#, php-format
+msgid "Includes: %s"
+msgstr ""
+
+#: themes/added_room.php:33
+#, php-format
+msgid "Deposit: %s"
+msgstr ""
+
+#: themes/added_room.php:33 themes/iw_booking_rooms_grid.php:40
+#: themes/iw_booking_rooms_list.php:48 themes/reservation_page_rooms.php:54
+#, php-format
+msgid "Required %d%%"
+msgstr ""
+
+#: themes/added_room.php:33 themes/iw_booking_rooms_detail_related.php:74
+#: themes/iw_booking_rooms_grid.php:40 themes/iw_booking_rooms_list.php:48
+#: themes/reservation_page_rooms.php:54
+msgid "Not Required"
+msgstr ""
+
+#: themes/added_room.php:36
+#, php-format
+msgid "Rooms: %s"
+msgstr ""
+
+#: themes/added_room.php:37
+#, php-format
+msgid "Passenger: %s"
+msgstr ""
+
+#: themes/check_availability_block.php:23
+msgid "Check-in"
+msgstr ""
+
+#: themes/check_availability_block.php:35
+msgid "Check-out"
+msgstr ""
+
+#: themes/check_availability_block.php:47 themes/reservation_page.php:109
+msgid "Adult"
+msgstr ""
+
+#: themes/check_order_page.php:23
+msgid "Check your booking"
+msgstr ""
+
+#: themes/check_order_page.php:29
+msgid "Your Email"
+msgstr ""
+
+#: themes/check_order_page.php:36
+msgid "Your booking code"
+msgstr ""
+
+#: themes/check_order_page.php:43
+msgid "Have not booked? Book now"
+msgstr ""
+
+#: themes/check_order_page.php:47
+msgid "check your booking"
+msgstr ""
+
+#: themes/check_order_page.php:64
+msgid "Your booking overview"
+msgstr ""
+
+#: themes/check_order_page.php:68
+#, php-format
+msgid "Arrival date: <span>%s</span>"
+msgstr ""
+
+#: themes/check_order_page.php:69
+#, php-format
+msgid "Departure date: <span>%s</span>"
+msgstr ""
+
+#: themes/check_order_page.php:114
+#, php-format
+msgid "Adult: %s"
+msgstr ""
+
+#: themes/check_order_page.php:115
+#, php-format
+msgid "Children: %s"
+msgstr ""
+
+#: themes/check_order_page.php:117
+#, php-format
+msgid "Service: %s"
+msgstr ""
+
+#: themes/check_order_page.php:141
+msgid "Pay my booking"
+msgstr ""
+
+#: themes/check_order_page.php:144
+msgid "Cancal my booking"
+msgstr ""
+
+#: themes/check_order_page.php:152
+msgid "Your booking order has been completed"
+msgstr ""
+
+#: themes/check_order_page.php:155
+msgid "Your booking order has been cancelled"
+msgstr ""
+
+#: themes/check_order_page.php:169
+msgid "sorry we did not find any results"
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:50
+#: themes/iw_booking_rooms_grid.php:34 themes/iw_booking_rooms_list.php:33
+#: themes/reservation_page_rooms.php:46
+msgid " Review"
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:56
+#: themes/iw_booking_rooms_grid.php:39 themes/iw_booking_rooms_list.php:47
+msgid "Status: "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:67
+#: themes/iw_booking_rooms_grid.php:40 themes/iw_booking_rooms_list.php:48
+#: themes/reservation_page_rooms.php:54
+msgid "Deposit: "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:72
+msgid "Required "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:80
+#: themes/iw_booking_rooms_grid.php:41 themes/iw_booking_rooms_list.php:49
+#: themes/roominfo.php:59
+msgid "Beds: "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:86
+#: themes/iw_booking_rooms_grid.php:42 themes/iw_booking_rooms_list.php:50
+#: themes/roominfo.php:58
+msgid "Passenger: "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:99
+msgid "Details"
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:102
+#: themes/iw_booking_rooms_grid.php:46
+msgid "Starting at "
+msgstr ""
+
+#: themes/iw_booking_rooms_detail_related.php:102 themes/roominfo.php:55
+msgid "/night"
+msgstr ""
+
+#: themes/iw_booking_rooms_grid.php:39 themes/iw_booking_rooms_list.php:47
+#, php-format
+msgid "%d Room left"
+msgid_plural "%d Rooms left"
+msgstr[0] ""
+msgstr[1] ""
+
+#: themes/iw_booking_rooms_grid.php:45
+msgid "Detail "
+msgstr ""
+
+#: themes/iw_booking_rooms_list.php:42
+msgid "Start from "
+msgstr ""
+
+#: themes/iw_booking_rooms_list.php:52
+msgid "View Detail "
+msgstr ""
+
+#: themes/iw_booking_rooms_slider.php:35
+msgid "Starting from "
+msgstr ""
+
+#: themes/iw_booking_rooms_slider.php:36
+#, php-format
+msgid "%s / Night"
+msgstr ""
+
+#: themes/reservation_page.php:21
+msgid "1. Choose date"
+msgstr ""
+
+#: themes/reservation_page.php:22
+msgid "2. Select rooms"
+msgstr ""
+
+#: themes/reservation_page.php:23
+msgid "3. Make a reservation"
+msgstr ""
+
+#: themes/reservation_page.php:24
+msgid "4. Comfirmation"
+msgstr ""
+
+#: themes/reservation_page.php:29
+msgid "Your reservation"
+msgstr ""
+
+#: themes/reservation_page.php:69 themes/reservation_page.php:72
+msgid "Check in"
+msgstr ""
+
+#: themes/reservation_page.php:77
+msgid "Night"
+msgstr ""
+
+#: themes/reservation_page.php:87 themes/reservation_page.php:90
+msgid "Check out"
+msgstr ""
+
+#: themes/reservation_page.php:95 themes/reservation_page.php:106
+msgid "Room"
+msgstr ""
+
+#: themes/reservation_page.php:117
+msgid "Children"
+msgstr ""
+
+#: themes/reservation_page.php:128
+msgid "Check availability"
+msgstr ""
+
+#: themes/reservation_page_bar.php:10
+#, php-format
+msgid "Room %d:"
+msgstr ""
+
+#: themes/reservation_page_bar.php:12 themes/reservation_page_bar.php:45
+#: themes/reservation_page_bar.php:62
+#, php-format
+msgid "Adult: %d"
+msgstr ""
+
+#: themes/reservation_page_bar.php:13 themes/reservation_page_bar.php:46
+#: themes/reservation_page_bar.php:63
+#, php-format
+msgid "Children: %d"
+msgstr ""
+
+#: themes/reservation_page_bar.php:14 themes/reservation_page_bar.php:35
+msgid "Change room"
+msgstr ""
+
+#: themes/reservation_page_bar.php:29
+#: themes/reservation_page_bar_summary.php:16
+msgid "Services : "
+msgstr ""
+
+#: themes/reservation_page_bar.php:43 themes/reservation_page_bar.php:60
+#, php-format
+msgid "Room: %d"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:8
+#, php-format
+msgid "Room %d : "
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:10
+#, php-format
+msgid "Adult : %d"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:11
+#, php-format
+msgid "Children : %d"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:19
+msgid "<span class=\"price-free price\">Free</span>"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:31
+msgid "Total"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:40
+#, php-format
+msgid "Discount %s%%"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:42
+msgid "Discount price"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:53
+#, php-format
+msgid "Tax %d%%"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:61
+msgid "Grand Total"
+msgstr ""
+
+#: themes/reservation_page_bar_summary.php:67
+msgid "Edit booking"
+msgstr ""
+
+#: themes/reservation_page_completed.php:2
+#: themes/reservation_page_completed.php:5
+msgid "Reservation Completed!"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:2
+msgid "Make a reservation"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:60
+msgid "Order Notes"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:77
+msgid "Payment directly at hotel"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:78
+msgid "Payment online full price"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:79
+#, php-format
+msgid ""
+"Payment online deposit price <span class=\"booking-deposit-price\">%s</span>"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:85
+msgid "Pay now"
+msgstr ""
+
+#: themes/reservation_page_contact_form.php:85
+msgid "Contact now"
+msgstr ""
+
+#: themes/reservation_page_coupon.php:2 themes/reservation_page_coupon.php:4
+msgid "Room Selection is Complete"
+msgstr ""
+
+#: themes/reservation_page_coupon.php:5
+msgid "You can edit your booking by using the panel on the left"
+msgstr ""
+
+#: themes/reservation_page_coupon.php:6
+msgid "And You have coupon please input below"
+msgstr ""
+
+#: themes/reservation_page_coupon.php:7
+msgid "Coupon code : "
+msgstr ""
+
+#: themes/reservation_page_coupon.php:8
+msgid "Enter your coupon code"
+msgstr ""
+
+#: themes/reservation_page_coupon.php:10
+msgid "Go to next step"
+msgstr ""
+
+#: themes/reservation_page_rooms.php:5
+msgid "Room available for you"
+msgstr ""
+
+#: themes/reservation_page_rooms.php:26
+msgid "Select"
+msgstr ""
+
+#: themes/reservation_page_rooms.php:56
+msgid "Available: "
+msgstr ""
+
+#: themes/reservation_page_rooms.php:56
+msgid "Unlimited"
+msgstr ""
+
+#: themes/reservation_page_rooms.php:58
+msgid "Passenger/Beds: "
+msgstr ""
+
+#: themes/reservation_page_rooms.php:95
+msgid "Room is not available"
+msgstr ""
+
+#: themes/roominfo.php:54
+msgid "Start from:"
+msgstr ""
+
+#: themes/roominfo.php:74
+msgid "Amenities"
+msgstr ""
+
+#: themes/roominfo.php:109
+msgid "Related rooms"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Inwave Booking"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://booking.inwavethemes.com"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Inwavethemes"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.inwavethemes.com"
+msgstr ""
