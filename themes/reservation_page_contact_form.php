@@ -72,7 +72,7 @@
 				<?php
 				global $iwb_settings;
 				$using_paypal = isset($iwb_settings['iwb_payment']['paypal']['email']) ? true : false;
-				if($paypal){
+				if($using_paypal){
 				?>
 					<label class="payment-item"><input type="radio" name="payment_method" value="direct" <?php echo $contact_data['payment_method'] == 'direct' ? 'checked' : ''; ?>> <?php esc_html_e('Payment directly at hotel', 'monalisa'); ?></label>
 					<label class="payment-item"><input type="radio" name="payment_method" value="full" <?php echo $contact_data['payment_method'] == 'full' ? 'checked' : ''; ?>> <?php esc_html_e('Payment online full price', 'monalisa'); ?></label>
