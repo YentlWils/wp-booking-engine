@@ -11,6 +11,7 @@ wp-content/wp-cache-config.php
 wp-content/plugins/hello.php
 secrets.json
 node_modules/*
+.idea/*
 
 /.htaccess
 /license.txt

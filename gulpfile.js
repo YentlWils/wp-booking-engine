@@ -1,7 +1,9 @@
 var gulp = require( 'gulp' );
 var gutil = require( 'gulp-util' );
+var sass = require( 'gulp-sass' );
+var postcss = require( 'gulp-postcss' );
 var ftp = require( 'vinyl-ftp' );
-var secrets = require('./secrets.json')
+var secrets = require('./secrets.json');
 
 gulp.task( 'deploy', function () {
     var conn = ftp.create( {
@@ -13,16 +15,7 @@ gulp.task( 'deploy', function () {
     } );
 
     var globs = [
-        'assets/**',
-        'includes/**',
-        'languages/**',
-        'themes/**',
-        'iw_booking.php',
-        'LICENSE',
-        'README.md',
-        'uninstall.php',
-        'wp-booking-engine.iml',
-        'wp-booking-engine.php',
+        'plugin/**'
     ];
 
     // using base = '.' will transfer everything to /public_html correctly 
@@ -33,3 +26,18 @@ gulp.task( 'deploy', function () {
         .pipe( conn.dest( 'dev/wp-content/plugins/wp-booking-engine/' ) );
 
 } );
+
+gulp.task('sass', function(){
+
+       return gulp.src(['src/scss/**/*.scss'])
+            .pipe( sass({ outputStyle: 'compressed' }).on('error', sass.logError) )
+            .pipe( postcss([
+                require('autoprefixer')({ browsers: ['> 1%', '> 1% in my stats', 'ie > 8', 'last 2 versions'], stats: 'browserStats.json' }),
+            ]) )
+    .pipe( gulp.dest("plugin/assets/css") );
+
+});
+
+gulp.task('watch', function(){
+    gulp.watch(['src/**/*.scss'], [ 'sass' ]);
+});
