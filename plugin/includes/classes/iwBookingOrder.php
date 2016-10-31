@@ -38,6 +38,7 @@ class iwBookingOrder {
     public $price;
     public $currency;
     public $note;
+    public $guests;
     public $status;
     public $readed;
 
@@ -149,6 +150,15 @@ class iwBookingOrder {
     function getNote() {
         return $this->note;
     }
+    
+    function getGuests() {
+        if($this->guests){
+            return unserialize($this->guests);
+        }
+        else{
+            return array();
+        }
+    }
 
     function getStatus() {
         return $this->status;
@@ -217,6 +227,10 @@ class iwBookingOrder {
     function setNote($note) {
         $this->note = $note;
     }
+    
+    function setGuests($guests) {
+        $this->guests = $guests;
+    }
 
     function setStatus($status) {
         $this->status = $status;
@@ -241,7 +255,6 @@ class iwBookingOrder {
         return $this;
     }
 
-    // Todo Guests
     function getOrders($atts) {
         global $wpdb;
         $default_attr = array(
@@ -271,17 +284,6 @@ class iwBookingOrder {
         }
 
         $rows = $wpdb->get_results('SELECT o.* FROM ' . $wpdb->prefix . 'iwb_bookings AS o LEFT JOIN ' . $wpdb->prefix . 'iwb_customer as m ON o.customer_id = m.id '.($filter ? ' WHERE ' . $filter : '').' ORDER BY o.' . $ordering . ' ' . $ordering_dir . ' LIMIT '.$start.','. $limit);
-
-	    if (!empty($rows)) {
-		    foreach ($rows as $key => $value) {
-			    if($rows[$key]['guests']){
-				    $rows[$key]['guests'] = unserialize($rows[$key]['guests']);
-			    }
-			    else{
-				    $rows[$key]['guests'] = array();
-			    }
-		    }
-	    }
 
         return $rows;
     }

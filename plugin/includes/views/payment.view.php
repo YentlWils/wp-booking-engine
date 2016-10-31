@@ -162,6 +162,28 @@ $order->changeReaded(1, $order->getId());
                     <span><?php  echo $order->getLast_update() ? date(get_option('date_format'). ' '. get_option('time_format'), $order->getLast_update()) : ''; ?></span>
                 </td>
             </tr>
+            <?php
+                if (count($order->getGuests()) > 0) :
+                    ?>
+
+                        <tr class="alternate">
+                            <td colspan="4"><b><u><?php echo __('Guest info', 'inwavethemes'); ?></u></b></td>
+                        </tr>
+                    <?php
+                    foreach ($order->getGuests() as $key => $guest):
+                        ?>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Guest ', 'inwavethemes'); ?><?php echo ($key + 2) ?></label>
+                            </td>
+                            <td colspan="3">
+                                <span><?php  echo $guest; ?></span>
+                            </td>
+                            </tr>
+            <?php
+                    endforeach;
+                endif;
+            ?>
             <?php if (is_admin()): ?>
                 <tr class="alternate">
                     <td colspan="2">

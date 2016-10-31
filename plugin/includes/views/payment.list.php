@@ -75,6 +75,7 @@ if (isset($_SESSION['bt_message'])) {
                     <th><?php echo __('Customer Email', 'inwavethemes'); ?></th>
                     <th class="column-primary <?php echo $sorted == 'price' ? 'sorted' : 'sortable'; ?> <?php echo ($order_dir ? 'desc' : 'asc'); ?>" scope="col"><a href="<?php echo $order_link . '&orderby=price&dir=' . ($order_dir ? 'desc' : 'asc') ?>"><span><?php echo __('Price', 'inwavethemes'); ?></span><span class="sorting-indicator"></span></a></th>
                     <th><?php echo __('Note', 'inwavethemes'); ?></th>
+                    <th><?php echo __('Guests', 'inwavethemes'); ?></th>
                     <th class="column-primary <?php echo $sorted == 'time_created' ? 'sorted' : 'sortable'; ?> <?php echo ($order_dir ? 'desc' : 'asc'); ?>" scope="col"><a href="<?php echo $order_link . '&orderby=time_created&dir=' . ($order_dir ? 'desc' : 'asc') ?>"><span><?php echo __('Time Created', 'inwavethemes'); ?></span><span class="sorting-indicator"></span></a></th>
                     <th class="column-primary <?php echo $sorted == 'status' ? 'sorted' : 'sortable'; ?> <?php echo ($order_dir ? 'desc' : 'asc'); ?>" scope="col"><a href="<?php echo $order_link . '&orderby=status&dir=' . ($order_dir ? 'desc' : 'asc') ?>"><span><?php echo __('Status', 'inwavethemes'); ?></span><span class="sorting-indicator"></span></a></th>
                 </tr>
@@ -129,6 +130,7 @@ if (isset($_SESSION['bt_message'])) {
                             </td>
                             <td><?php echo $ultility->getMoneyFormated($order->getPrice()); ?></td>
                             <td><?php echo $order->getNote(); ?></td>
+                            <td><?php echo count($order->getGuests()) > 0 ? implode(', ',$order->getGuests()) : "/"; ?></td>
                             <td><?php echo date('m/d/Y', $order->getTime_created()); ?></td>
                             <td><?php
                                 switch ($order->getStatus()) {

@@ -15,16 +15,7 @@ gulp.task( 'deploy', function () {
     } );
 
     var globs = [
-        'plugin/**',
-        'includes/**',
-        'languages/**',
-        'themes/**',
-        'iw_booking.php',
-        'LICENSE',
-        'README.md',
-        'uninstall.php',
-        'wp-booking-engine.iml',
-        'wp-booking-engine.php',
+        'plugin/**'
     ];
 
     // using base = '.' will transfer everything to /public_html correctly 

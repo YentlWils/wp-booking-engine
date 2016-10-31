@@ -467,15 +467,14 @@ class iwBookingUtility {
         return $memberinfo;
     }
 
-    public static function getGuestNames($guests, &$message) {
-        // TODO guest Names
-        foreach ($guests as $field) {
-            echo $field;
-            if ( ( ! isset( $field ) || ! $field  || strlen(trim($field)) <= 0) ) {
-                $message .= "\n".__( 'Please fill all required fields.', 'inwavethemes' );
+    public static function getGuestNames($guestNames, $guests, &$message) {
+        foreach ($guestNames as $field) {
+            if ( !isset( $field) || !$field  || strlen(trim($field)) <= 0) {
+                $message = __( 'Please fill all required fields', 'inwavethemes' );
+                break;
             }
         }
-        return $guests;
+        return $guestNames;
     }
 
     public static function getContactDataDefault(){

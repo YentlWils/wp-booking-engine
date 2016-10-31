@@ -173,6 +173,28 @@ $ultility = new iwBookingUtility();
                         <span><?php echo date('m/d/Y', $order->getLast_update()); ?></span>
                     </td>
                 </tr>
+                <?php
+                if (count($order->getGuests()) > 0) :
+                    ?>
+
+                    <tr class="alternate">
+                        <td colspan="4"><b><u><?php echo __('Guest info', 'inwavethemes'); ?></u></b></td>
+                    </tr>
+                    <?php
+                    foreach ($order->getGuests() as $key => $guest):
+                        ?>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Guest ', 'inwavethemes'); ?><?php echo ($key + 2) ?></label>
+                            </td>
+                            <td colspan="3">
+                                <span><?php  echo $guest; ?></span>
+                            </td>
+                        </tr>
+                        <?php
+                    endforeach;
+                endif;
+                ?>
                 <tr class="alternate">
                     <td colspan="2">
                         <table class="list-table member-info">
