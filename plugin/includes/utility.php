@@ -467,6 +467,17 @@ class iwBookingUtility {
         return $memberinfo;
     }
 
+    public static function getGuestNames($guests, &$message) {
+        // TODO guest Names
+        foreach ($guests as $field) {
+            echo $field;
+            if ( ( ! isset( $field ) || ! $field  || strlen(trim($field)) <= 0) ) {
+                $message .= "\n".__( 'Please fill all required fields.', 'inwavethemes' );
+            }
+        }
+        return $guests;
+    }
+
     public static function getContactDataDefault(){
         $customer = iwBookingCustomer::getCurrentCustomer();
         $contact_data = (array)$customer;

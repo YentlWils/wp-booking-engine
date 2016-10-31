@@ -114,6 +114,7 @@ if (!function_exists('iwBookingInstall')) {
           deposit float(11,2) NOT NULL,
           currency varchar(10) NOT NULL,
           note text NOT NULL,
+          guests varchar(255) DEFAULT NULL,
           status tinyint(3) NOT NULL,
           readed tinyint(3) NOT NULL,
           booking_code varchar(50) DEFAULT NULL,

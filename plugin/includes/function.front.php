@@ -455,6 +455,10 @@ function iwb_booking_rooms(){
             parse_str($_POST['contact'], $contact_data);
             $message = '';
             $member_data = iwBookingUtility::getMemberFieldValue($contact_data, $message);
+
+	        iwBookingUtility::getGuestNames($contact_data['guests'], array_sum($booking_info_data['adult-number']));
+			// TODO guest names
+	        //$message = (count($contact_data['guests']) + 1) . ' ' .  array_sum($booking_info_data['adult-number']);
             if($message){
                 $return['error_message'] = $message;
             }else{
@@ -480,6 +484,7 @@ function iwb_booking_rooms(){
                     $booking_data['status'] = '1';
                     $booking_data['customer_id'] = $customer_id;
                     $booking_data['note'] = $contact_data['note'];
+                    $booking_data['guests'] = $contact_data['guests'] ? serialize($contact_data['guests']) : '';
 
                     $booking_data['rooms'] = $_room_data;
                     $booking_id = $booking->addOrder($booking_data);

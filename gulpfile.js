@@ -15,13 +15,22 @@ gulp.task( 'deploy', function () {
     } );
 
     var globs = [
-        'plugin/**'
+        'plugin/**',
+        'includes/**',
+        'languages/**',
+        'themes/**',
+        'iw_booking.php',
+        'LICENSE',
+        'README.md',
+        'uninstall.php',
+        'wp-booking-engine.iml',
+        'wp-booking-engine.php',
     ];
 
     // using base = '.' will transfer everything to /public_html correctly 
     // turn off buffering in gulp.src for best performance 
 
-    return gulp.src( globs, { base: '.', buffer: false } )
+    return gulp.src( globs, { base: './plugin', buffer: false } )
         .pipe( conn.newer( 'dev/wp-content/plugins/wp-booking-engine/' ) ) // only upload newer files
         .pipe( conn.dest( 'dev/wp-content/plugins/wp-booking-engine/' ) );
 
