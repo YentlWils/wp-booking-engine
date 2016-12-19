@@ -178,6 +178,7 @@ function iwBookingAddSiteScript() {
     wp_register_script('iwbsite-script', plugins_url('/wp-booking-engine/assets/js/booking_script.js'), array('jquery'), '1.0.0', true);
     $iwb_objectL10n = array(
         'date_format' => isset($iwb_settings['general']['reservation_datepicker_format']) && $iwb_settings['general']['reservation_datepicker_format'] ?  $iwb_settings['general']['reservation_datepicker_format'] : 'd M yy',
+        'minBookingDate' => isset($iwb_settings['iwb_villa']['min-days']) && $iwb_settings['iwb_villa']['min-days'] ?  intval($iwb_settings['iwb_villa']['min-days']) : 0,
         'closeText' => __('Done', 'inwavethemes'),
         'currentText' => __('Today', 'inwavethemes'),
         'nextText' => __('Next', 'inwavethemes'),

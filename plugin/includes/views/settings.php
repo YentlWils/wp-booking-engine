@@ -25,6 +25,9 @@ wp_enqueue_script('jquery-ui-sortable');
     <div id="" class="iwbooking-settings iw-tabs event-detail layout2">
         <div class="iw-tab-items">
             <div class="iw-tab-item active">
+                <div class="iw-tab-title"><span><?php _e('The Villa', 'inwavethemes'); ?></span></div>
+            </div>
+            <div class="iw-tab-item">
                 <div class="iw-tab-title"><span><?php _e('General', 'inwavethemes'); ?></span></div>
             </div>
             <div class="iw-tab-item">
@@ -39,7 +42,79 @@ wp_enqueue_script('jquery-ui-sortable');
             <div style="clear: both;"></div>
         </div>
         <div class="iw-tab-content">
-            <div class="iw-tab-item-content">
+            <div class="iw-tab-item-content iw-hidden">
+                <div class="villa-setting-wrap">
+                    <?php
+                    $villa = isset($iwb_settings['iwb_villa']) ? $iwb_settings['iwb_villa'] : array();
+                    ?>
+                    <table class="list-table">
+                        <thead>
+                        <tr>
+                            <th colspan="3"><?php _e('The Villa', 'inwavethemes'); ?></th>
+                        </tr>
+                        </thead>
+                        <tbody class="the-list">
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Price Per day', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['price']) ? $villa['price'] : ''; ?>" type="text" placeholder="<?php echo __('89,50', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][price]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Price per day for rental of the villa', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Minimum booking days', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['min-days']) ? $villa['min-days'] : ''; ?>" type="text" placeholder="<?php echo __('4', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][min-days]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('The minimum booking days a guest must book', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Maximum booking days', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['max-days']) ? $villa['max-days'] : ''; ?>" type="text" placeholder="<?php echo __('20', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][max-days]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('The maximum booking days a guest can book', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Maximum guests (adults)', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['max-adults']) ? $villa['max-adults'] : ''; ?>" type="text" placeholder="<?php echo __('4', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][max-adults]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Maximum adults allowed at the villa', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Maximum Children', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['max-child']) ? $villa['max-child'] : ''; ?>" type="text" placeholder="<?php echo __('2', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][max-child]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Maximum children allowed at the villa', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="iw-tab-item-content iw-hidden">
                 <?php
                 $general = isset($iwb_settings['general']) ? $iwb_settings['general'] : array();
                 ?>
@@ -295,6 +370,7 @@ wp_enqueue_script('jquery-ui-sortable');
                     <?php
                     $payment = isset($iwb_settings['iwb_payment']) ? $iwb_settings['iwb_payment'] : array();
                     $paypal = isset($payment['paypal']) ? $payment['paypal'] : '';
+                    $deposit = isset($payment['deposit']) ? $payment['deposit'] : '';
                     ?>
                     <table class="list-table">
                         <thead>
@@ -328,6 +404,61 @@ wp_enqueue_script('jquery-ui-sortable');
                                     <span class="description"><?php _e('Enable test mode for paypal checkout', 'inwavethemes'); ?></span>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                    <table class="list-table">
+                        <thead>
+                        <tr>
+                            <th colspan="3"><?php _e('DEPOSIT', 'inwavethemes'); ?></th>
+                        </tr>
+                        </thead>
+                        <tbody class="the-list">
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('BIC', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-paypal-email" value="<?php echo isset($deposit['bic']) ? $deposit['bic'] : ''; ?>" type="text" size="30" placeholder="<?php echo __('ARSPBE22', 'inwavethemes'); ?>" name="iwb_settings[iwb_payment][deposit][bic]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('BIC number for the deposit', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('IBAN', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-paypal-email" value="<?php echo isset($deposit['iban']) ? $deposit['iban'] : ''; ?>" type="text" size="30" placeholder="<?php echo __('BE68 5390 0754 7034', 'inwavethemes'); ?>" name="iwb_settings[iwb_payment][deposit][iban]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('IBAN number for the deposit', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Name', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-paypal-email" value="<?php echo isset($deposit['name']) ? $deposit['name'] : ''; ?>" type="text" size="30" placeholder="<?php echo __('Joske Vermeulen', 'inwavethemes'); ?>" name="iwb_settings[iwb_payment][deposit][name]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Name of the receiver', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('Address', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-paypal-email" value="<?php echo isset($deposit['address']) ? $deposit['address'] : ''; ?>" type="text" size="600" placeholder="<?php echo __('Trammezandlei 122, 2100 Schoten', 'inwavethemes'); ?>" name="iwb_settings[iwb_payment][deposit][address]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Address of the receiver', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+
+
                         </tbody>
                     </table>
                 </div>
