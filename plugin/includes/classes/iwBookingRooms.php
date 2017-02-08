@@ -58,6 +58,10 @@ class iwBookingRooms {
         global $wpdb, $iwb_settings, $iw_rooms_available;
         $rooms = $iw_rooms_available = array();
         if ($time_start && $time_end && ($time_start < $time_end) && $adult) {
+
+            // TODO check availability
+            //SELECT o.note FROM dev_iwb_off_days as o WHERE 1486512000 BETWEEN o.time_start AND o.time_end OR 1486598400 BETWEEN o.time_start AND o.time_end
+
             //Get all room used
             $room_useds = $wpdb->get_results(
                     $wpdb->prepare('SELECT br.room_id, COUNT(br.room_id) as room_used FROM ' . $wpdb->prefix . 'iwb_booking_room_rf as br INNER JOIN ' . $wpdb->prefix . 'iwb_bookings as b ON br.booking_id = b.id WHERE ((b.time_start >= %d AND b.time_start < %d) OR (b.time_end > %d AND b.time_end <= %d)) AND (b.status=1 OR b.status=2 OR b.status=4) GROUP BY br.room_id', $time_start, $time_end, $time_start, $time_end)
