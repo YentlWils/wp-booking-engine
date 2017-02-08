@@ -2671,7 +2671,7 @@ msgstr ""
 
 #: themes/reservation_page.php:29
 msgid "Your reservation"
-msgstr ""
+msgstr "Jouw reservatie"
 
 #: themes/reservation_page.php:69 themes/reservation_page.php:72
 msgid "Check in"

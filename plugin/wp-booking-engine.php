@@ -100,6 +100,11 @@ add_action('admin_post_iwBookingDeleteExtras', 'deleteBookingExtrafields');
 add_action('admin_post_iwBookingSaveService', 'iwBookingSaveService');
 add_action('admin_post_iwBookingDeleteService', 'iwBookingDeleteService');
 add_action('admin_post_iwBookingDeleteServices', 'iwBookingDeleteServices');
+//
+///Add action to process Off days
+add_action('admin_post_iwBookingSaveOffDay', 'iwBookingSaveOffDay');
+add_action('admin_post_iwBookingDeleteOffDay', 'iwBookingDeleteOffDay');
+add_action('admin_post_iwBookingDeleteOffDays', 'iwBookingDeleteOffDays');
 
 //Add action to process Discount
 add_action('admin_post_iwBookingSaveDiscount', 'iwBookingSaveDiscount');

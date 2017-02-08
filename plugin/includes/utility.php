@@ -23,6 +23,7 @@ require_once 'classes/iwBookingLog.php';
 require_once 'classes/iwPaging.php';
 require_once 'classes/iwBookingExtra.php';
 require_once 'classes/iwBookingCategory.php';
+require_once 'classes/iwBookingOffDays.php';
 require_once 'classes/iwBookingService.php';
 require_once 'classes/iwBookingDiscount.php';
 require_once 'classes/iwBookingOrder.php';

@@ -30,6 +30,10 @@ function iwBookingAddAdminMenu() {
     add_submenu_page('edit.php?post_type=iw_booking', __('Services', 'inwavethemes'), __('Services', 'inwavethemes'), 'manage_options', 'services', 'iwBookingServicesRenderPage');
     add_submenu_page(null, __('Add New Services', 'inwavethemes'), null, 'manage_options', 'service/addnew', 'iwAddBookingServicesRenderPage');
     add_submenu_page(null, __('Edit Services', 'inwavethemes'), null, 'manage_options', 'service/edit', 'iwAddBookingServicesRenderPage');
+    //Offdays menu
+    add_submenu_page('edit.php?post_type=iw_booking', __('Off Days', 'inwavethemes'), __('Off Days', 'inwavethemes'), 'manage_options', 'off-day', 'iwBookingOffDaysRenderPage');
+    add_submenu_page(null, __('Add New Off Days', 'inwavethemes'), null, 'manage_options', 'off-day/addnew', 'iwAddBookingOffDaysRenderPage');
+    add_submenu_page(null, __('Edit Off Days', 'inwavethemes'), null, 'manage_options', 'off-day/edit', 'iwAddBookingOffDaysRenderPage');
     //Discount menu
     add_submenu_page('edit.php?post_type=iw_booking', __('Discount', 'inwavethemes'), __('Discounts', 'inwavethemes'), 'manage_options', 'discount', 'iwBookingDiscountRenderPage');
     add_submenu_page(null, __('Add Discount', 'inwavethemes'), null, 'manage_options', 'discount/addnew', 'iwAddBookingDiscountRenderPage');
@@ -120,6 +124,15 @@ if (!function_exists('iwBookingInstall')) {
           booking_code varchar(50) DEFAULT NULL,
           tax tinyint(3) DEFAULT NULL,
           tax_price float(11,2) DEFAULT NULL,
+          PRIMARY KEY (id)
+        ) $collate;";
+        dbDelta($sql);
+
+        $sql = "CREATE TABLE IF NOT EXISTS {$wpdb->prefix}iwb_off_days (
+          id int(11) NOT NULL AUTO_INCREMENT,
+          time_start int(11) NOT NULL,
+          time_end int(11) NOT NULL,
+          note text NOT NULL,
           PRIMARY KEY (id)
         ) $collate;";
         dbDelta($sql);
@@ -689,6 +702,132 @@ function iwBookingDeleteServices() {
         $_SESSION['bt_message'] = iwBookingUtility::getMessage(__('Please select row(s) to delete', 'inwavethemes'), 'error');
     }
     wp_redirect(admin_url('edit.php?post_type=iw_booking&page=services'));
+}
+
+/* * **************************************************
+ * ******* CODE PROCESS OFF DAYS ****************
+ * ************************************************** */
+
+/**
+ * Function to render service manage page
+ */
+function iwBookingOffDaysRenderPage() {
+    $offDays = new iwBookingOffDay();
+    $paging = new iwPaging();
+    $start = $paging->findStart(IW_LIMIT_ITEMS);
+    $count = $offDays->getCountOffDays();
+    $pages = $paging->findPages($count, IW_LIMIT_ITEMS);
+    $offDays = $offDays->getOffDays();
+    include_once 'views/off-day.list.php';
+}
+
+/**
+ * Function to render Add new or Edit Service page
+ */
+function iwAddBookingOffDaysRenderPage() {
+    $id = isset($_GET['id']) ? $_GET['id'] : 0;
+    $offDay = new iwBookingOffDay();
+    if ($id) {
+        $offDay = $offDay->getOffDay($id);
+        if (!$offDay->getId()) {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(sprintf(__('No off days found with id = <strong>%d</strong>', 'inwavethemes'), $id), 'notice');
+        }
+    }
+    include_once 'views/off-day.edit.php';
+}
+
+/**
+ * Function to save or update service
+ */
+function iwBookingSaveOffDay() {
+    $post = $_POST;
+    $msg = '';
+    if (!$post['time_start']) {
+        $msg = __('Please input start time', 'inwavethemes');
+    }
+    if (!$post['time_end']) {
+        if ($msg) {
+            $msg .= '<br/>';
+        }
+        $msg = __('Please input end time', 'inwavethemes');
+    }
+    if (!$post['note']) {
+        if ($msg) {
+            $msg .= '<br/>';
+        }
+        $msg = __('Please input note', 'inwavethemes');
+    }
+
+    if ($msg) {
+        $_SESSION['bt_message'] = iwBookingUtility::getMessage($msg, 'error');
+        wp_redirect(admin_url('edit.php?post_type=iw_booking&page=off-day/' . ($post['id'] ? 'edit&id=' . $post['id'] : 'addnew')));
+    } else {
+        $offDay = new iwBookingOffDay();
+        $offDay->setId($post['id']);
+        $offDay->setTime_start(strtotime($post['time_start']));
+        $offDay->setTime_end(strtotime($post['time_end']));
+        $offDay->setNote($post['note']);
+
+        if ($offDay->getId()) {
+            $update = unserialize($offDay->editOffDay($offDay));
+            if (!$update['success']) {
+                $_SESSION['bt_message'] = iwBookingUtility::getMessage($update['msg'], 'error');
+            } else {
+                $_SESSION['bt_message'] = iwBookingUtility::getMessage($update['msg'], 'success');
+            }
+        } else {
+            $insert = unserialize($offDay->addOffDay($offDay));
+            if (!$insert['success']) {
+                $_SESSION['bt_message'] = iwBookingUtility::getMessage($insert['msg'], 'error');
+            } else {
+                $_SESSION['bt_message'] = iwBookingUtility::getMessage($insert['msg']);
+                $offDay->setId($insert['data']);
+            }
+        }
+        wp_redirect(admin_url('edit.php?post_type=iw_booking&page=off-day/' . ($offDay->getId() ? 'edit&id=' . $offDay->getId() : 'addnew')));
+    }
+}
+
+/**
+ * Delete single Service on list
+ */
+function iwBookingDeleteOffDay() {
+    $id = $_GET['id'];
+    $offDay = new iwBookingOffDay();
+    if ($id && is_numeric($id)) {
+        $del = unserialize($offDay->deleteOffDay($id));
+        if (!$del['success']) {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage($del['msg'], 'error');
+        } else {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(__('Off day has been removed', 'inwavethemes'));
+        }
+    } else {
+        $_SESSION['bt_message'] = iwBookingUtility::getMessage(__('ID not set or invalid', 'inwavethemes'), 'error');
+    }
+    wp_redirect(admin_url('edit.php?post_type=iw_booking&page=off-day'));
+}
+
+/**
+ * Delete multiple Services (selected Services) on list
+ */
+function iwBookingDeleteOffDays() {
+    if (isset($_POST['fields']) && !empty($_POST['fields'])) {
+        $offDay = new iwBookingOffDay();
+        $ids = $_POST['fields'];
+        $msg = $offDay->deleteOffDays($ids);
+        if (isset($msg['error']) && isset($msg['success'])) {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(__($msg['error'] . $msg['success']), 'notice');
+        } elseif (isset($msg['error']) && !isset($msg['success'])) {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(__($msg['error']), 'error');
+        } elseif (!isset($msg['error']) && isset($msg['success'])) {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(__($msg['success']));
+        } else {
+            $_SESSION['bt_message'] = iwBookingUtility::getMessage(__('Unknown error', 'inwavethemes'));
+        }
+    } else {
+        $_SESSION['bt_message'] = iwBookingUtility::getMessage(__('Please select row(s) to delete', 'inwavethemes'), 'error');
+    }
+    wp_redirect(admin_url('edit.php?post_type=iw_booking&page=off-day'));
 }
 
 /* * **************************************************
