@@ -59,15 +59,16 @@ class iwBookingRooms {
         $rooms = $iw_rooms_available = array();
         if ($time_start && $time_end && ($time_start < $time_end) && $adult) {
 
-            // TODO check availability
-            //SELECT o.note FROM dev_iwb_off_days as o WHERE 1486512000 BETWEEN o.time_start AND o.time_end OR 1486598400 BETWEEN o.time_start AND o.time_end
+            // Check if there are any off days planned for the villa
+            $periodOffDays = $wpdb->get_results($wpdb->prepare('SELECT o.note FROM ' . $wpdb->prefix . 'iwb_off_days as o WHERE %d BETWEEN o.time_start AND o.time_end OR %d BETWEEN o.time_start AND o.time_end', $time_start, $time_end));
 
-            //Get all room used
-            $room_useds = $wpdb->get_results(
+            if(count($periodOffDays) == 0) {
+                //Get all room used
+                $room_useds = $wpdb->get_results(
                     $wpdb->prepare('SELECT br.room_id, COUNT(br.room_id) as room_used FROM ' . $wpdb->prefix . 'iwb_booking_room_rf as br INNER JOIN ' . $wpdb->prefix . 'iwb_bookings as b ON br.booking_id = b.id WHERE ((b.time_start >= %d AND b.time_start < %d) OR (b.time_end > %d AND b.time_end <= %d)) AND (b.status=1 OR b.status=2 OR b.status=4) GROUP BY br.room_id', $time_start, $time_end, $time_start, $time_end)
-            );
-            if($children){
-                $sql = "SELECT *,pmeta3.meta_value as room_amount FROM $wpdb->posts  AS post 
+                );
+                if ($children) {
+                    $sql = "SELECT *,pmeta3.meta_value as room_amount FROM $wpdb->posts  AS post 
                     LEFT JOIN $wpdb->postmeta AS pmeta1 ON (pmeta1.post_id = post.ID AND pmeta1.meta_key = 'iw_booking_room_adult_amount')
                     LEFT JOIN $wpdb->postmeta AS pmeta2 ON (pmeta2.post_id = post.ID AND pmeta2.meta_key = 'iw_booking_room_child_amount')
                     LEFT JOIN $wpdb->postmeta AS pmeta3 ON (pmeta3.post_id = post.ID AND pmeta3.meta_key = 'iw_booking_room_amount')
@@ -76,62 +77,59 @@ class iwBookingRooms {
                     AND (CAST(pmeta1.`meta_value` AS UNSIGNED) >= %d OR pmeta1.`meta_value` = '' OR pmeta1.`meta_value` IS NULL)
                     AND (CAST(pmeta2.`meta_value` AS UNSIGNED) >= %d OR pmeta2.`meta_value` = '' OR pmeta2.`meta_value` IS NULL)";
 
-                if($filter_room){
-                    $sql .= " AND post.ID = %d";
-                    $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $children, $filter_room));
-                }else{
-                    if($ignore){
-                        $sql .= " AND post.ID NOT IN (".implode(',', $ignore).")";
+                    if ($filter_room) {
+                        $sql .= " AND post.ID = %d";
+                        $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $children, $filter_room));
+                    } else {
+                        if ($ignore) {
+                            $sql .= " AND post.ID NOT IN (" . implode(',', $ignore) . ")";
+                        }
+                        $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $children));
                     }
-                    $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $children));
-                }
-            }
-            else
-            {
-                $sql = "SELECT *, pmeta3.meta_value as room_amount FROM $wpdb->posts  AS post 
+                } else {
+                    $sql = "SELECT *, pmeta3.meta_value as room_amount FROM $wpdb->posts  AS post 
                     LEFT JOIN $wpdb->postmeta AS pmeta1 ON (pmeta1.post_id = post.ID AND pmeta1.meta_key = 'iw_booking_room_adult_amount')
                     LEFT JOIN $wpdb->postmeta AS pmeta3 ON (pmeta3.post_id = post.ID AND pmeta3.meta_key = 'iw_booking_room_amount')
                     WHERE post.`post_type` = 'iw_booking'
                     AND post.`post_status` = 'publish'
                     AND (CAST(pmeta1.`meta_value` AS UNSIGNED) >= %d OR pmeta1.`meta_value` = '' OR pmeta1.`meta_value` IS NULL)";
-                if($filter_room){
-                    $sql .= " AND post.ID = %d";
-                    $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $filter_room));
-                }else{
-                    if($ignore){
-                        $sql .= " AND post.ID NOT IN (".implode(',', $ignore).")";
+                    if ($filter_room) {
+                        $sql .= " AND post.ID = %d";
+                        $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult, $filter_room));
+                    } else {
+                        if ($ignore) {
+                            $sql .= " AND post.ID NOT IN (" . implode(',', $ignore) . ")";
+                        }
+                        $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult));
                     }
-                    $room_all = $wpdb->get_results($wpdb->prepare($sql, $adult));
                 }
-            }
 
-            $room_useds_key = array();
-            foreach ($room_useds as $room_use) {
-                $room_useds_key[$room_use->room_id] = $room_use->room_used;
-            }
-            if($room_selected){
-                foreach ($room_selected as $room_id){
-                    if(isset($room_useds_key[$room_id])){
-                        $room_useds_key[$room_id] = $room_useds_key[$room_id] + 1;
-                    }
-                    else{
-                        $room_useds_key[$room_id] = 1;
+                $room_useds_key = array();
+                foreach ($room_useds as $room_use) {
+                    $room_useds_key[$room_use->room_id] = $room_use->room_used;
+                }
+                if ($room_selected) {
+                    foreach ($room_selected as $room_id) {
+                        if (isset($room_useds_key[$room_id])) {
+                            $room_useds_key[$room_id] = $room_useds_key[$room_id] + 1;
+                        } else {
+                            $room_useds_key[$room_id] = 1;
+                        }
                     }
                 }
-            }
-            
-            foreach ($room_all as $room) {
-                $room->room_empty = $room->room_amount;
-                if($room->room_empty){
-                    $room_used = isset($room_useds_key[$room->ID]) ? $room_useds_key[$room->ID] : 0;
-                    if ($room->room_empty > $room_used) {
+
+                foreach ($room_all as $room) {
+                    $room->room_empty = $room->room_amount;
+                    if ($room->room_empty) {
+                        $room_used = isset($room_useds_key[$room->ID]) ? $room_useds_key[$room->ID] : 0;
+                        if ($room->room_empty > $room_used) {
+                            $rooms[] = $room->ID;
+                            $iw_rooms_available[$room->ID] = (int)$room->room_empty - $room_used;
+                        }
+                    } else {
                         $rooms[] = $room->ID;
-                        $iw_rooms_available[$room->ID] = (int)$room->room_empty - $room_used;
+                        $iw_rooms_available[$room->ID] = true;
                     }
-                }
-                else{
-                    $rooms[] = $room->ID;
-                    $iw_rooms_available[$room->ID] = true;
                 }
             }
         }
