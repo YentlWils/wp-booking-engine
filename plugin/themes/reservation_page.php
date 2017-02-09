@@ -17,10 +17,10 @@ wp_enqueue_script( 'jquery-ui-datepicker' );
 $state = isset($_GET['state']) ? $_GET['state'] : 1;
 ?>
 <div class="iwb-reservation-page" id="iwb-reservation-page">
-    <div id="reservation-process-bar" data-state="1" class="reservation-process-bar">
+    <div id="reservation-process-bar" data-state="<?php echo $state; ?>" class="reservation-process-bar">
         <span class="choose-date <?php echo $state == 1 ? 'iwb-active' : ''; ?>" data-process="1"><?php echo __('1. Choose date', 'inwavethemes'); ?></span>
-        <span class="select-rooms <?php echo $state == 2 ? 'iwb-active' : ''; ?>" data-process="2"><?php echo __('2. Select rooms', 'inwavethemes'); ?></span>
-        <span class="make-reservasion" data-process="3"><?php echo __('3. Make a reservation', 'inwavethemes'); ?></span>
+        <span class="select-rooms <?php echo $state == 2 ? 'iwb-active' : ''; ?>" data-process="2"><?php echo __('2. Select your options', 'inwavethemes'); ?></span>
+        <span class="make-reservasion" data-process="3"><?php echo __('3. Enter your detail', 'inwavethemes'); ?></span>
         <span class="comfirmation <?php echo $state == 4 ? 'iwb-active' : ''; ?>" data-process="4"><?php echo __('4. Comfirmation', 'inwavethemes'); ?></span>
     </div>
     <div class="row reservation-main">
@@ -76,9 +76,14 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                         <div class="reservation-form-field">
                             <div class="reservation-form-field-title"><?php echo __('Night', 'inwavethemes'); ?></div>
                             <select name="night" id="iwb-night">
-                                <?php for($i=1; $i<10;$i++){
-                                    echo '<option value="'.$i.'">'.$i.'</option>';
-                                } ?>
+                                <?php
+                                $nights = floor(($checkout - $checkin)/(60*60*24));
+                                echo $nights;
+                                for($i=$iwb_settings['iwb_villa']['min-days']; $i<=$iwb_settings['iwb_villa']['max-days'];$i++){
+                                    $selected = $nights == $i ? 'selected' : "";
+                                    echo '<option value="'.$i.'" '.$selected.'>'.$i.'</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>
@@ -91,13 +96,14 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
 								<input type="hidden" name="checkout" class="iwb-datepicker-alt">
 							</div>
                         </div>
-                        <div class="reservation-form-field">
+                        <div class="reservation-form-field hidden">
                             <div class="reservation-form-field-title"><?php echo __('Room', 'inwavethemes'); ?></div>
-                            <select name="room" id="iwb-room-number">
-                                <?php for($i=1; $i<10;$i++){
-                                    echo '<option value="'.$i.'">'.$i.'</option>';
-                                } ?>
-                            </select>
+                                <input type="hidden" name="room" id="iwb-room-number" value="1"/>
+<!--                            <select name="room" id="iwb-room-number">-->
+<!--                                --><?php //for($i=1; $i<10;$i++){
+//                                    echo '<option value="'.$i.'">'.$i.'</option>';
+//                                } ?>
+<!--                            </select>-->
                         </div>
                     </div>
                 </div>
@@ -108,7 +114,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                             <div class="reservation-adult-amount">
                                 <span><?php echo __('Adult', 'inwavethemes'); ?></span>
                                 <select name="adult-number[]">
-                                    <?php for($i = 1 ; $i < 10 ; $i++){
+                                    <?php for($i = 1 ; $i <= $iwb_settings['iwb_villa']['max-adults'] ; $i++){
                                         echo '<option value="'.$i.'" '.($i == $adult ? 'selected' : '').'>'.$i.'</option>';
                                     }?>
                                 <select>
@@ -116,7 +122,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                             <div class="reservation-children-amount">
                                 <span><?php echo __('Children', 'inwavethemes'); ?></span>
                                 <select name="children-number[]">
-                                    <?php for($i = 0 ; $i < 10 ; $i++){
+                                    <?php for($i = 0 ; $i <= $iwb_settings['iwb_villa']['max-child'] ; $i++){
                                         echo '<option value="'.$i.'">'.$i.'</option>';
                                     }?>
                                 <select>

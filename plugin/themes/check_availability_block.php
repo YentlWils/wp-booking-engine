@@ -13,6 +13,7 @@
  */
 //wp_enqueue_style('bootstrap-datepicker');
 //wp_enqueue_script('bootstrap-datepicker');
+global $iwb_settings;
 ?>
 <div class="iw-check-availability">
         <form action="<?php echo esc_url(get_permalink()); ?>" method="post">
@@ -45,15 +46,13 @@
                     <div class="item col-md-3 col-sm-6 col-xs-12">
                         <div class="guests border">
                             <label><?php echo __('Adult', 'inwavethemes') ;?></label>
-                            <input class="guest-numbers" name="adult" value="<?php echo esc_attr($adult); ?>">
+                            <input class="guest-numbers" name="adult" value="<?php echo esc_attr($adult); ?>" type="number" min="1" max="<?php echo $iwb_settings['iwb_villa']['max-adults'] ?>" readonly>
                             <span class="select-guest fa fa-angle-down"></span>
                             <div class="dropdown-guest">
                                 <ul>
-                                    <?php
-                                    foreach ($guests as $g) {
-                                        echo '<li>' . $g . '</li>';
-                                    }
-                                    ?>
+                                    <?php for($i = 1 ; $i <= $iwb_settings['iwb_villa']['max-adults'] ; $i++){
+                                        echo '<li>0' . $i . '</li>';
+                                    }?>
                                 </ul>
                             </div>
                         </div>
