@@ -4,22 +4,29 @@
         $room_class = new IwBookingRooms();
         foreach ($page_price_data['rooms'] as $i=>$room_data){
             $room_obj = $room_class->getRoomInfo($room_data['room_id']);
-            echo '<div class="price-room">';
-                echo '<h3 class="price-room-title"><span>'.sprintf(__('Room %d : ', 'monalisa'), $i +1 ).$room_obj->post_title.'</span><span class="room-price price">'.iwBookingUtility::getMoneyFormated($room_data['price'], $page_price_data['currency']).'</span></h3>';
-                echo '<div class="price-room-meta">
-                    <span>'.sprintf(__('Adult : %d', 'monalisa'), $room_data['adult']).'</span>
+            echo '<div class="reservation-room" style="margin-bottom: 0px; padding-bottom: 0px;">';
+
+                echo '<h3>'.__('Reservation date', 'monalisa').'</h3>';
+                echo '<div class="room-people">
+                    <div>'.sprintf(__('From %d-%d-%d until %d-%d-%d', 'monalisa'), date('d', strtotime($checkin)), date('m', strtotime($checkin)), date('Y', strtotime($checkin))
+                        , date('d', strtotime($checkout)), date('m', strtotime($checkout)), date('Y', strtotime($checkout))).'</div>
+                </div><br/>';
+
+                echo '<h3>'.__('Guests', 'monalisa').'</h3>';
+                echo '<div class="room-people">
+                    <span>'.sprintf(__('Adult : %d', 'monalisa'), $room_data['adult']).'</span>,&nbsp;
                     <span>'.sprintf(__('Children : %d', 'monalisa'), $room_data['children']).'</span>
                 </div>';
+
+                echo '<hr/>';
+                echo '<h3 class="price-room-title"><span>'.__('Basic price', 'monalisa').'</span><span class="room-price price">'.iwBookingUtility::getMoneyFormated($room_data['price'], $page_price_data['currency']).'</span></h3>';
+
                 if($room_data['services']){
 					$room_data_services_html = array();
-                    echo '<div class="price-room-service">';
-                    echo '<span class="room-service-title">'.__('Services : ', 'inwavethemes').'</span>';
-					echo '<div class="room-services">';
+                    echo '<div class="price-room-service room-people">';
                     foreach ($room_data['services'] as $service){
-                        $room_data_services_html[] = '<span class="service-item"><span>'.$service['title'].'</span>'.($service['price'] == 0 ? __('<span class="price-free price">Free</span>', 'inwavethemes') : '<span class="price">'.iwBookingUtility::getMoneyFormated($service['price'], $page_price_data['currency'])).'</span></span>';
+                        echo '<div class="item"><span>'.$service['title'].'</span>'.($service['price'] == 0 ? __('<span class="price-free price">Free</span>', 'inwavethemes') : '<span class="price">'.iwBookingUtility::getMoneyFormated($service['price'], $page_price_data['currency'])).'</span></div>';
                     }
-					echo implode('<br />', $room_data_services_html);
-					echo '</div>';
                     echo '</div>';
                 }
             echo '</div>';

@@ -7,13 +7,14 @@ if($query_params['room-id']){
             if($roomObj){
                 ?>
                 <div class="reservation-room">
-                    <h3><?php echo sprintf(__('Room %d:', 'inwavethemes'), $i + 1); ?> <?php echo $roomObj->post_title; ?></h3>
+                    <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
                     <div class="room-people">
-                        <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>
+                        <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>,&nbsp;
                         <span><?php echo sprintf(__('Children: %d', 'inwavethemes'), ($query_params['children-number'][$i])); ?></span>
-						<a href="#" class="change-room"><?php echo __('Change room', 'inwavethemes'); ?></a>
                     </div>
                     <input type="hidden" name="room-id[]" value="<?php echo $roomObj->ID; ?>"/>
+                    <hr/>
+                    <h3><?php echo __('Booking options', 'inwavethemes'); ?> <a href="#" class="change-room"><?php echo __('Change options', 'inwavethemes'); ?></a></h3>
                     <input type="hidden" name="room-service[]" value="<?php echo $query_params['room-service'][$i]; ?>"/>
                     <?php
                     if($query_params['room-service'][$i]){
@@ -25,11 +26,21 @@ if($query_params['room-id']){
                             }
                         }
                         if($services_title){
+                            foreach ($services_title as $service){
+                                echo '<div class="room-service">';
+                                echo '<span>'.$service.'</span>';
+                                echo '</div>';
+                            }
+
+                        }else{
                             echo '<div class="room-service">';
-                            echo '<span>'.__('Services : ').'</span>';
-                            echo '<span>'.implode(',' , $services_title).'</span>';
+                            echo '<span><i>'.__('No options selected', 'inwavethemes').'</i></span>';
                             echo '</div>';
                         }
+                    }else{
+                        echo '<div class="room-service">';
+                        echo '<span><i>'.__('No options selected', 'inwavethemes').'</i></span>';
+                        echo '</div>';
                     }
                     ?>
                    <!-- <a href="#" class="change-room"><?php echo __('Change room', 'inwavethemes'); ?></a>-->
@@ -40,9 +51,9 @@ if($query_params['room-id']){
         else{
             ?>
             <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?>">
-                <h3><?php echo sprintf(__('Room: %d', 'inwavethemes'), $i+1); ?></h3>
+                <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
                 <div class="room-people">
-                    <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>
+                    <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>,&nbsp;
                     <span><?php echo sprintf(__('Children: %d', 'inwavethemes'), ($query_params['children-number'][$i])); ?></span>
                 </div>
                 <input type="hidden" name="room-id[]" value=""/>
@@ -57,9 +68,9 @@ if($query_params['room-id']){
 if(!$has_active_class && $current_room_id){
 ?>
     <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?>">
-        <h3><?php echo sprintf(__('Room: %d', 'inwavethemes'), $current_room_id); ?></h3>
+        <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
         <div class="room-people">
-            <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$current_room_id - 1])); ?></span>
+            <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$current_room_id - 1])); ?></span>,&nbsp;
             <span><?php echo sprintf(__('Children: %d', 'inwavethemes'), ($query_params['children-number'][$current_room_id - 1])); ?></span>
         </div>
         <input type="hidden" name="room-id[]" value=""/>
