@@ -178,11 +178,13 @@ function iwBookingAddSiteScript() {
     wp_register_script('iwbsite-script', plugins_url('/wp-booking-engine/assets/js/booking_script.js'), array('jquery'), '1.0.0', true);
     $iwb_objectL10n = array(
         'date_format' => isset($iwb_settings['general']['reservation_datepicker_format']) && $iwb_settings['general']['reservation_datepicker_format'] ?  $iwb_settings['general']['reservation_datepicker_format'] : 'd M yy',
-        'minBookingDate' => isset($iwb_settings['iwb_villa']['min-days']) && $iwb_settings['iwb_villa']['min-days'] ?  intval($iwb_settings['iwb_villa']['min-days']) : 0,
+        'minBookingDays' => isset($iwb_settings['iwb_villa']['min-days']) && $iwb_settings['iwb_villa']['min-days'] ?  intval($iwb_settings['iwb_villa']['min-days']) : 0,
+        'maxBookingDays' => isset($iwb_settings['iwb_villa']['max-days']) && $iwb_settings['iwb_villa']['max-days'] ?  intval($iwb_settings['iwb_villa']['max-days']) : 365,
         'closeText' => __('Done', 'inwavethemes'),
         'currentText' => __('Today', 'inwavethemes'),
         'nextText' => __('Next', 'inwavethemes'),
         'prevText' => __('Prev', 'inwavethemes'),
+        'firstDay' => 1,
         'monthNames' => array(
             __('January', 'inwavethemes'),
             __('February', 'inwavethemes'),
@@ -258,7 +260,7 @@ function iwb_block_filter_rooms_outhtml($atts) {
     $guests = explode(' ', $guest);
 
     $checkin = isset($_REQUEST['checkin']) ? intval($_REQUEST['checkin']) : time();
-    $checkout = isset($_REQUEST['checkout']) ? intval($_REQUEST['checkout']) : (time() + 86400);
+    $checkout = isset($_REQUEST['checkout']) ? intval($_REQUEST['checkout']) : (time() + 259200);
     $adult = isset($_REQUEST['adult']) ? $_REQUEST['adult'] : '01';
 
     ob_start();
@@ -281,7 +283,7 @@ function iwb_booking_page_filter_outhtml($atts) {
         "class" => ""
                     ), $atts));
     $checkin = isset($_REQUEST['checkin']) ? intval($_REQUEST['checkin']) : time();
-    $checkout = isset($_REQUEST['checkout']) ? intval($_REQUEST['checkout']) : (time() + 86400);
+    $checkout = isset($_REQUEST['checkout']) ? intval($_REQUEST['checkout']) : (time() + 259200);
     $adult = isset($_REQUEST['adult']) ? intval($_REQUEST['adult']) : 1;
     $children = isset($_REQUEST['children']) ? intval($_REQUEST['children']) : 0;
     $filter_room = isset($_REQUEST['filter_room']) ? intval($_REQUEST['filter_room']) : 0;

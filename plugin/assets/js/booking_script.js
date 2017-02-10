@@ -36,8 +36,26 @@
                     $("#iwb-check-in").datepicker('setDate', dateText);
                     $("#iwb-check-out").val('');
                     $("#iwb-check-out").siblings('.iwb-datepicker-alt').val('');
+
+                    var selected = new Date(dateText);
+                    var minDate = new Date(selected.getTime() + ((parseInt(iwb_objectL10n.minBookingDays)) * 24 * 60 * 60 * 1000));
+                    var maxDate = new Date(selected.getTime() + ((parseInt(iwb_objectL10n.maxBookingDays)) * 24 * 60 * 60 * 1000));
+
+                    $(this).datepicker('option', 'minDate', minDate);
+                    $(this).datepicker('option', 'maxDate', maxDate);
+
                 } else {
-                    $("#iwb-check-out").datepicker('setDate', dateText).trigger('change');
+                    var checkIn = new Date($("#iwb-check-in").datepicker('getDate'));
+                    var selected = new Date(dateText);
+                    var minDate = new Date(checkIn.getTime() + ((parseInt(iwb_objectL10n.minBookingDays)) * 24 * 60 * 60 * 1000));
+                    var maxDate = new Date(checkIn.getTime() + ((parseInt(iwb_objectL10n.maxBookingDays)) * 24 * 60 * 60 * 1000));
+                    var newValue =  minDate.valueOf() > selected.valueOf() ? minDate : selected;
+                    newValue =  maxDate.valueOf() < newValue.valueOf() ? maxDate : newValue;
+
+                    $("#iwb-check-out").datepicker('setDate', newValue).trigger('change');
+
+                    $(this).datepicker('option', 'minDate', 0);
+                    $(this).datepicker('option', 'maxDate', null);
                 }
             },
             closeText: iwb_objectL10n.closeText,
@@ -104,13 +122,17 @@
                     var night_num = area.resv_bar.find('#iwb-night');
 
                     if( check_in.val() ){
-                        var check_out_date = check_in.datepicker('getDate', '+1d');
-                        check_out_date.setDate(check_out_date.getDate() + parseInt(night_num.val()));
+                        var check_out_date = check_in.datepicker('getDate', '+' + parseInt(iwb_objectL10n.minBookingDays) + 'd');
+                        check_out_date.setTime(check_out_date.getTime() + (parseInt(night_num.val()) * 24 * 60 * 60 * 1000));
 
-                        var check_out_min = check_in.datepicker('getDate', '+1d');
-                        check_out_min.setDate(check_out_min.getDate() + 1);
+                        var check_out_min = check_in.datepicker('getDate',  '+' + parseInt(iwb_objectL10n.minBookingDays) + 'd');
+                        check_out_min.setTime(check_out_min.getTime() + (parseInt(iwb_objectL10n.minBookingDays) * 24 * 60 * 60 * 1000));
+
+                        var check_out_max = check_in.datepicker('getDate',  '+' + parseInt(iwb_objectL10n.maxBookingDays) + 'd');
+                        check_out_max.setTime(check_out_max.getTime() + (parseInt(iwb_objectL10n.maxBookingDays) * 24 * 60 * 60 * 1000));
 
                         check_out.datepicker('option', 'minDate', check_out_min);
+                        check_out.datepicker('option', 'maxDate', check_out_max);
 
                         check_out.datepicker('setDate', check_out_date);
 
@@ -504,17 +526,21 @@
                 onSelect : function(ev) {
                     var checkout_date = iwb_availability_checkout.datepicker( "getDate");
                     var checkin_date = $.datepicker.parseDate('mm/dd/yy', ev);
-                    if (checkin_date.getTime() > checkout_date.getTime()) {
+
+                    var compare_checkin_date = new Date();
+                    compare_checkin_date.setDate(checkin_date.getDate() + parseInt(iwb_objectL10n.minBookingDays));
+
+                    if (compare_checkin_date.getTime() > checkout_date.getTime()) {
                         var new_checkout_date = $.datepicker.parseDate('mm/dd/yy', ev);
-                        new_checkout_date.setDate(new_checkout_date.getDate() + 1);
+                        new_checkout_date.setDate(new_checkout_date.getDate() + parseInt(iwb_objectL10n.minBookingDays));
                         var date_value = (new_checkout_date.getMonth() + 1) + '/'+ new_checkout_date.getDate() + '/' + new_checkout_date.getFullYear();
                         iwb_availability_checkout.datepicker( "setDate", date_value);
                         iwb_availability_checkout.datepicker( "refresh");
-                        var _newformated = '<trong style="font-size: 60px">'+new_checkout_date.getDate()+'</trong>/'+iwb_objectL10n.monthNames[(new_checkout_date.getMonth())];
+                        var _newformated = '<strong>'+new_checkout_date.getDate()+'</strong>/'+iwb_objectL10n.monthNames[(new_checkout_date.getMonth())];
                         iwb_availability_checkout.parent().find('.datepicker-holder').html(_newformated);
                     }
                     iwb_availability_checkin.datepicker("hide" );
-                    var newformated = '<trong style="font-size: 60px">'+checkin_date.getDate()+'</trong>/'+iwb_objectL10n.monthNames[(checkin_date.getMonth())];
+                    var newformated = '<strong>'+checkin_date.getDate()+'</strong>/'+iwb_objectL10n.monthNames[(checkin_date.getMonth())];
                     iwb_availability_checkin.parent().find('.datepicker-holder').html(newformated);
                     iwb_availability_checkin.find('.ui-datepicker').hide();
                     iwb_availability_checkout.find('.ui-datepicker').show();
@@ -522,7 +548,6 @@
             }).find('.ui-datepicker').hide();
 
             iwb_availability_checkin.datepicker('setDate', $.datepicker.parseDate('yy-mm-dd', iwb_availability_checkin.data('value')));
-
             iwb_availability_checkout.datepicker({
                 dateFormat: 'mm/dd/yy',
                 altField: $('#iwb-availability-checkout input[name="checkout"]'),
@@ -540,12 +565,16 @@
                 todayBtn: true,
                 beforeShowDay: function(date) {
                     var checkin_date = $( "#iwb-availability-checkin" ).datepicker( "getDate");
-                    return date.valueOf() <= checkin_date.valueOf() ? [false, ""] : [true, ""];
+                    var minDate = new Date(checkin_date.getTime() + ((parseInt(iwb_objectL10n.minBookingDays) -1) * 24 * 60 * 60 * 1000));
+
+                    var maxDate = new Date(checkin_date.getTime() + ((parseInt(iwb_objectL10n.maxBookingDays)) * 24 * 60 * 60 * 1000));
+
+                    return date.valueOf() > minDate.valueOf() && date.valueOf() < maxDate.valueOf() ? [true, ""] : [false, ""];
                 },
                 onSelect : function(ev) {
                     iwb_availability_checkout.datepicker( "hide" );
                     var checkout_date = $.datepicker.parseDate('mm/dd/yy', ev);
-                    var newformated = '<trong style="font-size: 60px">'+checkout_date.getDate()+'</trong>/'+iwb_objectL10n.monthNames[checkout_date.getMonth()];
+                    var newformated = '<strong>'+checkout_date.getDate()+'</strong>/'+iwb_objectL10n.monthNames[checkout_date.getMonth()];
                     iwb_availability_checkout.parent().find('.datepicker-holder').html(newformated);
                     iwb_availability_checkout.find('.ui-datepicker').hide();
                 }

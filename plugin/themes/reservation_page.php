@@ -109,7 +109,7 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                 </div>
                 <div id="reservation-people-amount-wrapper" style="<?php echo $state == 4 ? 'display: none' : '' ?>">
                     <div class="reservation-people-amount">
-                        <div class="reservation-people-amount-title"><?php echo __('Room', 'inwavethemes'); ?> <span>1</span></div>
+                        <div class="reservation-people-amount-title"><?php echo __('Guests', 'inwavethemes'); ?></div>
                         <div class="reservation-people-amount-field">
                             <div class="reservation-adult-amount">
                                 <span><?php echo __('Adult', 'inwavethemes'); ?></span>

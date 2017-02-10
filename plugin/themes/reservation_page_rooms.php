@@ -51,7 +51,7 @@ if ($rooms->have_posts()) {
                     <div class="col-md-4">
                         <div class="unit-price">
                             <span class="unit-price-label"><?php echo __('Price', 'inwavethemes'); ?></span>
-                            <span class="unit-price-value"><?php echo wp_kses_post($ultility->unit_price($room_obj->price)); ?></span>
+                            <span class="unit-price-value"><?php echo wp_kses_post($ultility->state_1_price($room_obj->price, $adult, $temp_nights)); ?></span>
                             <div class="unit-price-text"><small><?php echo sprintf(__('(for %d guests and %d nights)', 'inwavethemes'), $adult, $temp_nights);?></small></div>
                         </div>
                     </div>

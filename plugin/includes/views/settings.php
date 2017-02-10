@@ -56,17 +56,6 @@ wp_enqueue_script('jquery-ui-sortable');
                         <tbody class="the-list">
                         <tr class="alternate">
                             <td>
-                                <label><?php echo __('Price Per day', 'inwavethemes'); ?></label>
-                            </td>
-                            <td>
-                                <input class="iwe-villa-price" value="<?php echo isset($villa['price']) ? $villa['price'] : ''; ?>" type="text" placeholder="<?php echo __('89,50', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][price]"/>
-                            </td>
-                            <td>
-                                <span class="description"><?php _e('Price per day for rental of the villa', 'inwavethemes'); ?></span>
-                            </td>
-                        </tr>
-                        <tr class="alternate">
-                            <td>
                                 <label><?php echo __('Minimum booking days', 'inwavethemes'); ?></label>
                             </td>
                             <td>
@@ -109,7 +98,43 @@ wp_enqueue_script('jquery-ui-sortable');
                                 <span class="description"><?php _e('Maximum children allowed at the villa', 'inwavethemes'); ?></span>
                             </td>
                         </tr>
-
+                        <tr class="alternate">
+                            <th colspan="3"><?php _e('Guest Ratings (use natural numbers of percentages ex. 50 or 20%)', 'inwavethemes'); ?></th>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('1 extra guest', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['one-guest-extra']) ? $villa['one-guest-extra'] : ''; ?>" type="text" placeholder="<?php echo __('0', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][one-guest-extra]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Extra price for 1 extra guest ( 2 guests in total)', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('2 extra guests', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['two-guest-extra']) ? $villa['two-guest-extra'] : ''; ?>" type="text" placeholder="<?php echo __('10%', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][two-guest-extra]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Extra price for 2 extra guest ( 3 guests in total)', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
+                        </tbody>
+                        <tr class="alternate">
+                            <td>
+                                <label><?php echo __('3 extra guests', 'inwavethemes'); ?></label>
+                            </td>
+                            <td>
+                                <input class="iwe-villa-price" value="<?php echo isset($villa['three-guest-extra']) ? $villa['three-guest-extra'] : ''; ?>" type="text" placeholder="<?php echo __('20%', 'inwavethemes'); ?>" name="iwb_settings[iwb_villa][three-guest-extra]"/>
+                            </td>
+                            <td>
+                                <span class="description"><?php _e('Extra price for 3 extra guest ( 4 guests in total)', 'inwavethemes'); ?></span>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

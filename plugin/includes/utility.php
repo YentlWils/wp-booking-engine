@@ -934,6 +934,44 @@ class iwBookingUtility {
 
         return '<span class="price-wrap"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span></span>';
     }
+
+    public function state_1_price($price, $guests, $nights) {
+        global $iwb_settings;
+
+        if (!$price) {
+            return __('Free', 'inhotel');
+        }
+
+        switch ($guests) {
+            case 2:
+                $rate = $iwb_settings['iwb_villa']['one-guest-extra'];
+                break;
+            case 3:
+                $rate = $iwb_settings['iwb_villa']['two-guest-extra'];
+                break;
+            case 4:
+                $rate = $iwb_settings['iwb_villa']['three-guest-extra'];
+                break;
+            default:
+                $rate = 0;
+        }
+
+        $price = $this->get_rate_price($price, $rate);
+
+        $price = $price * $nights;
+
+        return '<span class="price-wrap"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span></span>';
+    }
+
+    public function get_rate_price($price, $rate){
+        if (strpos($rate, '%') !== false) {
+            $rate = intval(str_replace('%','', $rate));
+            $rate = ($rate / 100) + 1;
+            return round($price * $rate, 2);
+        }else{
+            return round($price + intval($rate),2);
+        }
+    }
     
 
 }
