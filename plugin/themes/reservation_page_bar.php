@@ -7,13 +7,13 @@ if($query_params['room-id']){
             if($roomObj){
                 ?>
                 <div class="reservation-room">
-                    <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
-                    <div class="room-people">
-                        <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>,&nbsp;
-                        <span><?php echo sprintf(__('Children: %d', 'inwavethemes'), ($query_params['children-number'][$i])); ?></span>
-                    </div>
+<!--                    <h3>--><?php //echo sprintf(__('Guests: %d', 'inwavethemes'), $query_params['adult-number'][$i]); ?><!--</h3>-->
+<!--                    <div class="room-people">-->
+<!--                        <span>--><?php //echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?><!--</span>,&nbsp;-->
+<!--                        <span>--><?php //echo sprintf(__('Children: %d', 'inwavethemes'), ($query_params['children-number'][$i])); ?><!--</span>-->
+<!--                    </div>-->
                     <input type="hidden" name="room-id[]" value="<?php echo $roomObj->ID; ?>"/>
-                    <hr/>
+<!--                    <hr/>-->
                     <h3><?php echo __('Booking options', 'inwavethemes'); ?> <a href="#" class="change-room"><?php echo __('Change options', 'inwavethemes'); ?></a></h3>
                     <input type="hidden" name="room-service[]" value="<?php echo $query_params['room-service'][$i]; ?>"/>
                     <?php
@@ -50,7 +50,7 @@ if($query_params['room-id']){
         }
         else{
             ?>
-            <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?>">
+            <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?> hidden">
                 <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
                 <div class="room-people">
                     <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$i])); ?></span>,&nbsp;
@@ -67,7 +67,7 @@ if($query_params['room-id']){
 }
 if(!$has_active_class && $current_room_id){
 ?>
-    <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?>">
+    <div class="reservation-room <?php echo !$has_active_class ? 'iwb-active' : ''; ?> hidden">
         <h3><?php echo __('Guests', 'inwavethemes'); ?></h3>
         <div class="room-people">
             <span><?php echo sprintf(__('Adult: %d', 'inwavethemes'), ($query_params['adult-number'][$current_room_id - 1])); ?></span>,&nbsp;

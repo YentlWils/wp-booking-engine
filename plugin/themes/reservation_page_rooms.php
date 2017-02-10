@@ -69,7 +69,11 @@ if ($rooms->have_posts()) {
                                                 <tr>
                                                     <td class="col-md-1"><input type="checkbox" id="<?php echo $premium_service->getId(); ?>" name="premium_service[]" value="<?php echo $premium_service->getId(); ?>"></td>
                                                     <td class="col-md-8"><label class="service-item" for="<?php echo $premium_service->getId(); ?>"><?php echo $premium_service->getName(); ?></label></td>
-                                                    <td class="col-md-3"><label class="service-item" for="<?php echo $premium_service->getId(); ?>"><?php echo $ultility->price($premium_service->getPrice(), $premium_service->getRate()); ?></label></td>
+                                                    <td class="col-md-3"><label class="service-item" for="<?php echo $premium_service->getId(); ?>">
+                                                            <?php
+                                                            echo $ultility->price($premium_service->getPrice(), $premium_service->getRate(), $premium_service->getIncluded(), $temp_nights);
+                                                            ?>
+                                                        </label></td>
                                                 </tr>
                                             <?php
                                         }

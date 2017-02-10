@@ -73,7 +73,7 @@
 		<!-- Ask for guest names -->
 		<?php if ( $booking_info_data['adult-number'][0] > 1 ): ?>
 			<div class="row">
-				<div class="reservation-bar-title"><?php echo __( 'Guests', 'inwavethemes' ); ?></div>
+				<div class="reservation-bar-title"><?php echo __( 'Other Guests', 'inwavethemes' ); ?></div>
 			</div>
 			<?php
 			echo '<div class="row">';
@@ -82,7 +82,7 @@
 				$value     = isset( $contact_data[ $fieldName ] ) ? $contact_data[ $fieldName ] : "";
 				echo '<div class="item-field col-md-6 col-sm-6 col-xs-12">';
 				echo '<div class="item-field-inner">';
-				echo '<input placeholder="' . esc_attr( __( 'Guest name', 'inwavethemes' ) ) . '" type="text" value="' . esc_attr( $value ) . '" name="guests[]"/>';
+				echo '<input placeholder="' . sprintf( __( 'Guest %d name', 'inwavethemes' ), $i + 1 ) . '" type="text" value="' . esc_attr( $value ) . '" name="guests[]"/>';
 				echo '</div>';
 				echo '</div>';
 			}
@@ -98,23 +98,24 @@
 				if ( $using_paypal ) {
 					?>
 					<label class="payment-item"><input type="radio" name="payment_method"
-					                                   value="direct" <?php echo $contact_data['payment_method'] == 'direct' ? 'checked' : ''; ?>> <?php esc_html_e( 'Payment directly at hotel', 'monalisa' ); ?>
+					                                   value="direct" <?php echo $contact_data['payment_method'] == 'direct' ? 'checked' : ''; ?>> <?php esc_html_e( 'Payment by bank transfer', 'monalisa' ); ?>
 					</label>
 					<label class="payment-item"><input type="radio" name="payment_method"
-					                                   value="full" <?php echo $contact_data['payment_method'] == 'full' ? 'checked' : ''; ?>> <?php esc_html_e( 'Payment online full price', 'monalisa' ); ?>
+					                                   value="full" <?php echo $contact_data['payment_method'] == 'full' ? 'checked' : ''; ?>> <?php esc_html_e( 'Payment online by PayPal', 'monalisa' ); ?>
 					</label>
-					<label
-						class="payment-item payment-deposit <?php ( isset( $booking_info_data['deposit_price'] ) && $booking_info_data['deposit_price'] ) ? '' : 'hidden'; ?>"><input
-							type="radio" name="payment_method"
-							value="deposit" <?php echo $contact_data['payment_method'] == 'full' ? 'deposit' : ''; ?>> <?php echo sprintf( wp_kses( __( 'Payment online deposit price <span class="booking-deposit-price">%s</span>', 'monalisa' ), inwave_allow_tags( 'span' ) ), iwBookingUtility::getMoneyFormated( $booking_info_data['deposit_price'] ) ); ?>
-					</label>
+<!--					<label-->
+<!--						class="payment-item payment-deposit --><?php //( isset( $booking_info_data['deposit_price'] ) && $booking_info_data['deposit_price'] ) ? '' : 'hidden'; ?><!--"><input-->
+<!--							type="radio" name="payment_method"-->
+<!--							value="deposit" --><?php //echo $contact_data['payment_method'] == 'full' ? 'deposit' : ''; ?><!--><?php //echo sprintf( wp_kses( __( 'Payment online deposit price <span class="booking-deposit-price">%s</span>', 'monalisa' ), inwave_allow_tags( 'span' ) ), iwBookingUtility::getMoneyFormated( $booking_info_data['deposit_price'] ) ); ?>
+<!--					</label>-->
 				<?php } else { ?>
 					<input type="hidden" name="payment_method" value="direct">
 				<?php } ?>
 			</div>
+			<small><input type="checkbox" name="agree" value="check" id="agree" />&nbsp;<label for="agree"><?php esc_html_e( 'I have read and agree to the Terms and Conditions and Privacy Policy (see below)', 'monalisa' ); ?></label> </small>
 			<div class="submit-field">
 				<button type="button"
-				        class="reservation-process-from pay-button iwb-button theme-bg"><?php echo $paypal ? __( 'Pay now', 'monalisa' ) : __( 'Contact now', '' ); ?></button>
+				        class="reservation-process-from pay-button iwb-button theme-bg"><?php echo $using_paypal ? __( 'Pay now', 'monalisa' ) : __( 'Contact now', '' ); ?></button>
 			</div>
 		</div>
 	</form>

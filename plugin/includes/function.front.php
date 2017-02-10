@@ -373,13 +373,22 @@ function iwb_booking_rooms(){
                 $_room_data[$i]['room_id'] = $room_id;
                 $_room_data[$i]['adult'] = $query_params['adult-number'][$i];
                 $_room_data[$i]['children'] = $query_params['children-number'][$i];
-                $room_price = $room_info->price * $night;
+
+                // Calculate the room price
+                $room_price = iwBookingUtility::get_room_price($room_info->price, $query_params['adult-number'][$i], $night);
+
                 $_room_data[$i]['price'] = $room_price;
+
+                // Calculate the service price
                 if($query_params['room-service'][$i]){
                     $services = explode(',', $query_params['room-service'][$i]);
                     foreach ($services as $service) {
                         if (isset($room_info->premium_services[$service])) {
                             $service_price = $room_info->premium_services[$service]->getRate() ? $room_info->premium_services[$service]->getPrice() : ($room_info->premium_services[$service]->getPrice() * $night);
+
+                            if($room_info->premium_services[$service]->getIncluded() != 0 && $night >= $room_info->premium_services[$service]->getIncluded()){
+                                $service_price = 0;
+                            }
 
                             $room_price = $room_price + $service_price;
                             $room_service = array('name'=> $service, 'title' => $room_info->premium_services[$service]->getName(), 'price' => $service_price);
@@ -388,7 +397,8 @@ function iwb_booking_rooms(){
                     }
                 }
 
-                $room_deposit_price = $room_info->deposit ? ($room_info->deposit * $room_price / 100 * $night) : 0;
+                //$room_deposit_price = $room_info->deposit ? ($room_info->deposit * $room_price / 100 * $night) : 0;
+                $room_deposit_price = 0;
                 $_room_data[$i]['price_with_service'] = $room_price;
 
                 $total_price = $total_price + $room_price;

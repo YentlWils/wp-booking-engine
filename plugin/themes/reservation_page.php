@@ -112,14 +112,18 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                         <div class="reservation-people-amount-title"><?php echo __('Guests', 'inwavethemes'); ?></div>
                         <div class="reservation-people-amount-field">
                             <div class="reservation-adult-amount">
-                                <span><?php echo __('Adult', 'inwavethemes'); ?></span>
+<!--                                <span>--><?php //echo __('Adult', 'inwavethemes'); ?><!--</span>-->
                                 <select name="adult-number[]">
                                     <?php for($i = 1 ; $i <= $iwb_settings['iwb_villa']['max-adults'] ; $i++){
                                         echo '<option value="'.$i.'" '.($i == $adult ? 'selected' : '').'>'.$i.'</option>';
                                     }?>
                                 <select>
                             </div>
-                            <div class="reservation-children-amount">
+                            <div style="clear: both"></div>
+                            <div>
+                                <small><?php echo __('Children under 3yo are free of charge', 'inwavethemes') ; ?></small>
+                            </div>
+                            <div class="reservation-children-amount hidden">
                                 <span><?php echo __('Children', 'inwavethemes'); ?></span>
                                 <select name="children-number[]">
                                     <?php for($i = 0 ; $i <= $iwb_settings['iwb_villa']['max-child'] ; $i++){

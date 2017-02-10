@@ -306,6 +306,40 @@ class iwBookingUtility {
         return ($tree);
     }
 
+    public static function get_room_price($price, $guests, $nights) {
+        global $iwb_settings;
+
+        switch ($guests) {
+            case 2:
+                $rate = $iwb_settings['iwb_villa']['one-guest-extra'];
+                break;
+            case 3:
+                $rate = $iwb_settings['iwb_villa']['two-guest-extra'];
+                break;
+            case 4:
+                $rate = $iwb_settings['iwb_villa']['three-guest-extra'];
+                break;
+            default:
+                $rate = 0;
+        }
+
+        $price = self::get_rating_price($price, $rate);
+
+        $price = $price * $nights;
+
+        return $price;
+    }
+
+    static function get_rating_price($price, $rate){
+        if (strpos($rate, '%') !== false) {
+            $rate = intval(str_replace('%','', $rate));
+            $rate = ($rate / 100) + 1;
+            return round($price * $rate, 2);
+        }else{
+            return round($price + intval($rate),2);
+        }
+    }
+
     /**
      * 
      * @param type $email
@@ -402,9 +436,10 @@ class iwBookingUtility {
 ';
 
 // To send HTML mail, the Content-type header must be set
-        $headers = "From: [" . get_option('blogname') . "] <" . $admin_email . "> \r\n";
+        $headers = "From: [Villa Rini] <" . $admin_email . "> \r\n";
         $headers .= 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+        $headers .= "BCC: " . $admin_email . "";
 
         if (wp_mail($recipients, $mail_title, $html, $headers)) {
             return true;
@@ -443,7 +478,7 @@ class iwBookingUtility {
         $memberinfo = array();
         global $iwb_settings;
         $memberFields = $iwb_settings['register_form_fields'];
-        $core_fields = array('email', 'first_name', 'last_name', 'address', 'phone', 'note');
+        $core_fields = array('email', 'first_name', 'last_name', 'address', 'phone', 'note', 'agree');
         $memberinfo['field_value'] = array();
         foreach ($memberFields as $field) {
             if($field['require_field'] && (!isset($value[$field['name']]) || !$value[$field['name']])){
@@ -912,8 +947,12 @@ class iwBookingUtility {
         return $result;
     }
 
-    public function price($price, $rate) {
+    public function price($price, $rate, $included, $night) {
         global $iwb_settings;
+
+        if($included!= 0 && $night >= $included){
+            $price = 0;
+        }
 
         if (!$price) {
             return __('Free', 'inhotel');

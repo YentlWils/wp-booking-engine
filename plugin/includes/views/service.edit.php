@@ -105,6 +105,15 @@ if (isset($_SESSION['bt_message'])) {
                     <td>&nbsp;</td>
                 </tr>
                 <tr class="alternate">
+                    <td class="label">
+                        <label><?php echo __('Included ( from x nights)', 'inwavethemes'); ?></label>
+                    </td>
+                    <td>
+                        <input name="included"  type="text" value="<?php echo ($service->getIncluded()) ? $service->getIncluded() : ''; ?>" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="alternate">
                     <td class="label">&nbsp;</td>
                     <td>
                         <?php if ($service->getId()): ?>

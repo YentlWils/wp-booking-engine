@@ -218,6 +218,7 @@ if (!function_exists('iwBookingInstall')) {
           description text NOT NULL,
           status tinyint(4) NOT NULL,
           rate tinyint(1) DEFAULT 1,
+          included int(11) DEFAULT 0,
           type varchar(20) DEFAULT NULL,
           PRIMARY KEY (id)
         ) $collate;";
@@ -640,6 +641,7 @@ function iwBookingSaveService() {
         $service->setPrice($post['price']);
         $service->setType($post['type']);
         $service->setRate($post['rate']);
+        $service->setIncluded($post['included']);
         $service->setStatus($post['status']);
 
         if ($service->getId()) {

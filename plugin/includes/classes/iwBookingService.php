@@ -26,6 +26,7 @@ class iwBookingService {
     private $type;
     private $description;
     private $rate;
+    private $included;
     private $status;
 
     function getType() {
@@ -60,6 +61,10 @@ class iwBookingService {
         return $this->status;
     }
 
+    function getIncluded() {
+        return $this->included;
+    }
+
     function setId($id) {
         $this->id = $id;
     }
@@ -82,6 +87,10 @@ class iwBookingService {
 
     function setStatus($status) {
         $this->status = $status;
+    }
+
+    function setIncluded($included) {
+        $this->included = $included;
     }
     
     public function __construct() {
@@ -146,6 +155,7 @@ class iwBookingService {
                 $service->setDescription($value->description);
                 $service->setRate($value->rate);
                 $service->setStatus($value->status);
+                $service->setIncluded($value->included);
                 $rs[] = $service;
             }
         }
@@ -164,6 +174,7 @@ class iwBookingService {
             $service->setDescription($value->description);
             $service->setRate($value->rate);
             $service->setStatus($value->status);
+            $service->setIncluded($value->included);
         }
         return $service;
     }
