@@ -40,6 +40,14 @@ $ultility = new iwBookingUtility();
                 </tr>
                 <tr class="alternate">
                     <td>
+                        <label><?php echo __('Payment Method', 'inwavethemes'); ?></label>
+                    </td>
+                    <td colspan="3">
+                        <span><?php echo $order->getPayment_method_text(); ?></span>
+                    </td>
+                </tr>
+                <tr class="alternate">
+                    <td>
                         <label><?php echo __('Sum Price', 'inwavethemes'); ?></label>
                     </td>
                     <td colspan="3">

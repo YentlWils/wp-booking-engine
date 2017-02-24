@@ -97,6 +97,44 @@ class iwBookingService {
         
     }
 
+    public function getRateText(){
+        switch ($this->rate) {
+            case 0:
+                $returnString = __('Fixed', 'inwavethemes');
+                break;
+            case 1:
+                $returnString = __('By Night', 'inwavethemes');
+                break;
+            case 2:
+                $returnString = __('Per Person', 'inwavethemes');
+                break;
+            case 3:
+                $returnString = __('Per Person Per Night', 'inwavethemes');
+                break;
+        }
+
+        return $returnString;
+    }
+
+    public function getRateCommercialText(){
+        switch ($this->rate) {
+            case 0:
+                $returnString = "";
+                break;
+            case 1:
+                $returnString = __('p.n.', 'inwavethemes');
+                break;
+            case 2:
+                $returnString = __('p.p.', 'inwavethemes');
+                break;
+            case 3:
+                $returnString = __('p.p.p.n.', 'inwavethemes');
+                break;
+        }
+
+        return $returnString;
+    }
+
     public function addService($service) {
         global $wpdb;
         $return = array('success' => false, 'msg' => null, 'data' => null);

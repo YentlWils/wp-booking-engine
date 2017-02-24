@@ -345,7 +345,7 @@ class iwBookingMetaBox {
                     foreach ($premium_services as $srv) {
                         ?>
                         <div class="service-input-item">
-                            <label><input type="checkbox" <?php echo !empty($premium_service_selected) ? (in_array($srv->getId(), $premium_service_selected) ? 'checked="checked"' : '') : ''; ?> value="<?php echo esc_attr($srv->getId()); ?>" name="iw_information[premium_services][]"/><?php echo esc_html($srv->getName()) . ' (' . ($srv->getPrice() ? iwBookingUtility::getMoneyFormated($srv->getPrice()) : __('Free', 'inwavethemes')) . ($srv->getRate() ? "" : __('/Night', 'inwavethemes') ) . ')'; ?></label>
+                            <label><input type="checkbox" <?php echo !empty($premium_service_selected) ? (in_array($srv->getId(), $premium_service_selected) ? 'checked="checked"' : '') : ''; ?> value="<?php echo esc_attr($srv->getId()); ?>" name="iw_information[premium_services][]"/><?php echo esc_html($srv->getName()) . ' (' . ($srv->getPrice() ? iwBookingUtility::getMoneyFormated($srv->getPrice()) : __('Free', 'inwavethemes')) . "/" . $srv->getRateCommercialText() . ')'; ?></label>
                         </div>
                         <?php
                     }

@@ -39,6 +39,14 @@ $order->changeReaded(1, $order->getId());
             </tr>
             <tr class="alternate">
                 <td>
+                    <label><?php echo __('Payment Method', 'inwavethemes'); ?></label>
+                </td>
+                <td colspan="3">
+                    <span><?php echo $order->getPayment_method_text(); ?></span>
+                </td>
+            </tr>
+            <tr class="alternate">
+                <td>
                     <label><?php echo __('Sum Price', 'inwavethemes'); ?></label>
                 </td>
                 <td colspan="3">
@@ -263,7 +271,7 @@ $order->changeReaded(1, $order->getId());
                         <table class="list-table room-info">
                             <thead>
                                 <tr>
-                                    <th><?php _e('Room info', 'inwavethemes'); ?></th>
+                                    <th><?php _e('Pricing Details', 'inwavethemes'); ?></th>
                                 </tr>
                             </thead>
                             <tbody class="the-list">
@@ -274,9 +282,12 @@ $order->changeReaded(1, $order->getId());
                                     <th><?php _e('Room price', IW_TEXT_DOMAIN); ?></th>
                                 </tr>
                                 <?php
+
                                 $rooms = $order->getRooms();
+                                print_r($rooms);
                                 if($rooms){
                                     foreach ($rooms as $i=>$room):
+
                                         $services = $room['services'];
                                         $room_post = get_post($room['room_id']);
                                         $tr_class = $i % 2 == 0 ? 'odd' : 'even';

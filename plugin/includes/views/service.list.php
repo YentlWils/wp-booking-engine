@@ -86,7 +86,7 @@ if (isset($_SESSION['bt_message'])) {
                     </td>
                     <td><?php echo $service->getType(); ?></td>
                     <td><?php echo $ultility->getMoneyFormated($service->getPrice()); ?></td>
-                    <td><?php echo ($service->getRate() == 1) ? __('Fixed', 'inwavethemes') : __('By Night', 'inwavethemes'); ?></td>
+                    <td><?php echo $service->getRateText(); ?></td>
                     <td><?php echo ($service->getStatus() == 1) ? __('Yes', 'inwavethemes') : __('No', 'inwavethemes'); ?></td>
                     <td><?php echo $service->getIncluded() == 0 ? __('/', 'inwavethemes') : $service->getIncluded()." ".__('nights', 'inwavethemes'); ?></td>
                     <td><?php echo $service->getId(); ?></td>

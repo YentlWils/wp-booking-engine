@@ -120,6 +120,7 @@ if (!function_exists('iwBookingInstall')) {
           note text NOT NULL,
           guests varchar(255) DEFAULT NULL,
           status tinyint(3) NOT NULL,
+          payment_method tinyint(1) DEFAULT 0,
           readed tinyint(3) NOT NULL,
           booking_code varchar(50) DEFAULT NULL,
           tax tinyint(3) DEFAULT NULL,
@@ -1132,7 +1133,8 @@ function iwBookingBookingsRenderPage() {
         'ordering' => isset($request['orderby']) ? $request['orderby'] : 'time_created',
         'ordering_dir' => isset($request['dir']) ? $request['dir'] : 'desc',
         'keyword' => isset($request['keyword']) ? $request['keyword'] : '',
-        'status' => isset($request['status']) ? $request['status'] : ''
+        'status' => isset($request['status']) ? $request['status'] : '',
+        'bookingcode' => isset($request['bookingcode']) ? $request['bookingcode'] : ''
     );
     $count = $order->getCountOrder($attrs);
     $pages = $paging->findPages($count, IW_LIMIT_ITEMS);

@@ -71,7 +71,7 @@ if ($rooms->have_posts()) {
                                                     <td class="col-md-8"><label class="service-item" for="<?php echo $premium_service->getId(); ?>"><?php echo $premium_service->getName(); ?></label></td>
                                                     <td class="col-md-3"><label class="service-item" for="<?php echo $premium_service->getId(); ?>">
                                                             <?php
-                                                            echo $ultility->price($premium_service->getPrice(), $premium_service->getRate(), $premium_service->getIncluded(), $temp_nights);
+                                                            echo $ultility->price($premium_service, $temp_nights);
                                                             ?>
                                                         </label></td>
                                                 </tr>

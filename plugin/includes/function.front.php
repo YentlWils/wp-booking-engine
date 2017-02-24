@@ -384,7 +384,21 @@ function iwb_booking_rooms(){
                     $services = explode(',', $query_params['room-service'][$i]);
                     foreach ($services as $service) {
                         if (isset($room_info->premium_services[$service])) {
-                            $service_price = $room_info->premium_services[$service]->getRate() ? $room_info->premium_services[$service]->getPrice() : ($room_info->premium_services[$service]->getPrice() * $night);
+
+                            switch ($room_info->premium_services[$service]->getRate()) {
+                                case 0:
+                                    $service_price = $room_info->premium_services[$service]->getPrice();
+                                    break;
+                                case 1:
+                                    $service_price = ($room_info->premium_services[$service]->getPrice() * $night);
+                                    break;
+                                case 2:
+                                    $service_price = ($room_info->premium_services[$service]->getPrice() * $query_params['adult-number'][$i]);
+                                    break;
+                                case 3:
+                                    $service_price = ($room_info->premium_services[$service]->getPrice() * $query_params['adult-number'][$i] * $night);
+                                    break;
+                            }
 
                             if($room_info->premium_services[$service]->getIncluded() != 0 && $night >= $room_info->premium_services[$service]->getIncluded()){
                                 $service_price = 0;
@@ -496,6 +510,8 @@ function iwb_booking_rooms(){
                     $booking_data['customer_id'] = $customer_id;
                     $booking_data['note'] = $contact_data['note'];
                     $booking_data['guests'] = $contact_data['guests'] ? serialize($contact_data['guests']) : '';
+                    $booking_data['payment_method'] = $contact_data['payment_method'] == 'full'? 1 : 0;
+                    print_r($booking_data);
 
                     $booking_data['rooms'] = $_room_data;
                     $booking_id = $booking->addOrder($booking_data);

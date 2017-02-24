@@ -98,8 +98,10 @@ if (isset($_SESSION['bt_message'])) {
                     </td>
                     <td>
                         <select name="rate">
-                            <option <?php echo ($service->getRate() == '1') ? 'selected = "selected"' : ''; ?> value="1"><?php echo __('Fixed'); ?></option>
-                            <option <?php echo ($service->getRate() == '0') ? 'selected = "selected"' : ''; ?> value="0"><?php echo __('By Night'); ?></option>
+                            <option <?php echo ($service->getRate() == '0') ? 'selected = "selected"' : ''; ?> value="0"><?php echo __('Fixed'); ?></option>
+                            <option <?php echo ($service->getRate() == '1') ? 'selected = "selected"' : ''; ?> value="1"><?php echo __('By Night'); ?></option>
+                            <option <?php echo ($service->getRate() == '2') ? 'selected = "selected"' : ''; ?> value="2"><?php echo __('Per Person'); ?></option>
+                            <option <?php echo ($service->getRate() == '3') ? 'selected = "selected"' : ''; ?> value="3"><?php echo __('Per Person Per Night'); ?></option>
                         </select>
                     </td>
                     <td>&nbsp;</td>

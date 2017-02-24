@@ -40,6 +40,7 @@ class iwBookingOrder {
     public $note;
     public $guests;
     public $status;
+    public $payment_method;
     public $readed;
 
     function __construct($order = null)
@@ -150,7 +151,7 @@ class iwBookingOrder {
     function getNote() {
         return $this->note;
     }
-    
+
     function getGuests() {
         if($this->guests){
             return unserialize($this->guests);
@@ -162,6 +163,24 @@ class iwBookingOrder {
 
     function getStatus() {
         return $this->status;
+    }
+
+    function getPayment_method() {
+        return $this->payment_method;
+    }
+
+    function getPayment_method_text() {
+
+        switch ($this->payment_method){
+            case 0:
+                $returnString = __('Bank transfer', 'inwavethemes');
+                break;
+            case 1:
+                $returnString = __('Paypal', 'inwavethemes');
+                break;
+        }
+
+        return $returnString;
     }
 
     function setId($id) {
@@ -227,13 +246,17 @@ class iwBookingOrder {
     function setNote($note) {
         $this->note = $note;
     }
-    
+
     function setGuests($guests) {
         $this->guests = $guests;
     }
 
     function setStatus($status) {
         $this->status = $status;
+    }
+
+    function setPayment_method($payment_method) {
+        $this->payment_method = $payment_method;
     }
 
     function getOrder($data) {
@@ -264,10 +287,20 @@ class iwBookingOrder {
             'ordering_dir' => 'DESC',
             'keyword' => '',
             'status' => '',
+            'bookingcode' => '',
         );
 
         extract(shortcode_atts($default_attr, $atts));
         $filter = '';
+
+        if ($bookingcode) {
+            if ($filter) {
+                $filter .= ' AND o.booking_code LIKE \'' . $bookingcode .'\'';
+            } else {
+                $filter .= ' o.booking_code LIKE \'' . $bookingcode . '\'';
+            }
+        }
+
         if ($status) {
             if ($filter) {
                 $filter .= ' AND o.status=' . $status;
@@ -493,14 +526,14 @@ class iwBookingOrder {
         $params = array(
             'cmd' => '_xclick',
             'business' => $paypal['email'],
-            'item_name' => __('Booking room', 'inwavethemes'),
+            'item_name' => __('Booking Villa-Rini', 'inwavethemes'),
             'currency_code' => $iwb_settings['general']['currency'],
             'quantity' => '1',
             'notify_url' => admin_url('admin-ajax.php?action=iwbPaymentNotice'),
             'return' => $return_url,
             'cancel_return' => site_url(),
             'amount' => $method == 'deposit' ? $booking->getDeposit() : $booking->getPrice(),
-            'item_number' => $this->getId(),
+            'item_number' => $this->getBooking_code(),
             'custom' => $method
         );
         $query_string = http_build_query($params);
@@ -557,7 +590,7 @@ class iwBookingOrder {
         global $wpdb;
         $update = $wpdb->update($wpdb->prefix . "iwb_bookings", $data, array('id' => $this->id));
         if ($update) {
-          return true;
+            return true;
         } else {
             return false;
         }

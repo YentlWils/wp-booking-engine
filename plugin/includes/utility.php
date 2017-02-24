@@ -947,10 +947,12 @@ class iwBookingUtility {
         return $result;
     }
 
-    public function price($price, $rate, $included, $night) {
+    public function price($service, $night) {
         global $iwb_settings;
 
-        if($included!= 0 && $night >= $included){
+        $price = $service->getPrice();
+
+        if($service->getIncluded()!= 0 && $night >= $service->getIncluded()){
             $price = 0;
         }
 
@@ -958,11 +960,11 @@ class iwBookingUtility {
             return __('Free', 'inhotel');
         }
         
-        if($rate == 1){
+        if($service->getRate() == 0){
             return '<span class="price-wrap"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span></span>';
         }
 
-        return '<span class="price-wrap" jos="'. $rate .'"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span>' . __(' / Night', 'inhotel') . '</span>';
+        return '<span class="price-wrap" rate="'. $rate .'"><span class="price">' . $this->getMoneyFormated($price, $iwb_settings['general']['currency']) . '</span>/' . $service->getRateCommercialText() . '</span>';
     }
     public function unit_price($price) {
         global $iwb_settings;
