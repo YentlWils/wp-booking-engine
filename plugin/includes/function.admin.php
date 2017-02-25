@@ -98,7 +98,7 @@ if (!function_exists('iwBookingInstall')) {
           children tinyint(3) DEFAULT NULL,
           price float(11,2) DEFAULT NULL,
           price_with_service float(11,2) DEFAULT NULL,
-          services varchar(255) DEFAULT NULL,
+          services text COLLATE utf8mb4_unicode_ci,
           PRIMARY KEY (id)
         ) $collate;";
         dbDelta($sql);

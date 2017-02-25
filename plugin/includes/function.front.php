@@ -511,9 +511,8 @@ function iwb_booking_rooms(){
                     $booking_data['note'] = $contact_data['note'];
                     $booking_data['guests'] = $contact_data['guests'] ? serialize($contact_data['guests']) : '';
                     $booking_data['payment_method'] = $contact_data['payment_method'] == 'full'? 1 : 0;
-                    print_r($booking_data);
-
                     $booking_data['rooms'] = $_room_data;
+                    
                     $booking_id = $booking->addOrder($booking_data);
                     if ($booking_id) {
                         //var_dump($contact_data['payment_method']);exit;
