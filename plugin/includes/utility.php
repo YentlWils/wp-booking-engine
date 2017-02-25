@@ -487,13 +487,13 @@ class iwBookingUtility {
         $memberinfo = array();
         global $iwb_settings;
         $memberFields = $iwb_settings['register_form_fields'];
-        $core_fields = array('email', 'first_name', 'last_name', 'address', 'phone', 'note', 'agree');
+        $core_fields = array('email', 'first_name', 'last_name', 'address', 'phone', 'note');
         $memberinfo['field_value'] = array();
         foreach ($memberFields as $field) {
             if($field['require_field'] && (!isset($value[$field['name']]) || !$value[$field['name']])){
-                $message = __('Please fill all required fields.', 'inwavethemes');
+                $message .= sprintf(__('Please fill in: %s', 'inwavethemes'), $field['label'])."<br/>";
             }elseif($field['type'] == 'email' && !is_email($value[$field['name']])){
-                $message = sprintf(__('%s invalid', 'inwavethemes'), $field['label']);
+                $message .= sprintf(__('%s invalid', 'inwavethemes'), $field['label']);
             }
 
             if(!in_array($field['name'], $core_fields)){
@@ -513,13 +513,23 @@ class iwBookingUtility {
     }
 
     public static function getGuestNames($guestNames, $guests, &$message) {
-        foreach ($guestNames as $field) {
+        foreach ($guestNames as $key=>$field) {
             if ( !isset( $field) || !$field  || strlen(trim($field)) <= 0) {
-                $message = __( 'Please fill all required fields', 'inwavethemes' );
-                break;
+                $message .= sprintf(__('Please fill in: Guest name %s', 'inwavethemes'), $key + 2)."<br/>";
+//                $message = __( 'Please fill all required fields', 'inwavethemes' );
+//                break;
             }
         }
         return $guestNames;
+    }
+    
+    public static function getAcceptAgreement($agreement, &$message) {
+        if ( !isset( $agreement) || !$agreement  || strlen(trim($agreement)) <= 0) {
+            $message .= __('Please accept the Terms and Conditions and Privacy Policy', 'inwavethemes')."<br/>";
+//                $message = __( 'Please fill all required fields', 'inwavethemes' );
+//                break;
+        }
+        return $agreement;
     }
 
     public static function getContactDataDefault(){

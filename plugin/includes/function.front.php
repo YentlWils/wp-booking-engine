@@ -484,6 +484,8 @@ function iwb_booking_rooms(){
             $member_data = iwBookingUtility::getMemberFieldValue($contact_data, $message);
 
 	        iwBookingUtility::getGuestNames($contact_data['guests'], array_sum($booking_info_data['adult-number']), $message);
+	        iwBookingUtility::getAcceptAgreement($contact_data['agree'], $message);
+            
             if($message){
                 $return['error_message'] = $message;
             }else{
