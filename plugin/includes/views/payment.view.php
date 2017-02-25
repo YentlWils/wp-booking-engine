@@ -284,7 +284,6 @@ $order->changeReaded(1, $order->getId());
                                 <?php
 
                                 $rooms = $order->getRooms();
-                                print_r($rooms);
                                 if($rooms){
                                     foreach ($rooms as $i=>$room):
 
