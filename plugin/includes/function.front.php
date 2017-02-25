@@ -506,11 +506,11 @@ function iwb_booking_rooms(){
                     $booking_data['tax_price'] = $booking_info_data['tax_price'];
                     $booking_data['time_created'] = time();
                     $booking_data['last_update'] = '';
-                    $booking_data['status'] = '1';
+                    $booking_data['status'] = $contact_data['payment_method'] == 'full' ? '1' : '5';
                     $booking_data['customer_id'] = $customer_id;
                     $booking_data['note'] = $contact_data['note'];
                     $booking_data['guests'] = $contact_data['guests'] ? serialize($contact_data['guests']) : '';
-                    $booking_data['payment_method'] = $contact_data['payment_method'] == 'full'? 1 : 0;
+                    $booking_data['payment_method'] = $contact_data['payment_method'] == 'full' ? 1 : 0;
                     $booking_data['rooms'] = $_room_data;
                     
                     $booking_id = $booking->addOrder($booking_data);
@@ -518,7 +518,11 @@ function iwb_booking_rooms(){
                         //var_dump($contact_data['payment_method']);exit;
                         $email_data = array_merge($member_data, $booking_data);
                         $email_data['booking_id'] = $booking_id;
-                        iwBookingUtility::sendEmail($booking_id, 'order_created');
+                        if($contact_data['payment_method'] == 'full'){
+                            iwBookingUtility::sendEmail($booking_id, 'order_created');
+                        }else{
+                            iwBookingUtility::sendEmail($booking_id, 'bank_transfer');
+                        }
 
                         if ($contact_data['payment_method'] == 'deposit' || $contact_data['payment_method'] == 'full') {
                             //create paypal request

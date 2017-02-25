@@ -142,7 +142,7 @@ $ultility = new iwBookingUtility();
                     </td>
                     <td colspan="3">
                         <?php
-                        $status_data = array(array('text' => __('Pending', 'inwavethemes'), 'value' => 1), array('text' => __('Complated', 'inwavethemes'), 'value' => 2), array('text' => __('Cancelled', 'inwavethemes'), 'value' => 3), array('text' => __('Onhold', 'inwavethemes'), 'value' => 4));
+                        $status_data = array(array('text' => __('Pending', 'inwavethemes'), 'value' => 1), array('text' => __('Complated', 'inwavethemes'), 'value' => 2), array('text' => __('Cancelled', 'inwavethemes'), 'value' => 3), array('text' => __('Onhold', 'inwavethemes'), 'value' => 4), array('text' => __('Waiting bank transfer', 'inwavethemes'), 'value' => 5));
                         echo iwBookingUtility::selectFieldRender('', 'new_order_status', $order->getStatus(), $status_data, '', '', FALSE)
                         ?>
                         <input type="hidden" value="<?php echo $order->getStatus(); ?>" name="order_status"/>

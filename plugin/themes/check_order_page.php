@@ -40,7 +40,7 @@ if ($ord_code && $email) {
                     </div>
                     <div class="item check-order col-md-3 col-sm-6 col-xs-12">
                         <div class="check-booking">
-                            <span><?php echo __("Have not booked? Book now", 'monalisa') ?></span>
+                            <span><?php echo __("Book now", 'monalisa') ?></span>
                             <div class="action-check-booking">
                                 <input type="hidden" value="iwbCheckOrder" name="action"/>
                                 <button class="input-button iw-bt-effect theme-bg" type="submit" value="">
@@ -140,9 +140,9 @@ if ($ord_code && $email) {
                                 <div class="booking-submit-field">
                                     <button name="order_action" class="button theme-bg" type="submit" value="pay_order"><?php esc_html_e('Pay my booking', 'monalisa'); ?></button>
                                 </div>
-                                <div class="booking-submit-field">
-                                    <button name="order_action" class="button cancel" type="submit" value="cancel_order"><?php esc_html_e('Cancal my booking', 'monalisa'); ?></button>
-                                </div>
+<!--                                <div class="booking-submit-field">-->
+<!--                                    <button name="order_action" class="button cancel" type="submit" value="cancel_order">--><?php //esc_html_e('Cancal my booking', 'monalisa'); ?><!--</button>-->
+<!--                                </div>-->
                             </form>
                         <?php endif;
                         ?>

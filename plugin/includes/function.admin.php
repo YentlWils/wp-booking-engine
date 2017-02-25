@@ -1531,8 +1531,8 @@ function iwb_order_link($atts) {
 
 function iwb_order_code($atts) {
     global $iwb_email_data;
-    if(isset($iwb_email_data['booking_code'])){
-        return $iwb_email_data['booking_code'];
+    if(isset($iwb_email_data['order_code'])){
+        return $iwb_email_data['order_code'];
     }
 
     return '';
@@ -1581,6 +1581,9 @@ function iwb_new_status($atts) {
             break;
         case 4:
             $stext = __('Onhold', 'inwavethemes');
+            break;
+        case 5:
+            $stext = __('Waiting bank transfer', 'inwavethemes');
             break;
         default:
             break;

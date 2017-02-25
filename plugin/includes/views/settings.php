@@ -493,7 +493,7 @@ wp_enqueue_script('jquery-ui-sortable');
                 <div class="iw-tabs accordion day">
                     <div class="iw-accordion-item">
                         <div class="iw-accordion-header active">
-                            <div class="iw-accordion-title"><span><?php echo __('Order created', 'inwavethemes'); ?></span></div>
+                            <div class="iw-accordion-title"><span><?php echo __('Order created - Paypal', 'inwavethemes'); ?></span></div>
                         </div>
                         <div class="iw-accordion-content">
                             <table class="list-table"  style="width: 100%">
@@ -534,6 +534,66 @@ wp_enqueue_script('jquery-ui-sortable');
                                         </td>
                                         <td>
                                             <textarea rows="7" name="iwb_settings[email_template][order_created][content]"><?php echo isset($email_template['order_created']['content']) ? $email_template['order_created']['content'] : ''; ?></textarea>
+                                        </td>
+                                        <td>
+                                            <strong><em><?php _e('Variables', 'inwavethemes'); ?></em></strong><br/>
+                                            <strong>[iwb_site_name]</strong>: <span><?php _e('Name of your site', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_first_name]</strong>: <span><?php _e('Customer first name', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_last_name]</strong>: <span><?php _e('Customer last name', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_customer_email]</strong>: <span><?php _e('Customer email', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_admin_email]</strong>: <span><?php _e('Admin email', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="iw-accordion-item">
+                        <div class="iw-accordion-header active">
+                            <div class="iw-accordion-title"><span><?php echo __('Order created - Bank transfer', 'inwavethemes'); ?></span></div>
+                        </div>
+                        <div class="iw-accordion-content">
+                            <table class="list-table"  style="width: 100%">
+                                <tbody class="the-list">
+                                    <tr class="alternate">
+                                        <td>
+                                            <label><?php echo __('Enable', 'inwavethemes'); ?></label>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="iwb_settings[email_template][order_created_bank][enable]" value="1" <?php echo isset($email_template['order_created_bank']['enable']) && $email_template['order_created_bank']['enable'] == '1' ? 'checked' : ''; ?>/>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr class="alternate">
+                                        <td>
+                                            <label><?php echo __('Email title', 'inwavethemes'); ?></label>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="iwb_settings[email_template][order_created_bank][title]" value="<?php echo isset($email_template['order_created_bank']['title']) ? $email_template['order_created_bank']['title'] : ''; ?>" />
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr class="alternate">
+                                        <td>
+                                            <label><?php echo __('Recipient(s)', 'inwavethemes'); ?></label>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="iwb_settings[email_template][order_created_bank][recipients]" value="<?php echo isset($email_template['order_created_bank']['recipients']) ? $email_template['order_created_bank']['recipients'] : ''; ?>" />
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr class="alternate">
+                                        <td>
+                                            <label><?php echo __('Email content', 'inwavethemes'); ?></label>
+                                        </td>
+                                        <td>
+                                            <textarea rows="7" name="iwb_settings[email_template][order_created_bank][content]"><?php echo isset($email_template['order_created_bank']['content']) ? $email_template['order_created_bank']['content'] : ''; ?></textarea>
                                         </td>
                                         <td>
                                             <strong><em><?php _e('Variables', 'inwavethemes'); ?></em></strong><br/>

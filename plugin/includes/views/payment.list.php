@@ -147,6 +147,9 @@ if (isset($_SESSION['bt_message'])) {
                                     case 4:
                                         _e('Onhold', 'inwavethemes');
                                         break;
+                                    case 5:
+                                        _e('Waiting bank transfer', 'inwavethemes');
+                                        break;
                                     default:
                                         break;
                                 }

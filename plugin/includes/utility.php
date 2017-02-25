@@ -389,6 +389,15 @@ class iwBookingUtility {
                 $mail_content = apply_filters('the_content', $mail_template['order_created']['content']);
                 $recipients = apply_filters('the_content', $mail_template['order_created']['recipients']);
             break;
+            case 'bank_transfer':
+            case '5':
+                if (!isset($mail_template['order_created_bank']['enable']) || ($mail_template['order_created_bank']['enable'] != '1')) {
+                    return false;
+                }
+                $mail_title = strip_tags(apply_filters('the_content', $mail_template['order_created_bank']['title']));
+                $mail_content = apply_filters('the_content', $mail_template['order_created_bank']['content']);
+                $recipients = apply_filters('the_content', $mail_template['order_created_bank']['recipients']);
+            break;
             case 'order_onhold':
             case '4':
                 if (!isset($mail_template['order_onhold']['enable']) || ($mail_template['order_onhold']['enable'] != '1')) {
