@@ -65,7 +65,7 @@ class iwBookingRooms {
             if(count($periodOffDays) == 0) {
                 //Get all room used
                 $room_useds = $wpdb->get_results(
-                    $wpdb->prepare('SELECT br.room_id, COUNT(br.room_id) as room_used FROM ' . $wpdb->prefix . 'iwb_booking_room_rf as br INNER JOIN ' . $wpdb->prefix . 'iwb_bookings as b ON br.booking_id = b.id WHERE ((b.time_start >= %d AND b.time_start < %d) OR (b.time_end > %d AND b.time_end <= %d)) AND (b.status=1 OR b.status=2 OR b.status=4) GROUP BY br.room_id', $time_start, $time_end, $time_start, $time_end)
+                    $wpdb->prepare('SELECT br.room_id, COUNT(br.room_id) as room_used FROM ' . $wpdb->prefix . 'iwb_booking_room_rf as br INNER JOIN ' . $wpdb->prefix . 'iwb_bookings as b ON br.booking_id = b.id WHERE ((b.time_start >= %d AND b.time_start < %d) OR (b.time_end > %d AND b.time_end <= %d)) AND (b.status=1 OR b.status=2 OR b.status=4 OR b.status=5) GROUP BY br.room_id', $time_start, $time_end, $time_start, $time_end)
                 );
                 if ($children) {
                     $sql = "SELECT *,pmeta3.meta_value as room_amount FROM $wpdb->posts  AS post 
