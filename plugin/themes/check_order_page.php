@@ -64,65 +64,87 @@ if ($ord_code && $email) {
             <h3 class="title-block"><?php echo esc_html__('Your booking overview', 'monalisa'); ?></h3>
             <div class="iwb-booking-overview">
                 <div class="booking-overview-content">
-                    <div class="booking-date">
-                        <div class="booking-arrival"><?php echo sprintf(wp_kses(__('Arrival date: <span>%s</span>', 'monalisa'), inwave_allow_tags('span')), isset($time_start) ? date('F, jS, Y', $time_start) : ''); ?></div>
-                        <div class="booking-departure"><?php echo sprintf(wp_kses(__('Departure date: <span>%s</span>', 'monalisa'), inwave_allow_tags('span')), isset($time_end) ? date('F,jS,Y', $time_end) : ''); ?></div>
-                    </div>
+                    <h3 class="title-block"><?php echo __("Order nr:", 'monalisa') . " " . $order->getBooking_code(); ?></h3>
                     <?php
                     $room_class = new IwBookingRooms();
                     $i = 1;
                     foreach ($rooms as $room) :
                         $room_obj = $room_class->getRoomInfo($room['room_id']);
                         $services = $room['services'];
-                        $service_titles = array();
-                        foreach ($services as $service){
-                            $service_titles[] = $service['title'];
-                        }
                         ?>
                         <div class="booking-room">
                             <?php $image_url = wp_get_attachment_url(get_post_thumbnail_id($room['room_id'])); ?>
                             <div class="row">
 
-                                <div class="col-md-10 col-sm-10 col-xs-9">
-                                    <div class="img-wrap">
-                                        <img src="<?php echo esc_url(inwave_resize($image_url, 137, 93)); ?>" alt="" />
-                                    </div>
-                                    <div class="room-info">
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+<!--                                    <div class="img-wrap">-->
+<!--                                        <img src="--><?php //echo esc_url(inwave_resize($image_url, 137, 93)); ?><!--" alt="" />-->
+<!--                                    </div>-->
+                                    <div class="room-info-">
                                         <div class="booking-room-head">
                                             <h3 class="title">
-                                                <a href="<?php echo esc_url(get_the_permalink($room['room_id'])); ?>" title="">
-                                                    <?php echo get_the_title($room['room_id']); ?>
-                                                </a>
+                                                <?php echo __('Booking details', 'monalisa') ;?>
                                             </h3>
-                                            <?php
-                                            if ($room_obj->average_rating) {
-                                                $rating_star = (($room_obj->average_rating) / 5) * 100;
-                                                $rating_star = number_format($rating_star, 2, '.', '');
-                                                $review_count = $room_obj->review_count;
-                                                ?>
-                                                <div class="rating">
-                                                    <div class="star-rating">
-                                                        <span class="rating" style="width: <?php echo esc_attr($rating_star) . '%' ?>"></span>
-                                                    </div>
-                                                    <?php echo sprintf(_n('%d Review', '%d Reviews', $review_count, 'monalisa'), $review_count); ?><?php; ?>
-                                                    <div style="clear:both;"></div>
-                                                </div>
-                                            <?php } ?>
                                         </div>
                                         <div class="room-meta">
                                             <div class="meta-col-left">
+                                                <div class="adult"><?php echo sprintf(wp_kses(__('Arrival date: <span>%s</span>', 'monalisa'), inwave_allow_tags('span')), isset($time_start) ? date('d F Y', $time_start) : ''); ?></div>
+                                                <div class="adult"><?php echo sprintf(wp_kses(__('Departure date: <span>%s</span>', 'monalisa'), inwave_allow_tags('span')), isset($time_end) ? date('d F Y', $time_end) : ''); ?></div>
                                                 <div class="adult"><?php echo sprintf(esc_html__('Adult: %s', 'monalisa'), '<span>' . $room['adult'] . '</span>'); ?></div>
-                                                <div class="children"><?php echo sprintf(esc_html__('Children: %s', 'monalisa'), '<span>' . $room['children'] . '</span>'); ?></div>
-                                                <?php if($service_titles){?>
-                                                    <div class="services"><?php echo sprintf(esc_html__('Service: %s', 'monalisa'), '<span>' . implode(', ', $service_titles) . '</span>'); ?></div>
-                                                <?php } ?>
+                                                <div class="adult"><?php echo sprintf(esc_html__('Note: %s', 'monalisa'), '<span>' . $order->getNote() . '</span>'); ?></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-2 col-sm-2 col-xs-3">
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                    <div class="room-info-">
+                                        <div class="booking-room-head">
+                                            <h3 class="title">
+                                                <?php echo __('Customer Details', 'monalisa') ;?>
+                                            </h3>
+                                        </div>
+                                        <?php
+                                        $member = $order->getMember();
+                                        if($member) {
+                                            ?>
+                                            <div class="room-meta">
+                                                <div class="meta-col-left">
+                                                    <div
+                                                        class="adult"><?php echo sprintf(esc_html__('Name : %s', 'monalisa'), '<span>' . $member->first_name . " " . $member->last_name . '</span>'); ?></div>
+                                                    <div
+                                                        class="adult"><?php echo sprintf(esc_html__('Email : %s', 'monalisa'), '<span>' . $member->email . '</span>'); ?></div>
+                                                    <div
+                                                        class="adult"><?php echo sprintf(esc_html__('Phone : %s', 'monalisa'), '<span>' . $member->phone . '</span>'); ?></div>
+                                                    <div
+                                                        class="adult"><?php echo sprintf(esc_html__('Address : %s', 'monalisa'), '<span>' . $member->address . '</span>'); ?></div>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12 col-xs-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading"><?php echo __('Price Summary', 'monalisa') ;?></div>
+                                        <!-- Table -->
+                                        <table class="table">
+                                            <tr>
+                                                <td class="col-md-9"><?php echo __('Basic Price', 'monalisa') ;?></td>
+                                                <td class="col-md-3 text-right">€<?php echo $room["price"] ?></td>
+                                            </tr>
+                                            <?php
+                                                foreach ($services as $service){
+                                                    echo "<tr>";
+                                                    echo "<td>". $service['title']."</td>";
+                                                    echo "<td class=\"text-right\">€". round( floatval($service['price']) ,2)."</td>";
+                                                    echo "</tr>";
+                                                }
+                                            ?>
+                                        </table>
+                                    </div>
                                     <div class="price">
-                                        <span><?php esc_html_e('Price', 'monalisa'); ?></span><br />
+                                        <span><?php esc_html_e('Total amaount', 'monalisa'); ?></span>
                                         <strong><?php echo ($room['price_with_service'] ? $ultility->getMoneyFormated($room['price_with_service'], $order->currency) : esc_html__('Free', 'monalisa')); ?></strong>
                                     </div>
                                 </div>
