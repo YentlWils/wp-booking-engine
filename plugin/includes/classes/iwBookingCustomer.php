@@ -53,12 +53,12 @@ class iwBookingCustomer {
     public function addOrUpdateCustomer($data) {
         global $wpdb;
         $member_id = 0;
-        if(isset($data['user_id']) && $data['user_id']){
-            $member_id = $wpdb->get_var($wpdb->prepare('SELECT id FROM ' . $wpdb->prefix . 'iwb_customer WHERE user_id = %d', $data['user_id']));
-        }
-        elseif(isset($data['email'])){
-            $member_id = $wpdb->get_var($wpdb->prepare('SELECT id FROM ' . $wpdb->prefix . 'iwb_customer WHERE email = %s', $data['email']));
-        }
+//        if(isset($data['user_id']) && $data['user_id']){
+//            $member_id = $wpdb->get_var($wpdb->prepare('SELECT id FROM ' . $wpdb->prefix . 'iwb_customer WHERE user_id = %d', $data['user_id']));
+//        }
+//        elseif(isset($data['email'])){
+//            $member_id = $wpdb->get_var($wpdb->prepare('SELECT id FROM ' . $wpdb->prefix . 'iwb_customer WHERE email = %s', $data['email']));
+//        }
 
         if($member_id){
             $this->getCustomer($member_id);
@@ -102,12 +102,7 @@ class iwBookingCustomer {
     public function getCustomer($id = null) {
         global $wpdb;
         $row = '';
-        if(!$id){
-            $user_id = get_current_user_id();
-            if($user_id){
-                $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'iwb_customer WHERE user_id=%d', $user_id));
-            }
-        }elseif($id && is_numeric($id)){
+        if($id && is_numeric($id)){
             $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'iwb_customer WHERE id=%d', $id));
         }elseif($id){
             $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'iwb_customer WHERE email=%s', $id));

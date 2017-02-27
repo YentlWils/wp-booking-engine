@@ -550,6 +550,8 @@ function iwb_booking_rooms(){
                             $return['summary_form'] = ob_get_contents();
                             $get_sidebar = true;
                         }
+
+                        unset($_SESSION['iwb_current_customer']);
                     }
                 }
                 else
@@ -560,11 +562,13 @@ function iwb_booking_rooms(){
         }
 
         if(!$get_content){
+            unset($_SESSION['iwb_current_customer']);
             if(!isset($contact_data)){
                 $contact_data = iwBookingUtility::getContactDataDefault();
             }
             $path = includeTemplateFile('wp-booking-engine/reservation_page_contact_form', IWBOOKING_THEME_PATH);
             ob_start();
+            print_r($_SESSION);
             include $path;
             $return['content'] = ob_get_contents();
             ob_end_clean();
