@@ -59,7 +59,7 @@ if ($rooms->have_posts()) {
                 <div class="row">
                     <div class="col-md-9 col-md-offset-3">
                         <div class="panel panel-default">
-                            <div class="panel-heading"><?php echo __('Available options'); ?></div>
+                            <div class="panel-heading"><?php echo __('Available options', 'inwavethemes'); ?></div>
                             <table class="table">
                                 <?php
                                 if (!empty($room_obj->premium_services)) {

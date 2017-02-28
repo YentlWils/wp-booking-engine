@@ -15,7 +15,9 @@ gulp.task( 'deploy', function () {
     } );
 
     var globs = [
-        'plugin/**'
+        'plugin/**',
+        '!languages/**/*.po',
+        '!languages/**/*.mo',
     ];
 
     // using base = '.' will transfer everything to /public_html correctly 
