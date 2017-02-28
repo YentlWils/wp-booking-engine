@@ -1545,6 +1545,14 @@ function iwb_order_id($atts) {
 
     return '';
 }
+function iwb_order_price($atts) {
+    global $iwb_email_data;
+    if(isset($iwb_email_data['order_price'])){
+        return $iwb_email_data['order_price'];
+    }
+
+    return '';
+}
 function iwb_admin_email($atts) {
     return get_option('admin_email');
 }

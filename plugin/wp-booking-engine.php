@@ -152,6 +152,7 @@ add_shortcode('iwb_last_name', 'iwb_last_name');
 add_shortcode('iwb_order_link', 'iwb_order_link');
 add_shortcode('iwb_order_code', 'iwb_order_code');
 add_shortcode('iwb_order_id', 'iwb_order_id');
+add_shortcode('iwb_order_price', 'iwb_order_price');
 add_shortcode('iwb_admin_email', 'iwb_admin_email');
 add_shortcode('iwb_customer_email', 'iwb_customer_email');
 add_shortcode('iwb_new_status', 'iwb_new_status');

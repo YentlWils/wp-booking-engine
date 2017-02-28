@@ -545,6 +545,7 @@ wp_enqueue_script('jquery-ui-sortable');
                                             <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_price]</strong>: <span><?php _e('Booking price', 'inwavethemes'); ?></span><br/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -605,6 +606,7 @@ wp_enqueue_script('jquery-ui-sortable');
                                             <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_price]</strong>: <span><?php _e('Booking price', 'inwavethemes'); ?></span><br/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -665,6 +667,7 @@ wp_enqueue_script('jquery-ui-sortable');
                                             <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_price]</strong>: <span><?php _e('Booking price', 'inwavethemes'); ?></span><br/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -725,6 +728,7 @@ wp_enqueue_script('jquery-ui-sortable');
                                             <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_price]</strong>: <span><?php _e('Booking price', 'inwavethemes'); ?></span><br/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -785,6 +789,7 @@ wp_enqueue_script('jquery-ui-sortable');
                                             <strong>[iwb_order_link]</strong>: <span><?php _e('Booking order view infomation link', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_code]</strong>: <span><?php _e('Booking order code', 'inwavethemes'); ?></span><br/>
                                             <strong>[iwb_order_id]</strong>: <span><?php _e('Booking order id', 'inwavethemes'); ?></span><br/>
+                                            <strong>[iwb_order_price]</strong>: <span><?php _e('Booking price', 'inwavethemes'); ?></span><br/>
                                         </td>
                                     </tr>
                                 </tbody>
