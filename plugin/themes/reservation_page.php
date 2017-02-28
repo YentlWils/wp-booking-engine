@@ -42,6 +42,8 @@ $state = isset($_GET['state']) ? $_GET['state'] : 1;
                                 $page_price_data['tax_price'] = $booking->tax_price;
                                 $page_price_data['tax'] = $booking->tax;
                                 $page_price_data['currency'] = $booking->currency;
+                                $checkin = $booking->getTime_start();
+                                $checkout = $booking->getTime_end();
 
                                 $path = includeTemplateFile('wp-booking-engine/reservation_page_bar_summary', IWBOOKING_THEME_PATH);
                                 include $path;

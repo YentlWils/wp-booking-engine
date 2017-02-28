@@ -52,7 +52,7 @@ function iwbPaymentNotice() {
         $payment_status = $_POST['payment_status'];
         $paid = $_POST['payment_gross'];
         $order = new iwBookingOrder();
-        $orderObj = $order->getOrder($order_id);
+        $orderObj = $order->getOrderByOnlyCode($order_id);
         if($orderObj->id){
             //order status: 1-pendding, 2-paid, 3-cancel, 4-onhold
             //Paypal status: CANCELED, CREATED, COMPLETED, INCOMPLETE, ERROR, REVERSALERROR, PROCESSING, PENDING
@@ -568,7 +568,6 @@ function iwb_booking_rooms(){
             }
             $path = includeTemplateFile('wp-booking-engine/reservation_page_contact_form', IWBOOKING_THEME_PATH);
             ob_start();
-            print_r($_SESSION);
             include $path;
             $return['content'] = ob_get_contents();
             ob_end_clean();

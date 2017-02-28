@@ -21,7 +21,7 @@ global $iwb_settings;
                 <div class="row">
                     <div class="item col-md-3 col-sm-6 col-xs-12">
                         <div class="border">
-                            <label><?php esc_html_e('Check-in', 'monalisa'); ?></label>
+                            <label><?php esc_html_e('Check-in', 'inwavethemes'); ?></label>
                             <div class="input-group date availability-date" id="iwb-availability-checkin" data-value="<?php echo date('Y-m-d', $checkin); ?>">
                                 <span class="datepicker-holder">
                                     <strong><?php echo date("j", $checkin); ?></strong>/
@@ -33,7 +33,7 @@ global $iwb_settings;
                     </div>
                     <div class="item check-out col-md-3 col-sm-6 col-xs-12">
                         <div class="border">
-                            <label><?php esc_html_e('Check-out','monalisa');?></label>
+                            <label><?php esc_html_e('Check-out','inwavethemes');?></label>
                             <div class="input-group date availability-date" id="iwb-availability-checkout" data-value="<?php echo date('Y-m-d', $checkout); ?>">
                                 <span class="datepicker-holder">
                                     <strong><?php echo date("j", $checkout); ?></strong>/

@@ -278,6 +278,19 @@ class iwBookingOrder {
         return $this;
     }
 
+
+    function getOrderByOnlyCode($data) {
+        global $wpdb;
+        $row = $wpdb->get_row($wpdb->prepare('SELECT * FROM ' . $wpdb->prefix . 'iwb_bookings WHERE booking_code=%d', $data));
+        if($row){
+            foreach ($row as $key => $value){
+                $this->$key = $value;
+            }
+        }
+
+        return $this;
+    }
+
     function getOrders($atts) {
         global $wpdb;
         $default_attr = array(
